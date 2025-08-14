@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../src/output.css" rel="stylesheet">
+  <title>Van Gogh VR Experience – Tom Ziegler</title>
+  <style>
+    ::selection {
+      background: #dc2626;
+      color: #fff;
+    }
+    ::-moz-selection {
+      background: #dc2626;
+      color: #fff;
+    }
+  </style>
+</head>
+<body class="bg-white text-neutral-900 font-sans min-h-screen">
+  <!-- Minimalistischer Loader mit Blur und Ladebalken -->
+  <div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/80 backdrop-blur-md transition-opacity duration-500">
+    <div class="w-48 h-2 bg-neutral-200 rounded-full overflow-hidden mb-6">
+      <div id="loader-bar" class="h-2 bg-red-600 rounded-full w-0 transition-all duration-700"></div>
+    </div>
+    <span class="text-neutral-400 text-base font-light tracking-tight">Lädt ...</span>
+  </div>
+
+  <header class="w-full border-b border-neutral-200 py-6 px-4 flex justify-between items-center relative">
+    <a href="../index.html" class="text-lg font-light tracking-tight hover:underline transition-colors">Tom Ziegler</a>
+    <nav class="hidden md:flex gap-2">
+      <a href="../index.html#about" class="text-neutral-900 hover:underline transition-colors px-2">About</a>
+      <a href="../index.html#projekte" class="text-neutral-900 hover:underline transition-colors px-2">Projekte</a>
+      <a href="../index.html#kontakt" class="text-neutral-900 hover:underline transition-colors px-2">Kontakt</a>
+    </nav>
+  </header>
+  <main class="max-w-5xl mx-auto px-4 py-24">
+    <section class="mb-16">
+      <h1 class="text-4xl md:text-6xl font-light mb-8 tracking-tight">Van Gogh VR Experience</h1>
+      <div class="flex justify-between items-center mb-8">
+        <span class="text-lg md:text-xl font-light text-neutral-900">Visiodrom Wuppertal</span>
+        <span class="text-xs md:text-sm text-neutral-400 font-light">Projekt für die Hochschule</span>
+      </div>
+      <img src="../assets/images/vangoghvrthumbnail.jpg" alt="Frau mit VR Brille im Visiodrom" class="w-full aspect-[3/2] object-cover mb-8" loading="lazy" />
+
+      
+      <!-- Projektbeschreibung und Tabelle -->
+      <div class="text-neutral-700 text-base md:text-lg leading-relaxed ">
+        <p>Die Van Gogh VR Experience im Visiodrom Wuppertal verbindet Kunst und Technologie zu einem immersiven Erlebnis. Besucher tauchen mithilfe von Virtual Reality in den Kopf von Vincent van Gogh ein und ihn auf eine völlig neue, interaktive Weise. Das Projekt umfasste die Konzeption des Nutzerflusses, die Gestaltung der Interface-Elemente, die Abstimmung mit den technischen Anforderungen der VR-Plattform sowie das Nutzen von KI als interaktiven Chatbot.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div class="md:col-span-2">
+          <table class="w-full text-left border-separate border-spacing-y-4 md:border-spacing-y-6">
+            <tbody>
+              <tr>
+                <td class="text-neutral-400 font-light text-base md:text-lg w-1/3">Meine Rolle</td>
+                <td class="text-neutral-900 font-light text-base md:text-lg">UX-Konzeption, Prompting für ChatGPT und Whisper, KI</td>
+              </tr>
+              <tr>
+                <td class="text-neutral-400 font-light text-base md:text-lg">Technologien</td>
+                <td class="text-neutral-900 font-light text-base md:text-lg flex flex-wrap gap-2">
+                  <a href="https://chat.openai.com/" target="_blank" rel="noopener" class="tech-link">ChatGPT
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-4 h-4 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                  </a>,
+                  <a href="https://openai.com/de-DE/index/whisper/" target="_blank" rel="noopener" class="tech-link">Whisper
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-4 h-4 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                  </a>,
+                  <a href="https://www.figma.com/" target="_blank" rel="noopener" class="tech-link">Figma
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-4 h-4 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                  </a> (Konzeption),
+                  <a href="https://unity.com/" target="_blank" rel="noopener" class="tech-link">Unity (VR)
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-4 h-4 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                  </a>,
+                  <a href="https://www.notion.so/" target="_blank" rel="noopener" class="tech-link">Notion
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-4 h-4 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                  </a> (Organisation),
+                  <a href="https://www.blender.org/" target="_blank" rel="noopener" class="tech-link">Blender
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-4 h-4 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Kreatives Raster: Video und Hochkantbild nebeneinander -->
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-16 items-stretch">
+        <div class="md:col-span-3 flex items-center">
+          <video controls class="w-full aspect-square shadow-md">
+            <source src="../assets/videos/Van Gogh Software.mp4" type="video/mp4" />
+            Dein Browser unterstützt das Video-Tag nicht.
+          </video>
+        </div>
+        <div class="md:col-span-2 flex items-center">
+          <img src="../assets/images/vangoghvrhochkant.jpg" alt="Hochkantbild Van Gogh VR" class="w-full h-full max-h-[600px] aspect-[2/3] object-cover shadow-md" loading="lazy" />
+        </div>
+      </div>
+      <div class="mt-8">
+        <a href="../index.html#projekte" class="back-link">
+          <span class="inline-flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="w-4 h-4 mr-1 align-baseline transition-transform duration-200"><path d="M11 8H5M5 8l3-3M5 8l3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            Zurück zu den Projekten
+          </span>
+        </a>
+      </div>
+    </section>
+  </main>
+  <script>
+    // Minimalistisches Styling für Technologie-Links und Back-Link
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .tech-link {
+        color: #111;
+        text-decoration: none;
+        border-bottom: 1.5px solid transparent;
+        transition: color 0.2s, border-color 0.2s;
+        display: inline-flex;
+        align-items: center;
+        font-weight: 400;
+        position: relative;
+      }
+      .tech-link:hover {
+        color: #111;
+        border-bottom: 1.5px solid #111;
+        text-decoration: none;
+      }
+      .tech-link svg {
+        stroke: #111;
+        transition: transform 0.2s;
+      }
+      .tech-link:hover svg {
+        transform: translate(2px, -2px);
+      }
+      .back-link {
+        color: #111;
+        text-decoration: none;
+        border-bottom: 1.5px solid transparent;
+        transition: color 0.2s, border-color 0.2s;
+        display: inline-flex;
+        align-items: center;
+        font-weight: 400;
+        position: relative;
+      }
+      .back-link:hover {
+        color: #111;
+        border-bottom: 1.5px solid #111;
+        text-decoration: none;
+      }
+      .back-link svg {
+        stroke: #111;
+        transition: transform 0.2s;
+      }
+      .back-link:hover svg {
+        transform: translate(-2px, 0);
+      }
+    `;
+    document.head.appendChild(style);
+    // Loader mit Ladebalken
+    let progress = 0;
+    const bar = document.getElementById('loader-bar');
+    function animateBar() {
+      if (bar && progress < 100) {
+        progress += Math.random() * 20;
+        bar.style.width = Math.min(progress, 100) + '%';
+        setTimeout(animateBar, 200);
+      }
+    }
+    animateBar();
+    window.addEventListener('load', function() {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => loader.style.display = 'none', 500);
+      }
+    });
+  </script>
+</body>
+</html>

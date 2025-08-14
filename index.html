@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="src/output.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    ::selection {
+      background: #dc2626;
+      color: #fff;
+    }
+    ::-moz-selection {
+      background: #dc2626;
+      color: #fff;
+    }
+  </style>
+  <title>Portfolio – Tom Ziegler</title>
+</head>
+<body class="bg-white text-neutral-900 font-sans min-h-screen">
+  <!-- Minimalistischer Loader mit Blur und Ladebalken -->
+<div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/80 backdrop-blur-md transition-opacity duration-500">
+  <div class="w-48 h-2 bg-neutral-200 rounded-full overflow-hidden mb-6">
+    <div id="loader-bar" class="h-2 bg-red-600 rounded-full w-0 transition-all duration-700"></div>
+  </div>
+  <span class="text-neutral-400 text-base font-light tracking-tight">Lädt ...</span>
+</div>
+  <header class="w-full border-b border-neutral-200 py-6 px-4 flex justify-between items-center relative">
+    <span class="text-lg font-light tracking-tight">Tom Ziegler</span>
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex gap-2">
+        <a href="#about" class="text-neutral-900 hover:underline transition-colors px-2">About</a>
+      <a href="#projekte" class="text-neutral-900 hover:underline transition-colors px-2">Projekte</a>
+      <a href="#footer" class="text-neutral-900 hover:underline transition-colors px-2">Kontakt</a>
+    </nav>
+    <!-- Hamburger Button -->
+    <button id="menu-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 group z-20" aria-label="Menü öffnen">
+      <span class="block w-7 h-0.5 bg-neutral-900 mb-1.5 rounded transition-all duration-300 group-aria-expanded:rotate-45 group-aria-expanded:translate-y-2" id="bar1"></span>
+      <span class="block w-7 h-0.5 bg-neutral-900 mb-1.5 rounded transition-all duration-300 group-aria-expanded:opacity-0" id="bar2"></span>
+      <span class="block w-7 h-0.5 bg-neutral-900 rounded transition-all duration-300 group-aria-expanded:-rotate-45 group-aria-expanded:-translate-y-2" id="bar3"></span>
+    </button>
+    <!-- Mobile Nav -->
+    <nav id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center gap-8 text-2xl font-light z-10 opacity-0 pointer-events-none transition-all duration-300 md:hidden">
+        <a href="#about" class="text-neutral-900 hover:text-red-600 transition-colors" onclick="closeMenu()">About</a>
+      <a href="#projekte" class="text-neutral-900 hover:text-red-600 transition-colors" onclick="closeMenu()">Projekte</a>
+      <a href="#kontakt" class="text-neutral-900 hover:text-red-600 transition-colors" onclick="closeMenu()">Kontakt</a>
+    </nav>
+  </header>
+  <main class="w-full max-w-none px-2 md:px-8 py-24">
+    <section class="mb-32 flex items-center pt-24 md:pt-32">
+      <h1 class="text-4xl md:text-6xl font-light mb-14 tracking-tight">UX, die über Interaktionen hinausdenkt.</h1>
+    </section>
+    
+    <section id="about" class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 items-start mb-32 mt-16 pt-24 md:pt-32">
+      <div class="md:col-span-1">
+        <h2 class="text-3xl md:text-5xl font-light text-neutral-900">About</h2>
+      </div>
+      <div class="md:col-span-2 text-neutral-700 text-base md:text-lg leading-relaxed">
+        <p>Als angehender UX-Designer, demnächst im Praxissemester, suche ich Möglichkeiten, meine Kenntnisse in Interaction Design praxisnah einzusetzen – insbesondere für Mobile Apps, E-Commerce und Enterprise-Lösungen. Ich arbeite sowohl eigenständig als auch im Team, nutze Figma, HTML/(Tailwind)CSS und Usability Best-Practices, um aus Nutzer*innenperspektive sinnvolle Abläufe zu entwerfen. Meine Herangehensweise ist geprägt von Empathie, Effizienz und Neugier: Ich möchte verstehen, wie Menschen Entscheidungen treffen, und dieses Verständnis nutzen, um klare, nutzerzentrierte Interfaces zu gestalten. Künstliche Intelligenz interessiert mich sehr; unter anderem als Verstärker für bessere Interaktionen und smartere Produkte.</p>
+      </div>
+    </section>
+    <section id="projekte" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32 pt-24 md:pt-32">
+      <!-- Projekt 1 -->
+      <div class="flex flex-col project-fadein">
+        <a href="projekte/van-gogh-vr-experience.html" class="group">
+          <img src="./assets/images/vangoghvrthumbnailsmall.jpg" alt="Projekt 1 Thumbnail" class="w-full aspect-[3/2] object-cover project-img cursor-pointer" />
+        </a>
+        <div class="flex justify-between items-center px-0 pt-4">
+          <a href="projekte/van-gogh-vr-experience.html" class="project-link text-lg md:text-xl font-light">Van Gogh VR Experience
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-5 h-5 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </a>
+          <span class="text-xs md:text-sm text-neutral-400 font-light">Visiodrom Wuppertal</span>
+        </div>
+      </div>
+      <!-- Projekt 2 -->
+      <div class="flex flex-col project-fadein">
+        <a href="projekte/flunky-ball.html" class="group">
+          <img src="assets/images/flunkethumbnail.jpg" alt="Projekt 2 Thumbnail" class="w-full aspect-[3/2] object-cover project-img cursor-pointer" />
+        </a>
+        <div class="flex justify-between items-center px-0 pt-4">
+          <a href="projekte/flunky-ball.html" class="project-link text-lg md:text-xl font-light">Flunk-E
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-5 h-5 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </a>
+          <span class="text-xs md:text-sm text-neutral-400 font-light">EMAF 2025</span>
+        </div>
+      </div>
+      <!-- Projekt 3 -->
+      <div class="flex flex-col project-fadein">
+        <div class="lock-group cursor-not-allowed">
+          <img src="assets/images/svenhenkelrebranding.png" alt="Projekt 3 Thumbnail" class="w-full aspect-[3/2] object-cover grayscale brightness-50 lock-img" />
+          <div class="flex justify-between items-center px-0 pt-4">
+            <span class="text-lg md:text-xl font-light text-neutral-900 lock-text">Sven Henkel Rebranding
+              <svg class="inline w-5 h-5 align-baseline lock-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" style="vertical-align:middle;transition:transform .2s;">
+                <rect x="4" y="7" width="8" height="5" rx="1.5" stroke="#111" stroke-width="1.2"/>
+                <path d="M6 7V5.5A2 2 0 0 1 10 5.5V7" stroke="#111" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="text-xs md:text-sm text-neutral-400 font-light">Redesign Corporate Design
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- Projekt 4 -->
+      <div class="flex flex-col project-fadein">
+        <div class="lock-group cursor-not-allowed">
+          <img src="assets/images/diagrammthumbnail.jpg" alt="Projekt 4 Thumbnail" class="w-full aspect-[3/2] object-cover grayscale lock-img" />
+          <div class="flex justify-between items-center px-0 pt-4">
+            <span class="text-lg md:text-xl font-light text-neutral-900 lock-text">Trailer-Analyse
+              <svg class="inline w-5 h-5 align-baseline lock-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" style="vertical-align:middle;transition:transform .2s;">
+                <rect x="4" y="7" width="8" height="5" rx="1.5" stroke="#111" stroke-width="1.2"/>
+                <path d="M6 7V5.5A2 2 0 0 1 10 5.5V7" stroke="#111" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="text-xs md:text-sm text-neutral-400 font-light">Datenvisualisierung
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="cv" class="mb-32 pt-24 md:pt-32">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 items-start mb-10">
+        <div class="md:col-span-1">
+          <h2 class="text-3xl md:text-5xl font-light text-neutral-900">Lebenslauf</h2>
+        </div>
+        <div class="md:col-span-2">
+          <div class="flex gap-2 mb-8 border-b border-neutral-200">
+            <button id="tab-exp" class="px-4 py-2 -mb-px border-b-2 border-neutral-950 text-lg md:text-xl font-medium transition-colors focus:outline-none bg-transparent text-neutral-900 cursor-pointer hover:bg-neutral-100" aria-selected="true" aria-controls="exp-panel">Berufserfahrung</button>
+            <button id="tab-cert" class="px-4 py-2 -mb-px border-b-2 border-transparent text-lg md:text-xl font-medium transition-colors focus:outline-none bg-transparent text-neutral-400 cursor-pointer hover:bg-neutral-100" aria-selected="false" aria-controls="cert-panel">Zertifikate</button>
+          </div>
+          <div id="exp-panel">
+            <div class="grid grid-cols-1 gap-8">
+              <!-- Experience 1 -->
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                <div class="md:col-span-1">
+                  <div class="text-base font-light text-neutral-900">Zeemo GmbH & Co KG.</div>
+                  <div class="text-xs md:text-sm text-neutral-400 font-light">09/2024 – heute</div>
+                </div>
+                <div class="md:col-span-3">
+                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Werkstudent UX Designer</div>
+                  <div class="text-sm text-neutral-600">Konzeption und Gestaltung von User Interfaces für Mobile-Anwendungen, erstellen von Corporate Designs. Zusammenarbeit mit Entwicklern, anderen Designern und Stakeholdern.</div>
+                </div>
+              </div>
+              <!-- Experience 2 -->
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                <div class="md:col-span-1">
+                  <div class="text-base font-light text-neutral-900">Freiberuflicher Übersetzer</div>
+                  <div class="text-xs md:text-sm text-neutral-400 font-light">04/2023 – heute</div>
+                </div>
+                <div class="md:col-span-3">
+                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Übersetzer von Englisch auf Deutsch</div>
+                  <div class="text-sm text-neutral-600">Durch die Lokalisierung lerne ich ständig, wie unterschiedliche Formulierungen wahrgenommen werden, und bringe dieses Verständnis gezielt in die Gestaltung klarer, funktionaler Interfaces ein.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="cert-panel" class="hidden">
+            <div class="grid grid-cols-1 gap-8">
+              <!-- Zertifikat 1 -->
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                <div class="md:col-span-1">
+                  <div class="text-sm text-neutral-400 font-light">Juli 2025</div>
+                </div>
+                <div class="md:col-span-3">
+                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">OpenAI GPTs: Creating Your Own Custom AI Assistants</div>
+                  <div class="text-sm text-neutral-400 font-light">Vanderbilt University</div>
+                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: JNO4N7B5WY01</div>
+                </div>
+              </div>
+              <!-- Zertifikat 2 -->
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                <div class="md:col-span-1">
+                  <div class="text-sm text-neutral-400 font-light">Juni 2025</div>
+                </div>
+                <div class="md:col-span-3">
+                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Advanced Prompt Engineering for Everyone</div>
+                  <div class="text-sm text-neutral-400 font-light">Vanderbilt University</div>
+                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: 7JB5WKG17MCD</div>
+                </div>
+              </div>
+              <!-- Zertifikat 3 -->
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                <div class="md:col-span-1">
+                  <div class="text-sm text-neutral-400 font-light">Juni 2025</div>
+                </div>
+                <div class="md:col-span-3">
+                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Agentic AI and AI Agents: A Primer for Leaders</div>
+                  <div class="text-sm text-neutral-400 font-light">Vanderbilt University</div>
+                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: ZDQPUM8F92DG</div>
+                </div>
+              </div>
+              <!-- Zertifikat 4 -->
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                <div class="md:col-span-1">
+                  <div class="text-sm text-neutral-400 font-light">Mai 2025</div>
+                </div>
+                <div class="md:col-span-3">
+                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Attract and Engage Customers with Digital Marketing</div>
+                  <div class="text-sm text-neutral-400 font-light">Google</div>
+                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: AFFNOP27PXJ4</div>
+                </div>
+              </div>
+              <!-- Zertifikat 5 -->
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                <div class="md:col-span-1">
+                  <div class="text-sm text-neutral-400 font-light">Apr. 2025</div>
+                </div>
+                <div class="md:col-span-3">
+                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Foundations of Digital Marketing and E-commerce</div>
+                  <div class="text-sm text-neutral-400 font-light">Google</div>
+                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: ZXZIJWCCZWAG</div>
+                </div>
+              </div>
+              <!-- Zertifikat 6 -->
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                <div class="md:col-span-1">
+                  <div class="text-sm text-neutral-400 font-light">Apr. 2025</div>
+                </div>
+                <div class="md:col-span-3">
+                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Prompt Engineering for ChatGPT</div>
+                  <div class="text-sm text-neutral-400 font-light">Vanderbilt University</div>
+                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: 65ZDPPJFX0OW</div>
+                </div>
+              </div>
+              <!-- Zertifikat 7 -->
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                <div class="md:col-span-1">
+                  <div class="text-sm text-neutral-400 font-light">März 2025</div>
+                </div>
+                <div class="md:col-span-3">
+                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Foundations of User Experience (UX) Design</div>
+                  <div class="text-sm text-neutral-400 font-light">Google</div>
+                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: PRU0SEOX23DG</div>
+                </div>
+              </div>
+              <!-- Zertifikat 8 -->
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                <div class="md:col-span-1">
+                  <div class="text-sm text-neutral-400 font-light">Feb. 2025</div>
+                </div>
+                <div class="md:col-span-3">
+                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Design Fundamentals</div>
+                  <div class="text-sm text-neutral-400 font-light">Adobe</div>
+                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: OZU5MYM62E1G</div>
+                </div>
+              </div>
+              <!-- Zertifikat 9 -->
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                <div class="md:col-span-1">
+                  <div class="text-sm text-neutral-400 font-light">Jan. 2025</div>
+                </div>
+                <div class="md:col-span-3">
+                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Google AI Essentials</div>
+                  <div class="text-sm text-neutral-400 font-light">Coursera</div>
+                </div>
+              </div>
+              <!-- Zertifikat 10 -->
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                <div class="md:col-span-1">
+                  <div class="text-sm text-neutral-400 font-light">Jan. 2025</div>
+                </div>
+                <div class="md:col-span-3">
+                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Google Prompting Essentials</div>
+                  <div class="text-sm text-neutral-400 font-light">Coursera</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-20">
+      <button id="scrollTopBtn" class="group flex items-center gap-2  hover:underline transition-all duration-200 focus:outline-none">
+        <svg class="w-5 h-5 transition-transform duration-200 group-hover:-translate-y-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path d="M8 12V4M8 4L4 8M8 4l4 4" stroke="#111" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="font-light text-neutral-900">Nach oben</span>
+      </button>
+    </div>
+  </main>
+  <footer id="footer" class="border-t border-neutral-200 pt-10 pb-6 px-2 md:px-8 max-w-none mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-sm md:text-base">
+    <!-- E-Mail -->
+    <div class="md:col-span-2 flex flex-col gap-2">
+      <span class="font-light text-neutral-400">Kontakt</span>
+      <a href="mailto:info@tom-ziegler.com" class="text-neutral-900 hover:underline transition-colors inline-flex items-center group font-light">
+        info@tom-ziegler.com
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" class="inline w-5 h-5 ml-1 align-baseline transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" style="stroke:#000000">
+          <rect x="3.5" y="5.5" width="13" height="9" rx="2" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M4.5 6.5l5.5 4 5.5-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+    <!-- Impressum -->
+    <div class="flex flex-col gap-2">
+      <span class="font-light text-neutral-400">Rechtliches</span>
+      <a href="impressum.html" class="project-link text-neutral-900 font-light">
+        Impressum
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-4 h-4 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+    <!-- Datenschutz -->
+    <div class="flex flex-col gap-2">
+      <span class="font-light text-neutral-400">Datenschutz</span>
+      <a href="datenschutz.html" class="project-link text-neutral-900 font-light">
+        Datenschutz
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-4 h-4 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+    <!-- Copyright -->
+    <div class="md:col-span-4 text-neutral-400 font-light text-xs md:text-sm mt-6 md:mt-2 text-center md:text-right">
+      <span id="copyright-text">&copy; 2025 Tom Ziegler. Alle Rechte vorbehalten.</span>
+    </div>
+  </footer>
+  <script>
+    // Smooth Scroll to Top Button
+    document.addEventListener('DOMContentLoaded', function() {
+      var btn = document.getElementById('scrollTopBtn');
+      if (btn) {
+        btn.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    });
+    // Copyright-Jahr dynamisch setzen
+    document.addEventListener('DOMContentLoaded', function() {
+      var year = new Date().getFullYear();
+      var el = document.getElementById('copyright-text');
+      if (el) el.innerHTML = `&copy; ${year} Tom Ziegler. Alle Rechte vorbehalten.`;
+    });
+    // Minimalistisches Styling für Projekt-Links
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .lock-group {
+        display: flex;
+        flex-direction: column;
+      }
+      .lock-group:hover .lock-icon,
+      .lock-group:focus .lock-icon,
+      .lock-text:hover .lock-icon,
+      .lock-img:hover ~ div .lock-icon {
+        /* Fallback für ältere Browser, aber eig. reicht .lock-group:hover .lock-icon */
+        transform: rotate(-12deg) scale(1.08);
+      }
+      .lock-icon {
+        transition: transform 0.2s cubic-bezier(0.22,1,0.36,1);
+      }
+      .project-link {
+        color: #111;
+        text-decoration: none;
+        border-bottom: 1.5px solid transparent;
+        transition: color 0.2s, border-color 0.2s;
+        display: inline-flex;
+        align-items: center;
+        font-weight: 300;
+      }
+      .project-link:hover, .project-link.active-hover {
+        color: #111;
+        border-bottom: 1.5px solid #111;
+        text-decoration: none;
+      }
+      .project-link svg {
+        stroke: #111;
+        transition: transform 0.2s;
+      }
+      .project-link:hover svg, .project-link.active-hover svg {
+        transform: translate(2px, -2px);
+      }
+
+      /* Sanfter Zoom-Effekt für Projektbilder */
+      .project-img {
+        transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform;
+      }
+      .group:hover .project-img,
+      .project-img:hover {
+        transform: scale(1.045);
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Hover-Underline auf Bild-Hover für Projekt 1 und 2
+    document.addEventListener('DOMContentLoaded', function() {
+      // Für Projekt 1
+      const img1 = document.querySelector('a[href="projekte/van-gogh-vr-experience.html"] .project-img');
+      const link1 = document.querySelector('a[href="projekte/van-gogh-vr-experience.html"].project-link');
+      if (img1 && link1) {
+        img1.addEventListener('mouseenter', () => link1.classList.add('active-hover'));
+        img1.addEventListener('mouseleave', () => link1.classList.remove('active-hover'));
+      }
+      // Für Projekt 2
+      const img2 = document.querySelector('a[href="projekte/flunky-ball.html"] .project-img');
+      const link2 = document.querySelector('a[href="projekte/flunky-ball.html"].project-link');
+      if (img2 && link2) {
+        img2.addEventListener('mouseenter', () => link2.classList.add('active-hover'));
+        img2.addEventListener('mouseleave', () => link2.classList.remove('active-hover'));
+      }
+
+      // Lock-Animation für Projekt 3 und 4: Text, Bild, Icon synchron
+      document.querySelectorAll('.lock-group').forEach(function(group) {
+        const lockIcon = group.querySelector('.lock-icon');
+        if (!lockIcon) return;
+        const lockText = group.querySelector('.lock-text');
+        const lockImg = group.querySelector('.lock-img');
+        // Helper: Lock animieren
+        function animateLock(add) {
+          if (add) lockIcon.style.transform = 'rotate(-12deg) scale(1.08)';
+          else lockIcon.style.transform = '';
+        }
+        // Text
+        if (lockText) {
+          lockText.addEventListener('mouseenter', () => animateLock(true));
+          lockText.addEventListener('mouseleave', () => animateLock(false));
+        }
+        // Bild
+        if (lockImg) {
+          lockImg.addEventListener('mouseenter', () => animateLock(true));
+          lockImg.addEventListener('mouseleave', () => animateLock(false));
+        }
+        // Icon selbst
+        lockIcon.addEventListener('mouseenter', () => animateLock(true));
+        lockIcon.addEventListener('mouseleave', () => animateLock(false));
+      });
+    });
+    // Loader mit Ladebalken
+  let progress = 0;
+  const bar = document.getElementById('loader-bar');
+  function animateBar() {
+    if (bar && progress < 100) {
+      progress += Math.random() * 20;
+      bar.style.width = Math.min(progress, 100) + '%';
+      setTimeout(animateBar, 200);
+    }
+  }
+  animateBar();
+  window.addEventListener('load', function() {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.style.opacity = '0';
+      setTimeout(() => loader.style.display = 'none', 500);
+    }
+  });
+    // Hamburger Menü
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let menuOpen = false;
+    function toggleMenu() {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+        mobileMenu.classList.add('opacity-100');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        document.getElementById('bar1').classList.add('rotate-45', 'translate-y-2');
+        document.getElementById('bar2').classList.add('opacity-0');
+        document.getElementById('bar3').classList.add('-rotate-45', '-translate-y-2');
+      } else {
+        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+        mobileMenu.classList.remove('opacity-100');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        document.getElementById('bar1').classList.remove('rotate-45', 'translate-y-2');
+        document.getElementById('bar2').classList.remove('opacity-0');
+        document.getElementById('bar3').classList.remove('-rotate-45', '-translate-y-2');
+      }
+    }
+    function closeMenu() {
+      menuOpen = false;
+      mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+      mobileMenu.classList.remove('opacity-100');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.getElementById('bar1').classList.remove('rotate-45', 'translate-y-2');
+      document.getElementById('bar2').classList.remove('opacity-0');
+      document.getElementById('bar3').classList.remove('-rotate-45', '-translate-y-2');
+    }
+    menuBtn.addEventListener('click', toggleMenu);
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) closeMenu();
+    });
+
+    // Tab Switch für Experience/Zertifikate
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabExp = document.getElementById('tab-exp');
+      const tabCert = document.getElementById('tab-cert');
+      const expPanel = document.getElementById('exp-panel');
+      const certPanel = document.getElementById('cert-panel');
+      if (tabExp && tabCert && expPanel && certPanel) {
+        tabExp.addEventListener('click', () => {
+          tabExp.classList.add('text-neutral-900', 'border-neutral-900');
+          tabExp.classList.remove('text-neutral-400', 'border-transparent');
+          tabExp.setAttribute('aria-selected', 'true');
+          tabCert.classList.remove('text-neutral-900', 'border-red-600');
+          tabCert.classList.add('text-neutral-400', 'border-transparent');
+          tabCert.setAttribute('aria-selected', 'false');
+          expPanel.classList.remove('hidden');
+          certPanel.classList.add('hidden');
+        });
+        tabCert.addEventListener('click', () => {
+          tabCert.classList.add('text-neutral-900', 'border-neutral-900');
+          tabCert.classList.remove('text-neutral-400', 'border-transparent');
+          tabCert.setAttribute('aria-selected', 'true');
+          tabExp.classList.remove('text-neutral-900', 'border-neutral-900');
+          tabExp.classList.add('text-neutral-400', 'border-transparent');
+          tabExp.setAttribute('aria-selected', 'false');
+          expPanel.classList.add('hidden');
+          certPanel.classList.remove('hidden');
+        });
+      }
+    });
+    // Fade-In-Effekt für Projekte beim Scrollen
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fadein-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.project-fadein').forEach(el => {
+        observer.observe(el);
+      });
+    });
+    // Fade-In CSS
+    const fadeinStyle = document.createElement('style');
+    fadeinStyle.innerHTML = `
+      .project-fadein {
+        opacity: 0;
+        transform: translateY(32px);
+        transition: opacity 1.1s cubic-bezier(.22,1,.36,1), transform 1.1s cubic-bezier(.22,1,.36,1);
+      }
+      .project-fadein.fadein-visible {
+        opacity: 1;
+        transform: none;
+        transition-timing-function: cubic-bezier(.16,1,.3,1); /* ease-out */
+      }
+    `;
+    document.head.appendChild(fadeinStyle);
+  </script>
+</body>
+</html>
