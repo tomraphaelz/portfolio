@@ -127,48 +127,42 @@
             </div>
             <figcaption class="mt-4 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Hardware Stack</figcaption>
           </figure>
+
+          <!-- iPhone Bezel mit Hochkant-Video (integriert ins Whitespace-Raster) -->
+          <div class="flex flex-col items-center mb-16">
+            <div class="mb-6 text-center">
+              <span class="block text-base md:text-lg text-neutral-500 font-light tracking-tight">Kurzes Demo-Video: So funktioniert Flunk-E in der Praxis</span>
+            </div>
+            <div class="relative w-[320px] h-[660px] md:w-[360px] md:h-[740px] flex items-center justify-center">
+              <!-- Video im Bezel -->
+              <video controls playsinline class="absolute left-1/2 top-1/2 w-[288px] h-[624px] -translate-x-1/2 -translate-y-1/2 rounded-[36px] shadow-lg object-cover bg-black" poster="../assets/images/flunkyballthumbnail.jpg">
+                <source src="../assets/videos/flunkyball.mp4" type="video/mp4" />
+                Dein Browser unterstützt das Video-Tag nicht.
+              </video>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- Challenges Abschnitt aus der Dokumentation -->
-    <section class="mb-24">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+      <!-- Challenges Abschnitt aus der Dokumentation auskommentiert lassen -->
+    <!-- <section class="mb-24">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start"> -->
         <!-- Linke Spalte: Überschrift oben, Bild unten -->
-        <div class="flex flex-col gap-8">
+        <!-- <div class="flex flex-col gap-8">
           <h2 class="text-3xl md:text-5xl font-light text-neutral-900 mb-2 md:mb-0">Challenges</h2>
           <img src="../assets/images/flunkechallenge.png" alt="Beispielhafte Challenge-Anzeige in der App" class="aspect-square w-full max-w-xs" />
-        </div>
+        </div> -->
         
         <!-- Rechte Spalte: Fließtext oben und unten -->
-        <div class="flex flex-col justify-between h-full text-neutral-700 text-base md:text-lg leading-relaxed">
+        <!-- <div class="flex flex-col justify-between h-full text-neutral-700 text-base md:text-lg leading-relaxed">
           <div>
             <p>Ein zentrales Element von Flunk-E sind die integrierten Challenges. Nach jedem Punktgewinn muss das führende Team eine zufällige Challenge absolvieren. Diese Challenges sorgen nicht nur für zusätzlichen Spielspaß und Abwechslung, sondern gleichen auch das Spiel aus, wenn ein Team zu stark dominiert. So bleibt das Spiel spannend und motivierend für alle Beteiligten.</p>
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-      <!-- Kreatives Raster: Video und Bild nebeneinander -->
-      <!-- iPhone Bezel mit Hochkant-Video -->
-      <div class="flex flex-col items-center mb-16">
-        <div class="mb-6 text-center">
-          <span class="block text-base md:text-lg text-neutral-500 font-light tracking-tight">Kurzes Demo-Video: So funktioniert Flunk-E in der Praxis</span>
-        </div>
-        <div class="relative w-[320px] h-[660px] md:w-[360px] md:h-[740px] flex items-center justify-center">
-          <!-- iPhone Bezel SVG 
-          <svg viewBox="0 0 360 740" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full pointer-events-none select-none">
-            <rect x="4" y="4" width="352" height="732" rx="48" fill="#fff" stroke="#222" stroke-width="8"/>
-            <rect x="120" y="20" width="120" height="8" rx="4" fill="#e5e7eb"/>
-            <circle cx="180" cy="32" r="4" fill="#bbb"/>
-            <rect x="160" y="700" width="40" height="16" rx="8" fill="#e5e7eb"/>
-          </svg>-->
-          <!-- Video im Bezel -->
-          <video controls playsinline class="absolute left-1/2 top-1/2 w-[288px] h-[624px] -translate-x-1/2 -translate-y-1/2 rounded-[36px] shadow-lg object-cover bg-black" poster="../assets/images/flunkyballthumbnail.jpg">
-            <source src="../assets/videos/flunkyball.mp4" type="video/mp4" />
-            Dein Browser unterstützt das Video-Tag nicht.
-          </video>
-        </div>
-      </div>
+      
       
       <div class="mt-8">
         <a href="../index.html#projekte" class="back-link">

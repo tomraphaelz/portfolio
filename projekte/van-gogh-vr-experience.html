@@ -40,7 +40,7 @@
         <span class="text-lg md:text-xl font-light text-neutral-900">Visiodrom Wuppertal</span>
         <span class="text-xs md:text-sm text-neutral-400 font-light">Projekt für die Hochschule</span>
       </div>
-      <img src="../assets/images/vangoghvrthumbnail.jpg" alt="Frau mit VR Brille im Visiodrom" class="w-full aspect-[3/2] object-cover mb-8" loading="lazy" />
+      <img src="../assets/images/VanGogh_poster.jpg" alt="Frau mit VR Brille im Visiodrom" class="w-full aspect-[3/2] object-cover mb-8" loading="lazy" />
 
       
       <!-- Projektbeschreibung und Tabelle -->
@@ -102,27 +102,53 @@
         </div>
       </div>
 
-      <!-- Kreatives Raster: Video und Hochkantbild nebeneinander -->
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-16 items-stretch">
-        <div class="md:col-span-3 flex items-center">
-          <video controls class="w-full aspect-square">
-            <source src="../assets/videos/Van Gogh Software.mp4" type="video/mp4" />
-            Dein Browser unterstützt das Video-Tag nicht.
-          </video>
-        </div>
-        <div class="md:col-span-2 flex items-center">
-          <img src="../assets/images/vangoghvrhochkant.jpg" alt="Hochkantbild Van Gogh VR" class="w-full h-full max-h-[600px] aspect-[2/3] object-cover" loading="lazy" />
-        </div>
+      <!-- Kreatives Raster: Video und Hochkantbild (Whitespace-Layout) -->
+      <div class="flex flex-col gap-16 md:gap-20 mb-16">
+        <figure class="group md:max-w-5xl">
+          <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
+            <video controls playsinline class="block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.02]">
+              <source src="../assets/videos/Van Gogh Software.mp4" type="video/mp4" />
+              Dein Browser unterstützt das Video-Tag nicht.
+            </video>
+          </div>
+          <figcaption class="mt-4 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Software Demo</figcaption>
+        </figure>
+        <figure class="group md:self-end md:max-w-3xl">
+          <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
+            <img src="../assets/images/vangoghvrhochkant.jpg" alt="Hochkantbild Van Gogh VR" class="block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy" />
+          </div>
+          <figcaption class="mt-4 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Kommilitonin bei erster Nutzung</figcaption>
+        </figure>
       </div>
 
       <!-- Zusatzvisuals: Interface & Prototyping -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        <img src="../assets/images/VanGogh_VR_Laptop.png" alt="Laptop mit Van Gogh VR Experience Interface" class="w-full object-cover" loading="lazy" />
-        <img src="../assets/images/VanGogh_VREinController_Laptop.png" alt="Laptop und Controller der Van Gogh VR Experience" class="w-full object-cover" loading="lazy" />
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        <img src="../assets/images/VanGogh_VRController_Laptop.png" alt="Prototype mit Controller und Interface der Van Gogh VR Experience" class="w-full object-cover" loading="lazy" />
-        <img src="../assets/images/VanGogh_VRController.png" alt="Detailansicht des Van Gogh VR Controllers" class="w-full object-cover" loading="lazy" />
+      <div class="flex flex-col gap-16 md:gap-20 mb-16">
+        <figure class="group md:max-w-5xl">
+          <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
+            <img src="../assets/images/VanGogh_VR_Laptop.png" alt="Laptop mit Van Gogh VR Experience Interface" class="block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy" />
+          </div>
+          <figcaption class="mt-4 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Desktop und VR-Brille</figcaption>
+        </figure>
+        <figure class="group md:self-end md:max-w-3xl">
+          <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
+            <img src="../assets/images/VanGogh_VREinController_Laptop.png" alt="Laptop und Controller der Van Gogh VR Experience" class="block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy" />
+          </div>
+          <figcaption class="mt-4 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Alle benötigten Utensilien</figcaption>
+        </figure>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+          <figure class="group md:col-span-2">
+            <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
+              <img src="../assets/images/VanGogh_VRController_Laptop.png" alt="Prototype mit Controller und Interface der Van Gogh VR Experience" class="block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy" />
+            </div>
+            <figcaption class="mt-4 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Aufsetzen &amp; los</figcaption>
+          </figure>
+          <figure class="group md:col-span-1 md:self-end">
+            <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
+              <img src="../assets/images/VanGogh_VRController.png" alt="Detailansicht des Van Gogh VR Controllers" class="block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.03]" loading="lazy" />
+            </div>
+            <figcaption class="mt-4 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Mit Meta Quest 3</figcaption>
+          </figure>
+        </div>
       </div>
       
     <!-- KI-Persona & Prompting -->
