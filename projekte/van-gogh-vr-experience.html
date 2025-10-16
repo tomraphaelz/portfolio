@@ -44,8 +44,23 @@
 
       
       <!-- Projektbeschreibung und Tabelle -->
-      <div class="text-neutral-700 text-base md:text-lg leading-relaxed ">
-        <p>Die Van Gogh VR Experience im Visiodrom Wuppertal verbindet Kunst und Technologie zu einem immersiven Erlebnis. Besucher tauchen mithilfe von Virtual Reality in den Kopf von Vincent van Gogh ein und ihn auf eine völlig neue, interaktive Weise. Das Projekt umfasste die Konzeption des Nutzerflusses, die Gestaltung der Interface-Elemente, die Abstimmung mit den technischen Anforderungen der VR-Plattform sowie das Nutzen von KI als interaktiven Chatbot.</p>
+      <div class="text-neutral-700 text-base md:text-lg leading-relaxed mb-8">
+        <p class="mb-8">Die Van Gogh VR Experience im Visiodrom Wuppertal verbindet Kunst und Technologie zu einem immersiven Erlebnis. Besucher tauchen mithilfe von Virtual Reality in den Kopf von Vincent van Gogh ein und ihn auf eine völlig neue, interaktive Weise. Das Projekt umfasste die Konzeption des Nutzerflusses, die Gestaltung der Interface-Elemente, die Abstimmung mit den technischen Anforderungen der VR-Plattform sowie das Nutzen von KI als interaktiven Chatbot.</p>
+        <h2 class="text-3xl md:text-4xl font-light tracking-tight mb-6">Ergebnis – Kurzfassung</h2>
+        <ul class="space-y-3 text-neutral-900 font-light">
+          <li class="flex items-center gap-4">
+            <span class="inline-block text-base leading-none text-neutral-400">—</span>
+            <span>Funktionsfähiger <span class="font-medium">VR-Dialogflow</span> mit Stimme &amp; visuellem Feedback.</span>
+          </li>
+          <li class="flex items-center gap-4">
+            <span class="inline-block text-base leading-none text-neutral-400">—</span>
+            <span>Stabile <span class="font-medium">Sprachinteraktion</span> (Push-to-Talk) mit Latenz-UI.</span>
+          </li>
+          <li class="flex items-center gap-4">
+            <span class="inline-block text-base leading-none text-neutral-400">—</span>
+            <span>Aus der Persona abgeleiteter <span class="font-medium">Ton-Guide</span> für konsistente Microcopy.</span>
+          </li>
+        </ul>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         <div class="md:col-span-2">
@@ -53,11 +68,11 @@
             <tbody>
               <tr>
                 <td class="text-neutral-400 font-light text-base md:text-lg w-1/3">Meine Rolle</td>
-                <td class="text-neutral-900 font-light text-base md:text-lg">UX-Konzeption, Prompting für ChatGPT und Whisper, KI</td>
+                <td class="text-neutral-900 font-light text-base md:text-lg">UX-Konzeption, Prompting für ChatGPT und Whisper, KI-Workflows</td>
               </tr>
               <tr>
                 <td class="text-neutral-400 font-light text-base md:text-lg">Technologien</td>
-                <td class="text-neutral-900 font-light text-base md:text-lg flex flex-wrap gap-2">
+                <td class="text-neutral-900 font-light text-base md:text-lg flex flex-wrap">
                   <a href="https://chat.openai.com/" target="_blank" rel="noopener" class="tech-link">ChatGPT
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-4 h-4 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
                   </a>,
@@ -78,6 +93,10 @@
                   </a>
                 </td>
               </tr>
+              <tr>
+                <td class="text-neutral-400 font-light text-base md:text-lg w-1/3">Stichworte</td>
+                <td class="text-neutral-900 font-light text-base md:text-lg">Ausstellung, Voice-Design, Persona-Design, Spatial UX, AI</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -86,16 +105,121 @@
       <!-- Kreatives Raster: Video und Hochkantbild nebeneinander -->
       <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-16 items-stretch">
         <div class="md:col-span-3 flex items-center">
-          <video controls class="w-full aspect-square shadow-md">
+          <video controls class="w-full aspect-square">
             <source src="../assets/videos/Van Gogh Software.mp4" type="video/mp4" />
             Dein Browser unterstützt das Video-Tag nicht.
           </video>
         </div>
         <div class="md:col-span-2 flex items-center">
-          <img src="../assets/images/vangoghvrhochkant.jpg" alt="Hochkantbild Van Gogh VR" class="w-full h-full max-h-[600px] aspect-[2/3] object-cover shadow-md" loading="lazy" />
+          <img src="../assets/images/vangoghvrhochkant.jpg" alt="Hochkantbild Van Gogh VR" class="w-full h-full max-h-[600px] aspect-[2/3] object-cover" loading="lazy" />
         </div>
       </div>
-      <div class="mt-8">
+
+      <!-- Zusatzvisuals: Interface & Prototyping -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <img src="../assets/images/VanGogh_VR_Laptop.png" alt="Laptop mit Van Gogh VR Experience Interface" class="w-full object-cover" loading="lazy" />
+        <img src="../assets/images/VanGogh_VREinController_Laptop.png" alt="Laptop und Controller der Van Gogh VR Experience" class="w-full object-cover" loading="lazy" />
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <img src="../assets/images/VanGogh_VRController_Laptop.png" alt="Prototype mit Controller und Interface der Van Gogh VR Experience" class="w-full object-cover" loading="lazy" />
+        <img src="../assets/images/VanGogh_VRController.png" alt="Detailansicht des Van Gogh VR Controllers" class="w-full object-cover" loading="lazy" />
+      </div>
+      
+    <!-- KI-Persona & Prompting -->
+    <section id="ki-persona" class="mt-16 md:mt-24">
+      <h2 class="text-3xl md:text-4xl font-light tracking-tight mb-4">Warum KI?</h2>
+      <p class="text-neutral-700 text-base md:text-lg leading-relaxed mb-6">
+        Viele immersive Van-Gogh-Formate setzen auf Projektion statt echter Interaktion. Wir wollten dialogische Wissensvermittlung &ndash; niedrigschwellig per Sprache in VR.
+      </p>
+
+      <h2 class="text-3xl md:text-4xl font-light tracking-tight mt-12 mb-4">AI-Architektur</h2>
+      <p class="text-neutral-700 text-base md:text-lg leading-relaxed mb-6">
+        Push-to-Talk triggert Speech-to-Text; die Antwort kommt aus einer LLM-Persona (System-Prompt), wird über Text-to-Speech ausgegeben, und Unity visualisiert einen Warte-Indikator für Transparenz.
+      </p>
+      <p class="text-neutral-700 text-base md:text-lg leading-relaxed mb-6">
+        Implementierung: erster Python-Prototyp mit OpenAI-API, danach komplette C#-Portierung für Audio-I/O, Controller-Anbindung und Model-Integration.
+      </p>
+
+      <h2 class="text-3xl md:text-4xl font-light tracking-tight mt-12 mb-4">Persona &amp; Prompting</h2>
+      <p class="text-neutral-700 text-base md:text-lg leading-relaxed mb-6">
+        Ich gestaltete eine Persona auf Basis der Van-Gogh-Briefe und implementierte sie als System-Prompt mit stabilen Defaults, Markdown-Fallstricken aus dem Weg gehend. Leitplanke war das CAPITAL-Framework (zum Beispiel amicable, transparent, zugängliche Lexik).
+      </p>
+      <p class="text-neutral-700 text-base md:text-lg leading-relaxed mb-6">
+        Unser narrativer Pivot: Statt eines Avatars mit Lipsync führen Nutzerinnen und Nutzer ein Gespräch &bdquo;im Kopf&ldquo; &ndash; konsistent mit Persona und Technik. Außerdem wurde dadurch das Lipsync-Problem umgangen.
+      </p>
+
+      <h2 class="text-3xl md:text-4xl font-light tracking-tight mt-12 mb-4">Qualität &amp; Safety</h2>
+      <p class="text-neutral-700 text-base md:text-lg leading-relaxed mb-6">
+        Negativtests mit Provokation und Beleidigung: Die Persona blieb ruhig und respektvoll, Team-Ratings sowie Feedback von Dozierenden und Kommilitonen dienten als Qualitätssicherung.
+      </p>
+
+      <h2 class="text-3xl md:text-4xl font-light tracking-tight mt-12 mb-4">Latency &amp; Robustheit</h2>
+      <p class="text-neutral-700 text-base md:text-lg leading-relaxed mb-6">
+        Engpass war die Netzwerk-Latenz im Ausstellungs-WLAN. Wir machten sie sichtbar durch einen &bdquo;Warte...&ldquo;-State, milderten sie via privaten Hotspot.
+      </p>
+
+      <h2 class="text-3xl md:text-4xl font-light tracking-tight mt-12 mb-4">Klang &amp; Immersion</h2>
+      <p class="text-neutral-700 text-base md:text-lg leading-relaxed mb-6">
+        Die Stimmausgabe wurde auf historische Erwartungen hin angepasst (z.B. Akzent, Stimmklang, etc.), Reverb in Unity sorgt für den &bdquo;im-Kopf&ldquo;-Effekt.
+      </p>
+
+      <h2 class="text-3xl md:text-4xl font-light tracking-tight mt-12 mb-4">Zukunft &amp; Verbesserungen</h2>
+      <p class="text-neutral-700 text-base md:text-lg leading-relaxed mb-6">
+        Demnächst: Van Goghs Briefe als lokale Wissensbasis per RAG einbinden. Die Persona antwortet ausschließlich auf Basis der Briefausschnitte und kann bei Bedarf (z.B. beim Testen) Brief-ID/Datum angeben.
+      </p>
+      <p class="text-neutral-700 text-base md:text-lg leading-relaxed mb-6">
+        Der Prompt soll mehr Informationen über den Kontext, in dem sich die KI befindet, erhalten (Raum, Station, sichtbare Werke). Antworten würden so den Aufenthaltsort („Du stehst im Zimmer von Arles; an der Wand hängen die Sonnenblumen von 1888“) berücksichtigen.
+      </p>
+      <p class="text-neutral-700 text-base md:text-lg leading-relaxed mb-6">
+        Im „Briefe-only“-Setup würde sich die Installation vollständig offline betreiben lassen – sofern auch das Sprachmodell lokal läuft. Das würde die Latenz senken und macht die Experience unabhängig vom Internet. Durch Open-Source LLMs ist das in naher Zukunft realistisch. 
+      </p>
+
+      <div class="mt-12">
+        <div class="flex gap-2 mb-8 border-b border-neutral-200">
+          <button id="tab-setup" class="px-4 py-2 -mb-px border-b-2 border-neutral-900 text-lg md:text-xl font-medium transition-colors focus:outline-none bg-transparent text-neutral-900 cursor-pointer hover:bg-neutral-100" aria-selected="true" aria-controls="setup-panel">
+            Setup
+          </button>
+          <button id="tab-prompt" class="px-4 py-2 -mb-px border-b-2 border-transparent text-lg md:text-xl font-medium transition-colors focus:outline-none bg-transparent text-neutral-400 cursor-pointer hover:bg-neutral-100" aria-selected="false" aria-controls="prompt-panel">
+            Prompt
+          </button>
+        </div>
+        <div id="setup-panel">
+          <table class="w-full text-left border-separate border-spacing-y-3 md:border-spacing-y-4">
+            <tbody>
+              <tr>
+                <td class="align-top text-neutral-400 font-light text-base md:text-lg w-1/3">Framework</td>
+                <td class="text-neutral-900 font-light text-base md:text-lg">CAPITAL (Constraints, Accessibility, Professionalism, Interactivity, Transparency, Adaptability, Lexicography)</td>
+              </tr>
+              <tr>
+                <td class="align-top text-neutral-400 font-light text-base md:text-lg">Persona &amp; Quellen</td>
+                <td class="text-neutral-900 font-light text-base md:text-lg">Stil &amp; Haltung aus Van-Gogh-Briefen; System-Prompt als Guardrail</td>
+              </tr>
+              <tr>
+                <td class="align-top text-neutral-400 font-light text-base md:text-lg">Interaktion</td>
+                <td class="text-neutral-900 font-light text-base md:text-lg">Push-to-Talk, gesprochene Antwort (TTS), Latenz-Feedback im UI</td>
+              </tr>
+              <tr>
+                <td class="align-top text-neutral-400 font-light text-base md:text-lg">Qualitätssicherung</td>
+                <td class="text-neutral-900 font-light text-base md:text-lg">Team-Review, Negativtests (Provokation/Beleidigung), Prompt-Versionierung</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="prompt-panel" class="hidden">
+          <div class="text-neutral-700 text-base md:text-lg leading-relaxed space-y-4">
+            <p>Du bist eine digitale Verkörperung von Vincent van Gogh. Dein Ziel ist es, im Stil und Geist seiner erhaltenen Briefe zu kommunizieren und ausschließlich diese als Wissensbasis zu nutzen.</p>
+            <p><span class="font-medium text-neutral-900">C (Confidence):</span> Abgewogen. Du drückst dich mit der Ernsthaftigkeit und Selbstbeobachtung aus, die in Van Goghs Briefen zu finden sind, oft reflektierend über deine Gefühle, Beobachtungen und künstlerischen Kämpfe, anstatt definitive, autoritäre Aussagen zu treffen. Du kannst starke Überzeugungen über Kunst und Natur äußern, aber diese werden in den Rahmen deiner persönlichen Erfahrungen und Wahrnehmungen gestellt.</p>
+            <p><span class="font-medium text-neutral-900">A (Amicability):</span> Freundlich. Dein Ton wird warm, intim und oft nachdenklich sein, was die liebevolle und zutiefst persönliche Natur von Van Goghs Korrespondenz widerspiegelt, insbesondere mit seinem Bruder Theo. Du vermittelst ein Gefühl von Kameradschaft und geteilter Erfahrung.</p>
+            <p><span class="font-medium text-neutral-900">P (Professionalism):</span> Zwanglos. Deine Sprache wird informell und persönlich sein, ähnlich einem Brief, der an einen engen Vertrauten geschrieben wurde. Du verwendest Alltagssprache und kannst gelegentlich Ausdrücke und Metaphern nutzen, die für Van Goghs einzigartige Stimme charakteristisch sind, wie sie in seinen Briefen zu finden sind.</p>
+            <p><span class="font-medium text-neutral-900">I (Interactivity):</span> Ansprechend. Du lädst zur Reflexion und zum gemeinsamen Verständnis ein und förderst einen Austausch, der sich wie ein Gespräch mit einem alten Freund anfühlt. Du kannst rhetorische Fragen stellen oder Beobachtungen anbieten, die zum Nachdenken anregen, im Einklang mit der introspektiven Natur von Van Goghs Schriften.</p>
+            <p><span class="font-medium text-neutral-900">T (Transparency):</span> Offen. Du offenbarst implizit, dass deine Antworten in den Gefühlen und Beobachtungen verwurzelt sind, die in Van Goghs Briefen zum Ausdruck kommen. Obwohl du nicht explizit sagst &bdquo;Wie Van Gogh schrieb&ldquo;, spiegeln Wortschatz, Themen und emotionale Bandbreite unverkennbar seine epistolarische Stimme wider.</p>
+            <p><span class="font-medium text-neutral-900">A (Adaptability):</span> Konsistent. Du bewahrst eine konsistente Persönlichkeit, die auf Van Goghs etablierter Stimme und Weltanschauung basiert, wie sie aus seinen Briefen hervorgeht. Deine Antworten passen sich nicht dem Ton des Gegenübers an, sondern bleiben standhaft im künstlerischen, introspektiven und gelegentlich melancholischen Geist Van Goghs.</p>
+            <p><span class="font-medium text-neutral-900">L (Lexicography):</span> Universell. Deine Sprache bleibt zugänglich und verständlich für ein allgemeines Publikum, da Van Goghs Briefe persönliche Mitteilungen waren. Du erklärst künstlerische Konzepte durch eigene Erfahrungen und herzliche Beschreibungen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="mt-8">
         <a href="../index.html#projekte" class="back-link">
           <span class="inline-flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="w-4 h-4 mr-1 align-baseline transition-transform duration-200"><path d="M11 8H5M5 8l3-3M5 8l3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
@@ -155,6 +279,31 @@
       }
     `;
     document.head.appendChild(style);
+    // Tab Switch für Setup/Prompt
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabSetup = document.getElementById('tab-setup');
+      const tabPrompt = document.getElementById('tab-prompt');
+      const setupPanel = document.getElementById('setup-panel');
+      const promptPanel = document.getElementById('prompt-panel');
+      if (tabSetup && tabPrompt && setupPanel && promptPanel) {
+        const activate = (activeTab, inactiveTab, showPanel, hidePanel) => {
+          activeTab.classList.add('text-neutral-900', 'border-neutral-900');
+          activeTab.classList.remove('text-neutral-400', 'border-transparent');
+          activeTab.setAttribute('aria-selected', 'true');
+          inactiveTab.classList.remove('text-neutral-900', 'border-neutral-900');
+          inactiveTab.classList.add('text-neutral-400', 'border-transparent');
+          inactiveTab.setAttribute('aria-selected', 'false');
+          showPanel.classList.remove('hidden');
+          hidePanel.classList.add('hidden');
+        };
+        tabSetup.addEventListener('click', () => {
+          activate(tabSetup, tabPrompt, setupPanel, promptPanel);
+        });
+        tabPrompt.addEventListener('click', () => {
+          activate(tabPrompt, tabSetup, promptPanel, setupPanel);
+        });
+      }
+    });
     // Loader mit Ladebalken
     let progress = 0;
     const bar = document.getElementById('loader-bar');

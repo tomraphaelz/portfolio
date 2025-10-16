@@ -27,28 +27,29 @@
   </div>
   <span class="text-neutral-400 text-base font-light tracking-tight">Lädt ...</span>
 </div>
-  <header class="w-full border-b border-neutral-200 py-6 px-4 flex justify-between items-center relative">
-    <span class="text-lg font-light tracking-tight">Tom Ziegler</span>
-    <!-- Desktop Nav -->
-    <nav class="hidden md:flex gap-2">
-        <a href="#about" class="text-neutral-900 hover:underline transition-colors px-2">About</a>
-      <a href="#projekte" class="text-neutral-900 hover:underline transition-colors px-2">Projekte</a>
-      <a href="#footer" class="text-neutral-900 hover:underline transition-colors px-2">Kontakt</a>
-    </nav>
-    <!-- Hamburger Button -->
-    <button id="menu-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 group z-20" aria-label="Menü öffnen">
-      <span class="block w-7 h-0.5 bg-neutral-900 mb-1.5 rounded transition-all duration-300 group-aria-expanded:rotate-45 group-aria-expanded:translate-y-2" id="bar1"></span>
-      <span class="block w-7 h-0.5 bg-neutral-900 mb-1.5 rounded transition-all duration-300 group-aria-expanded:opacity-0" id="bar2"></span>
-      <span class="block w-7 h-0.5 bg-neutral-900 rounded transition-all duration-300 group-aria-expanded:-rotate-45 group-aria-expanded:-translate-y-2" id="bar3"></span>
-    </button>
-    <!-- Mobile Nav -->
-    <nav id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center gap-8 text-2xl font-light z-10 opacity-0 pointer-events-none transition-all duration-300 md:hidden">
-        <a href="#about" class="text-neutral-900 hover:text-red-600 transition-colors" onclick="closeMenu()">About</a>
-      <a href="#projekte" class="text-neutral-900 hover:text-red-600 transition-colors" onclick="closeMenu()">Projekte</a>
-      <a href="#kontakt" class="text-neutral-900 hover:text-red-600 transition-colors" onclick="closeMenu()">Kontakt</a>
-    </nav>
-  </header>
-  <main class="w-full max-w-none px-2 md:px-8 py-24">
+  <div class="max-w-7xl mx-auto">
+    <header class="w-full border-b border-neutral-200 py-6 px-4 flex justify-between items-center relative">
+      <span class="text-lg font-light tracking-tight">Tom Ziegler</span>
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex gap-2">
+          <a href="#about" class="text-neutral-900 hover:underline transition-colors px-2">About</a>
+        <a href="#projekte" class="text-neutral-900 hover:underline transition-colors px-2">Projekte</a>
+        <a href="#footer" class="text-neutral-900 hover:underline transition-colors px-2">Kontakt</a>
+      </nav>
+      <!-- Hamburger Button -->
+      <button id="menu-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 group z-20" aria-label="Menü öffnen">
+        <span class="block w-7 h-0.5 bg-neutral-900 mb-1.5 rounded transition-all duration-300 group-aria-expanded:rotate-45 group-aria-expanded:translate-y-2" id="bar1"></span>
+        <span class="block w-7 h-0.5 bg-neutral-900 mb-1.5 rounded transition-all duration-300 group-aria-expanded:opacity-0" id="bar2"></span>
+        <span class="block w-7 h-0.5 bg-neutral-900 rounded transition-all duration-300 group-aria-expanded:-rotate-45 group-aria-expanded:-translate-y-2" id="bar3"></span>
+      </button>
+      <!-- Mobile Nav -->
+      <nav id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center gap-8 text-2xl font-light z-10 opacity-0 pointer-events-none transition-all duration-300 md:hidden">
+          <a href="#about" class="text-neutral-900 hover:text-red-600 transition-colors" onclick="closeMenu()">About</a>
+        <a href="#projekte" class="text-neutral-900 hover:text-red-600 transition-colors" onclick="closeMenu()">Projekte</a>
+        <a href="#kontakt" class="text-neutral-900 hover:text-red-600 transition-colors" onclick="closeMenu()">Kontakt</a>
+      </nav>
+    </header>
+    <main class="w-full max-w-none px-2 md:px-8 py-24">
     <section class="mb-32 flex items-center pt-24 md:pt-32">
       <h1 class="text-4xl md:text-6xl font-light mb-14 tracking-tight">UX, die über Interaktionen hinausdenkt.</h1>
     </section>
@@ -58,7 +59,8 @@
         <h2 class="text-3xl md:text-5xl font-light text-neutral-900">About</h2>
       </div>
       <div class="md:col-span-2 text-neutral-700 text-base md:text-lg leading-relaxed">
-        <p>Als angehender UX-Designer, demnächst im Praxissemester, suche ich Möglichkeiten, meine Kenntnisse in Interaction Design praxisnah einzusetzen – insbesondere für Mobile Apps, E-Commerce und Enterprise-Lösungen. Ich arbeite sowohl eigenständig als auch im Team, nutze Figma, HTML/(Tailwind)CSS und Usability Best-Practices, um aus Nutzer*innenperspektive sinnvolle Abläufe zu entwerfen. Meine Herangehensweise ist geprägt von Empathie, Effizienz und Neugier: Ich möchte verstehen, wie Menschen Entscheidungen treffen, und dieses Verständnis nutzen, um klare, nutzerzentrierte Interfaces zu gestalten. Künstliche Intelligenz interessiert mich sehr; unter anderem als Verstärker für bessere Interaktionen und smartere Produkte.</p>
+        <p>UX-Designer im Studium. Fokus: <b>Mobile, E-Commerce, Enterprise</b>. Figma & HTML/Tailwind. <b>Nutzerzentriert, effizient – mit KI als gezieltem Werkzeug, nicht Selbstzweck</b>. Ich bilde mich laufend in KI weiter – <a href="#tab-cert" class="underline">Details</a>.</p>
+
       </div>
     </section>
     <section id="projekte" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32 pt-24 md:pt-32">
