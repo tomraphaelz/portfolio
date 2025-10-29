@@ -20,21 +20,22 @@
   <title>Portfolio – Tom Ziegler</title>
 </head>
 <body class="bg-white text-neutral-900 font-sans min-h-screen">
-  <!-- Minimalistischer Loader mit Blur und Ladebalken -->
-<div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/80 backdrop-blur-md transition-opacity duration-500">
-  <div class="w-48 h-2 bg-neutral-200 rounded-full overflow-hidden mb-6">
-    <div id="loader-bar" class="h-2 bg-red-600 rounded-full w-0 transition-all duration-700"></div>
+  <!-- Minimalistischer Loader -->
+  <div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/90 backdrop-blur-sm transition-opacity duration-700">
+    <div class="w-48 h-px bg-neutral-200 overflow-hidden mb-8">
+      <div id="loader-bar" class="h-px bg-neutral-900 w-0 transition-all duration-1000"></div>
+    </div>
+    <span class="text-neutral-400 text-sm font-light tracking-wider uppercase">Lädt</span>
   </div>
-  <span class="text-neutral-400 text-base font-light tracking-tight">Lädt ...</span>
-</div>
-  <div class="max-w-7xl mx-auto">
-    <header class="w-full border-b border-neutral-200 py-6 px-4 flex justify-between items-center relative">
-      <span class="text-lg font-light tracking-tight">Tom Ziegler</span>
+  <!-- Header -->
+  <header class="w-full border-b border-neutral-200/60 py-8 px-6 md:px-12 sticky top-0 bg-white/80 backdrop-blur-md z-40">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <span class="text-base font-light tracking-tight">Tom Ziegler</span>
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex gap-2">
-          <a href="#about" class="text-neutral-900 hover:underline transition-colors px-2">About</a>
-        <a href="#projekte" class="text-neutral-900 hover:underline transition-colors px-2">Projekte</a>
-        <a href="#footer" class="text-neutral-900 hover:underline transition-colors px-2">Kontakt</a>
+      <nav class="hidden md:flex gap-8">
+        <a href="#about" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">About</a>
+        <a href="#projekte" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Projekte</a>
+        <a href="#footer" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Kontakt</a>
       </nav>
       <!-- Hamburger Button -->
       <button id="menu-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 group z-20" aria-label="Menü öffnen">
@@ -42,13 +43,23 @@
         <span class="block w-7 h-0.5 bg-neutral-900 mb-1.5 rounded transition-all duration-300 group-aria-expanded:opacity-0" id="bar2"></span>
         <span class="block w-7 h-0.5 bg-neutral-900 rounded transition-all duration-300 group-aria-expanded:-rotate-45 group-aria-expanded:-translate-y-2" id="bar3"></span>
       </button>
-      <!-- Mobile Nav -->
-      <nav id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center gap-8 text-2xl font-light z-10 opacity-0 pointer-events-none transition-all duration-300 md:hidden">
-          <a href="#about" class="text-neutral-900 hover:text-red-600 transition-colors" onclick="closeMenu()">About</a>
-        <a href="#projekte" class="text-neutral-900 hover:text-red-600 transition-colors" onclick="closeMenu()">Projekte</a>
-        <a href="#kontakt" class="text-neutral-900 hover:text-red-600 transition-colors" onclick="closeMenu()">Kontakt</a>
-      </nav>
-    </header>
+    </div>
+    <!-- Mobile Nav -->
+    <nav id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center gap-8 text-2xl font-light z-10 opacity-0 pointer-events-none transition-all duration-300 md:hidden">
+      <a href="#about" class="text-neutral-900 hover:text-red-600 transition-colors" onclick="closeMenu()">About</a>
+      <a href="#projekte" class="text-neutral-900 hover:text-red-600 transition-colors" onclick="closeMenu()">Projekte</a>
+      <a href="#kontakt" class="text-neutral-900 hover:text-red-600 transition-colors" onclick="closeMenu()">Kontakt</a>
+    </nav>
+  </header>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-neutral-900 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-neutral-700 hover:scale-110 z-50 flex items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <div class="max-w-7xl mx-auto">
     <main class="w-full max-w-none px-2 md:px-8 py-24">
     <section class="mb-32 flex items-center pt-24 md:pt-32">
       <h1 class="text-4xl md:text-6xl font-light mb-14 tracking-tight">UX, die über Interaktionen hinausdenkt.</h1>
@@ -159,6 +170,17 @@
           </div>
           <div id="cert-panel" class="hidden">
             <div class="grid grid-cols-1 gap-8">
+              <!-- Zertifikat  -->
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                <div class="md:col-span-1">
+                  <div class="text-sm text-neutral-400 font-light">Oktober 2025</div>
+                </div>
+                <div class="md:col-span-3">
+                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Create your e-commerce store with Shopify</div>
+                  <div class="text-sm text-neutral-400 font-light">Coursera</div>
+                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: H1DND4PHLPY9</div>
+                </div>
+              </div>
               <!-- Zertifikat 1 -->
               <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
                 <div class="md:col-span-1">
@@ -272,12 +294,7 @@
         </div>
       </div>
 
-      <div class="mt-20">
-      <button id="scrollTopBtn" class="group flex items-center gap-2  hover:underline transition-all duration-200 focus:outline-none">
-        <svg class="w-5 h-5 transition-transform duration-200 group-hover:-translate-y-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path d="M8 12V4M8 4L4 8M8 4l4 4" stroke="#111" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="font-light text-neutral-900">Nach oben</span>
-      </button>
-    </div>
+      
   </main>
   <footer id="footer" class="border-t border-neutral-200 pt-10 pb-6 px-2 md:px-8 max-w-none mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-sm md:text-base">
     <!-- E-Mail -->
@@ -422,24 +439,48 @@
         lockIcon.addEventListener('mouseleave', () => animateLock(false));
       });
     });
-    // Loader mit Ladebalken
-  let progress = 0;
-  const bar = document.getElementById('loader-bar');
-  function animateBar() {
-    if (bar && progress < 100) {
-      progress += Math.random() * 20;
-      bar.style.width = Math.min(progress, 100) + '%';
-      setTimeout(animateBar, 200);
+    // Loader Animation
+    let progress = 0;
+    const bar = document.getElementById('loader-bar');
+    function animateBar() {
+      if (bar && progress < 100) {
+        progress += Math.random() * 25;
+        bar.style.width = Math.min(progress, 100) + '%';
+        setTimeout(animateBar, 150);
+      }
     }
-  }
-  animateBar();
-  window.addEventListener('load', function() {
-    const loader = document.getElementById('loader');
-    if (loader) {
-      loader.style.opacity = '0';
-      setTimeout(() => loader.style.display = 'none', 500);
-    }
-  });
+    animateBar();
+
+    window.addEventListener('load', function() {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        setTimeout(() => {
+          loader.style.opacity = '0';
+          setTimeout(() => loader.style.display = 'none', 700);
+        }, 300);
+      }
+    });
+
+    // Scroll to Top Button
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.style.opacity = '1';
+        scrollToTopBtn.style.pointerEvents = 'auto';
+      } else {
+        scrollToTopBtn.style.opacity = '0';
+        scrollToTopBtn.style.pointerEvents = 'none';
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
     // Hamburger Menü
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
