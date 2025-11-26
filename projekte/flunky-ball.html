@@ -18,11 +18,72 @@
     html {
       scroll-behavior: smooth;
     }
+
+    /* Gallery navigation buttons positioning fix */
+    .gallery-prev-btn {
+      left: 1rem !important;
+    }
+    .gallery-next-btn {
+      right: 1rem !important;
+    }
+    @media (min-width: 768px) {
+      .gallery-prev-btn {
+        left: 2rem !important;
+      }
+      .gallery-next-btn {
+        right: 2rem !important;
+      }
+    }
+
+    /* Modal navigation buttons positioning fix */
+    #prevImage {
+      left: 1rem !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+    }
+    #nextImage {
+      right: 1rem !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+    }
+    @media (min-width: 768px) {
+      #prevImage {
+        left: 2rem !important;
+      }
+      #nextImage {
+        right: 2rem !important;
+      }
+    }
+
+    /* Modal close button - keep at top right */
+    #closeModal {
+      top: 1rem !important;
+      right: 1rem !important;
+      transform: none !important;
+    }
+    @media (min-width: 768px) {
+      #closeModal {
+        top: 2rem !important;
+        right: 2rem !important;
+      }
+    }
+
+    /* Modal image counter - keep at bottom center */
+    #imageModal > div:last-of-type {
+      bottom: 1rem !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+    }
+    @media (min-width: 768px) {
+      #imageModal > div:last-of-type {
+        bottom: 2rem !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-white text-neutral-900 font-sans min-h-screen antialiased">
   <!-- Minimalistischer Loader -->
-  <div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/90 backdrop-blur-sm transition-opacity duration-700">
+  <div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/50 backdrop-blur-sm transition-opacity duration-700">
     <div class="w-48 h-px bg-neutral-200 overflow-hidden mb-8">
       <div id="loader-bar" class="h-px bg-neutral-900 w-0 transition-all duration-1000"></div>
     </div>
@@ -53,26 +114,22 @@
 
     <!-- Hero Section -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 pt-20 md:pt-32 pb-32 md:pb-48">
-      <div class="max-w-5xl">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20 md:mb-32">
-          <h1 class="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-none">Flunk-E</h1>
-          <div class="flex flex-col md:items-end gap-2">
-            <span class="text-base md:text-lg font-light text-neutral-900">EMAF 2025</span>
-            <span class="text-xs md:text-sm text-neutral-500 font-light uppercase tracking-wider">Interaktives Gesellschaftsspiel</span>
-          </div>
+      <div class="flex flex-col md:flex-row md:items-start justify-between gap-12 md:gap-16 mb-20 md:mb-32">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-none">Flunk-E</h1>
+        <div class="flex flex-col md:items-end gap-2 flex-shrink-0">
+          <span class="text-base md:text-lg font-light text-neutral-900">EMAF 2025</span>
+          <span class="text-xs md:text-sm text-neutral-500 font-light uppercase tracking-wider">Interaktives Gesellschaftsspiel</span>
         </div>
       </div>
     </section>
 
     <!-- Hero Image -->
-    <section class="w-full px-6 md:px-12 mb-32 md:mb-48">
-      <div class="max-w-7xl mx-auto">
-        <figure class="group">
-          <div class="relative overflow-hidden bg-neutral-50 aspect-[16/9]">
-            <img src="../assets/images/Flunk-E_poster.jpg" alt="Flunk-E Projekt Hero" class="block w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
-          </div>
-        </figure>
-      </div>
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-32 md:mb-48">
+      <figure class="group">
+        <div class="relative overflow-hidden bg-neutral-50 aspect-[16/9]">
+          <img src="../assets/images/Flunk-E_poster.jpg" alt="Flunk-E Projekt Hero" class="block w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
+        </div>
+      </figure>
     </section>
 
     <!-- Intro Statement -->
@@ -82,8 +139,8 @@
           <h2 class="text-2xl md:text-3xl lg:text-4xl font-light text-neutral-900 tracking-tight leading-snug">"Wie macht man ein Partyspiel fair, ohne den Spaß zu verlieren?"</h2>
         </div>
         <div class="md:col-span-7 space-y-8 text-neutral-700 text-base md:text-lg leading-relaxed">
-          <p>Flunkyball lebt von seiner Einfachheit – aber auch von seiner größten Schwäche: Wer gut wirft, dominiert. Wer schlecht wirft, schaut zu.</p>
-          <p>Unsere Antwort: Ein intelligentes Spielsystem, das Sensoren, Bluetooth und dynamische Challenges kombiniert, um Balance zu schaffen ohne die soziale Essenz des Spiels zu verlieren.</p>
+          <p>Flunkyball lebt von seiner Einfachheit, hat aber auch eine große Schwäche: Wer gut wirft, dominiert. Wer schlecht wirft, verliert.</p>
+          <p>Unsere Antwort: Ein intelligentes Spielsystem, das Sensoren, Bluetooth und Challenges kombiniert, um Balance zu schaffen ohne die soziale Essenz des Spiels zu verlieren.</p>
           <p class="text-neutral-900 font-normal pt-4">Das Ergebnis: Ein smarter Ball, eine robuste Sensor-Flasche und eine App, die als digitaler Game Master das Spiel für alle spannend hält.</p>
         </div>
       </div>
@@ -113,16 +170,16 @@
         <!-- Die Idee -->
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-32 md:mb-40">
           <div class="md:col-span-4">
-            <h4 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Die Idee: Dynamik durch intelligente Challenges</h4>
+            <h4 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Die Idee: Dynamik durch Challenges</h4>
           </div>
           <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
-            <p>Statt das Grundprinzip zu verändern, wollten wir eine zusätzliche Ebene schaffen: Challenges, die sich an die Spieler anpassen.</p>
+            <p>Statt das Grundprinzip zu verändern, wollten wir eine zusätzliche Ebene schaffen: Challenges.</p>
             <div class="pl-8 space-y-4 border-l border-neutral-300 mt-8">
               <p><span class="font-normal text-neutral-900">Die Überlegung dahinter:</span></p>
-              <p>Gute Werfer bekommen schwierigere Aufgaben (z.B. "Mit links werfen" oder "Augen zu")</p>
+              <p>Gute Werfer bekommen schwierige Aufgaben (z.B. "Mit links werfen" oder "Augen zu")</p>
               <p>Das Spiel bleibt physisch und sozial, wird aber fairer und unvorhersehbarer</p>
             </div>
-            <p class="pt-8 text-neutral-900 font-normal">Die zentrale Erkenntnis: Technologie sollte nicht das Spiel übernehmen, sondern im Hintergrund dafür sorgen, dass alle mehr Spaß haben.</p>
+            <p class="pt-8 text-neutral-900 font-normal">Unser Gedanke: Technologie soll nicht das Spiel übernehmen, sondern im Hintergrund dafür sorgen, dass alle mehr Spaß haben.</p>
           </div>
         </div>
 
@@ -134,11 +191,10 @@
           <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
             <p>Unser Ansatz war klar: Ein intelligentes Spielsystem, das:</p>
             <ul class="space-y-4 pl-8 border-l border-neutral-300 mt-8">
-              <li>Automatisch erkennt, ob die Flasche getroffen wurde (Sensoren statt Schiedsrichter-Diskussionen)</li>
-              <li>Dynamisch Challenges vergibt</li>
+              <li>Automatisch erkennt, ob die Flasche getroffen wurde</li>
+              <li>Lustige Challenges vergibt</li>
               <li>Physisch und digital verbindet, ohne dass die App im Weg steht</li>
             </ul>
-            <p class="pt-8 text-neutral-900 font-normal">Das Ergebnis sollte sich anfühlen wie Flunkyball, nur mit einem unsichtbaren Game Master, der für Balance sorgt.</p>
           </div>
         </div>
       </div>
@@ -153,7 +209,7 @@
         </figure>
         <div class="mt-12 max-w-3xl">
           <p class="text-neutral-600 text-sm md:text-base leading-relaxed font-light">
-            Von der ersten Idee bis zur finalen Challenge-Liste: Unser Miro Board dokumentiert den kreativen Prozess, inklusive verworfener Ideen wie GPS-Tracking oder Spracherkennung, die zu komplex oder unzuverlässig gewesen wären.
+            Von der ersten Idee bis zum zeitlichen Ablauf: Unser Miro Board zeigt unseren Prozess, inklusive verworfener Ideen wie GPS-Tracking oder Spracherkennung, die zu komplex oder unzuverlässig gewesen wären.
           </p>
         </div>
       </div>
@@ -179,12 +235,12 @@
             <div class="space-y-12 mt-12">
               <div class="pl-8 border-l border-neutral-300">
                 <h4 class="text-base md:text-lg font-normal text-neutral-900 mb-3">1. Automatische Treffererkennung</h4>
-                <p class="text-neutral-700">Keine Diskussionen mehr, ob die Flasche umgefallen ist. Sensoren messen den Impact – objektiv und millisekunden-genau.</p>
+                <p class="text-neutral-700">Hilft der App, einen Überblick zu behalten, wer dran ist und somit (k)eine Challenge erhält.</p>
               </div>
 
               <div class="pl-8 border-l border-neutral-300">
                 <h4 class="text-base md:text-lg font-normal text-neutral-900 mb-3">2. Challenge-Vergabe</h4>
-                <p class="text-neutral-700">Das Treffer-Team bekommt Challenges, dadurch hat das andere Team Vorteile. Das Spiel balanciert sich selbst.</p>
+                <p class="text-neutral-700">Das Treffer-Team bekommt Challenges, dadurch hat das andere Team einen Vorteil.</p>
               </div>
 
               <div class="pl-8 border-l border-neutral-300">
@@ -206,34 +262,36 @@
           </div>
           <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-8">
             <p class="font-normal text-neutral-900">Ball + Flasche + App = nahtlose Verbindung</p>
-            <p>Das technische Herzstück ist ebenso simpel wie elegant:</p>
-
+            <figure class="group md:ml-auto md:max-w-4xl">
+              <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
+                <img src="../assets/images/Flunk-E_FlascheLiegt.png" alt="Flasche Detail" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
+              </div>
+            </figure>
+            <p>Das technische Herzstück ist relativ simpel:</p>
+            
             <div class="space-y-12 mt-12">
               <div class="pl-8 border-l border-neutral-300">
-                <h4 class="text-lg md:text-xl font-light text-neutral-900 mb-4 tracking-tight">🏐 Der smarte Ball</h4>
+                <h4 class="text-lg md:text-xl font-light text-neutral-900 mb-4 tracking-tight">Der smarte Ball</h4>
                 <ul class="space-y-3 text-neutral-700 text-sm md:text-base">
                   <li>Accelerometer erkennt Wurfbewegung und Impact</li>
                   <li>BLE-Modul sendet Signal an die App</li>
-                  <li>Ball hält intensivem Spielbetrieb stand</li>
                 </ul>
               </div>
 
               <div class="pl-8 border-l border-neutral-300">
-                <h4 class="text-lg md:text-xl font-light text-neutral-900 mb-4 tracking-tight">🍾 Die Sensor-Flasche</h4>
+                <h4 class="text-lg md:text-xl font-light text-neutral-900 mb-4 tracking-tight">Die Sensor-Flasche</h4>
                 <ul class="space-y-3 text-neutral-700 text-sm md:text-base">
                   <li>Beschleunigungssensor registriert, wenn sie umfällt</li>
                   <li>Extra widerstandsfähige Flasche für unzählige Würfe ausgelegt</li>
-                  <li>Etikett macht Flunk-E im Prototypen als Produkt erkennbar</li>
                 </ul>
               </div>
 
               <div class="pl-8 border-l border-neutral-300">
-                <h4 class="text-lg md:text-xl font-light text-neutral-900 mb-4 tracking-tight">📱 Die App als Game Master</h4>
+                <h4 class="text-lg md:text-xl font-light text-neutral-900 mb-4 tracking-tight">Die App als Game Master</h4>
                 <ul class="space-y-3 text-neutral-700 text-sm md:text-base">
                   <li>Empfängt Sensordaten via BLE</li>
                   <li>Verwaltet Spielstand und Challenge-Vergabe</li>
-                  <li>Zeigt aktuelle Challenge visuell klar an</li>
-                  <li>Gibt Feedback bei Treffer/Fehlwurf</li>
+                  <li>Zeigt aktuelle Challenge an</li>
                 </ul>
               </div>
             </div>
@@ -246,11 +304,11 @@
             <div class="relative overflow-hidden">
               <img src="../assets/images/Flunk-E-Ablaufdiagramm.png" alt="Systemarchitektur Datenfluss" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.01]" loading="lazy" />
             </div>
-            <figcaption class="mt-8 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Systemarchitektur & Datenfluss</figcaption>
+            <figcaption class="mt-8 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Systemarchitektur & Ablaufdiagramm</figcaption>
           </figure>
           <div class="mt-12 max-w-3xl mx-auto">
             <p class="text-neutral-600 text-sm md:text-base leading-relaxed font-light">
-              Die Herausforderung dabei: Alle drei Komponenten mussten zuverlässig in Echtzeit kommunizieren – auch, wenn der Ball mal etwas weiter fliegt.
+              Eine der Herausforderungen dabei: Alle drei Komponenten mussten zuverlässig in Echtzeit kommunizieren – auch, wenn der Ball mal etwas weiter fliegt.
             </p>
           </div>
         </div>
@@ -260,17 +318,18 @@
       <div class="mb-40 md:mb-56">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-20">
           <div class="md:col-span-4">
-            <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Die digitale Schnittstelle: UI als unsichtbarer Spielleiter</h3>
+            <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug mb-8">Die digitale Schnittstelle: der unsichtbarer Spielleiter</h3>
+
           </div>
           <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-8">
             <h4 class="text-lg md:text-xl font-light text-neutral-900 tracking-tight">Design-Prinzipien für die App</h4>
-            <p>Bei der Gestaltung der App ging es nicht um fancy Features, sondern um extreme Klarheit unter Partybedingungen:</p>
+            <p>Bei der Gestaltung der App ging es nicht primär um schönes Aussehen, sondern um Klarheit unter Partybedingungen:</p>
 
             <div class="space-y-10 mt-12">
               <div class="pl-8 border-l border-neutral-300">
                 <h5 class="text-base font-normal text-neutral-900 mb-3">1. Schnell verständliche Information</h5>
                 <ul class="space-y-2 text-neutral-700 text-sm md:text-base">
-                  <li>Ausreichend große Schrift, hoher Kontrast (min. AA)</li>
+                  <li>Möglichst barrierefreies, aber energetisches Design</li>
                   <li>Aktuelle Challenge schnell auffindbar</li>
                   <li>Spielstand auf einen Blick</li>
                 </ul>
@@ -280,7 +339,7 @@
                 <h5 class="text-base font-normal text-neutral-900 mb-3">2. Minimale Interaktion</h5>
                 <ul class="space-y-2 text-neutral-700 text-sm md:text-base">
                   <li>Keine komplexen Menüs während des Spiels</li>
-                  <li>Ein Tap für die wichtigsten Aktionen</li>
+                  <li>Wenige Taps für die wichtigsten Aktionen</li>
                   <li>Automatische Übergänge zwischen Spielphasen</li>
                 </ul>
               </div>
@@ -289,15 +348,7 @@
                 <h5 class="text-base font-normal text-neutral-900 mb-3">3. Visuelles Feedback</h5>
                 <ul class="space-y-2 text-neutral-700 text-sm md:text-base">
                   <li>Animationen bestätigen Treffer</li>
-                  <li>Je nach Team verschiedene Farbcodes Challenges</li>
-                </ul>
-              </div>
-
-              <div class="pl-8 border-l border-neutral-300">
-                <h5 class="text-base font-normal text-neutral-900 mb-3">4. Orangene Brand Identity</h5>
-                <ul class="space-y-2 text-neutral-700 text-sm md:text-base">
-                  <li>Wiedererkennbar, energetisch, passend zur Spielatmosphäre</li>
-                  <li>Konsistent über alle Touchpoints (App, Hardware-Etikett, Präsentation)</li>
+                  <li>Je nach Team verschieden-farbige Challenges</li>
                 </ul>
               </div>
             </div>
@@ -305,17 +356,30 @@
         </div>
 
         <!-- UI Screens -->
-        <div class="mt-32 md:mt-40">
+        <div class="">
           <figure class="group">
             <div class="relative overflow-hidden bg-neutral-50">
               <img src="../assets/images/Flunk-E-UIs.png" alt="Flunk-E App Interface Screens" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.01]" loading="lazy" />
             </div>
-            <figcaption class="mt-8 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">App Interface Design</figcaption>
           </figure>
-          <div class="mt-12 max-w-3xl mx-auto">
-            <p class="text-neutral-600 text-sm md:text-base leading-relaxed font-light">
-              Von der Spieler-Verwaltung bis zur Challenge-Anzeige: Jeder Screen ist auf schnelle Erfassung optimiert – auch nach ein paar Runden.
-            </p>
+        </div>
+
+        <!-- App-Walkthrough -->
+        <div class="mt-32 md:mt-40">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+            <div class="md:col-span-4">
+              <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">App-Walkthrough</h3>
+            </div>
+            <div class="md:col-span-8">
+              <div class="flex justify-center md:justify-start">
+                <div class="relative w-[320px] h-[660px] md:w-[360px] md:h-[740px] flex items-center justify-center">
+                  <video controls playsinline class="absolute left-1/2 top-1/2 w-[288px] h-[624px] -translate-x-1/2 -translate-y-1/2 rounded-[36px] shadow-2xl object-cover bg-black" poster="../assets/images/Flunk-E-App-Thumbnail.png">
+                    <source src="../assets/videos/flunkyball.mp4" type="video/mp4" />
+                    Dein Browser unterstützt das Video-Tag nicht.
+                  </video>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -334,27 +398,24 @@
                 <h4 class="text-base md:text-lg font-normal text-neutral-900 mb-4">Unser Prozess:</h4>
                 <div class="space-y-6">
                   <div>
-                    <h5 class="text-base font-normal text-neutral-900 mb-2">1. Brainstorming mit ChatGPT</h5>
+                    <h5 class="text-base md:text-lg font-normal text-neutral-900 mb-2">1. Brainstorming mit KI</h5>
                     <p class="text-neutral-700">Wir nutzten KI, um eine breite Palette an Challenge-Ideen zu generieren – von simpel ("Mit links werfen") bis absurd ("Rückwärts werfen mit geschlossenen Augen").</p>
+                    <p class="text-neutral-700">Wir testen verschiedene KI's, beispielsweise ChatGPT und Deepseek. Dabei stellten wir fest, dass diese oft ihre eigenen Stärken haben.</p>
                   </div>
 
                   <div>
-                    <h5 class="text-base font-normal text-neutral-900 mb-2">2. Test: Realitätscheck</h5>
-                    <p class="text-neutral-700 mb-3">Welche Challenges sind praktisch umsetzbar? Welche machen tatsächlich Spaß? Welche sind zu frustrierend?</p>
-                    <p class="text-sm text-neutral-600 italic">Beispiele aus der finalen Liste:</p>
-                    <ul class="mt-2 space-y-1 text-neutral-700 text-sm md:text-base">
-                      <li>"Wirf mit deiner schwachen Hand"</li>
-                      <li>"Dreh dich 3x im Kreis vor dem Wurf"</li>
-                    </ul>
+                    <h5 class="text-base md:text-lg font-normal text-neutral-900 mb-2">2. Realitätscheck</h5>
+                    <p class="text-neutral-700">Welche Challenges sind auch praktisch umsetzbar? Welche machen tatsächlich Spaß? Welche sind zu frustrierend?</p>
+                    <p class="text-neutral-700">Die Outputs der KI waren teilweise mit Vorsicht zu genießen und benötigten menschliche Kuratierung. Indem wir u.a. Beispiele gaben, konnten wir die KI in die richtige Richtung lotsen.</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="mt-12 pt-8 border-t border-neutral-200">
+            <!-- <div class="mt-12 pt-8 border-t border-neutral-200">
               <p class="font-normal text-neutral-900 mb-3">Die Learnings:</p>
               <p>KI war hilfreich für die quantitative Ideenfindung, aber die Kuration und Balance brauchte menschliches Urteilsvermögen. Nicht jede generierte Idee war praktikabel oder machte in einer echten Spielsituation Sinn.</p>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -367,16 +428,14 @@
       </div>
 
       <!-- Was ich gelernt habe -->
-      <div class="mb-40 md:mb-56">
-        <h3 class="text-2xl md:text-4xl font-light text-neutral-900 tracking-tight mb-24 md:mb-32">Was ich gelernt habe</h3>
-
+      
         <div class="space-y-24 md:space-y-32">
           <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
             <div class="md:col-span-4">
               <h4 class="text-lg md:text-xl font-normal text-neutral-900 tracking-tight leading-snug">Hardware ist anders als erwartet</h4>
             </div>
             <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed">
-              <p>Vor Flunk-E hatte ich nur mit digitalen Projekten gearbeitet. Die Kombination aus Arduino, Bluetooth und App hat mir gezeigt, wie viel komplexer es wird, wenn physische Komponenten im Spiel sind. Dinge, die in der App funktionieren, scheitern plötzlich an Bluetooth-Reichweite oder Sensor-Ungenauigkeiten. Das hat meinen Blick auf Design verändert: Ich muss früher mit den technischen Möglichkeiten auseinandersetzen.</p>
+              <p>Vor Flunk-E habe ich nur mit digitalen Projekten gearbeitet. Die Kombination aus Arduino, Bluetooth und App hat mir gezeigt, wie viel komplexer es wird, wenn physische Komponenten im Spiel sind. Dinge, die in der App funktionieren, scheitern plötzlich an Bluetooth-Reichweite oder Sensor-Ungenauigkeiten. Das hat meinen Blick auf Design verändert: Man muss sich früh mit den technischen Möglichkeiten auseinandersetzen. Auch hierbei hat KI uns sehr geholfen. Es war sehr gut dafür, uns einen Überblick in geeignete Hardware zu geben, bei der wir vorher völlig ahnungslos waren.</p>
             </div>
           </div>
 
@@ -394,22 +453,11 @@
               <h4 class="text-lg md:text-xl font-normal text-neutral-900 tracking-tight leading-snug">Teamwork unter Zeitdruck</h4>
             </div>
             <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed">
-              <p>Zwei Blockwochen für Hardware, Software und Design war sportlich. Wir haben die Aufgaben effizient aufgeteilt und uns regelmäßig abgestimmt. Was geholfen hat: Klare Verantwortlichkeiten und regelmäßiges Feedback von den Dozenten.</p>
+              <p>Wir haben die Aufgaben effizient aufgeteilt und uns regelmäßig abgestimmt. Was geholfen hat: Klare Verantwortlichkeiten mit Deadlines sowie regelmäßiges Feedback von Dozierenden und Kommilitonen.</p>
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
-            <div class="md:col-span-4">
-              <h4 class="text-lg md:text-xl font-normal text-neutral-900 tracking-tight leading-snug">KI als Werkzeug</h4>
-            </div>
-            <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed">
-              <p>Für das Challenge-Brainstorming war ChatGPT hilfreich - viele Ideen in kurzer Zeit. Welche davon praktikabel und ausbalanciert sind, mussten wir aber selbst kuratieren.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Was ich anders machen würde -->
+      <!-- Was ich anders machen würde
       <div class="mb-40 md:mb-56">
         <h3 class="text-2xl md:text-4xl font-light text-neutral-900 tracking-tight mb-24 md:mb-32">Was ich anders machen würde</h3>
 
@@ -432,10 +480,10 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Ausblick -->
-      <div>
+      <!-- <div>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
           <div class="md:col-span-4">
             <h3 class="text-2xl md:text-4xl font-light text-neutral-900 tracking-tight leading-snug">Ausblick</h3>
@@ -457,10 +505,10 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
 
-    <!-- Hardware Gallery -->
+    <!-- Hardware Gallery 
     <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20 md:mb-32">
         <div>
@@ -519,9 +567,9 @@
             <img src="../assets/images/Flunk-E_Hardware_FlascheAuf_BallAuf.png" alt="Hardware Stack" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
           </div>
           <figcaption class="mt-8 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Hardware Stack</figcaption>
-        </figure>
+        </figure> 
 
-        <!-- Demo Video -->
+        
         <div class="flex flex-col items-center pt-12">
           <div class="mb-12 text-center">
             <span class="text-base md:text-lg text-neutral-500 font-light tracking-tight">Kurzes Demo-Video: So funktioniert Flunk-E in der Praxis</span>
@@ -532,6 +580,59 @@
               Dein Browser unterstützt das Video-Tag nicht.
             </video>
           </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Bildergalerie -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
+      <div class="mb-16 md:mb-20">
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none">Galerie</h2>
+      </div>
+
+      <div class="gallery-container-wrapper relative">
+        <figure class="group gallery-item" data-gallery-index="0">
+          <div class="relative overflow-hidden bg-neutral-50 aspect-[16/9]">
+            <img src="../assets/images/Flunk-E_poster.jpg" alt="Flunk-E Poster" class="gallery-main-image block w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
+
+            <!-- Navigation Arrows on Image -->
+            <button class="gallery-prev-btn absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/90 backdrop-blur-sm text-neutral-900 rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all duration-300 z-10">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+
+            <button class="gallery-next-btn absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/90 backdrop-blur-sm text-neutral-900 rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all duration-300 z-10">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+
+            <!-- Image Counter -->
+            <div class="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg z-10">
+              <span class="gallery-counter text-sm md:text-base text-neutral-900 font-light tracking-wider">1 / 16</span>
+            </div>
+          </div>
+        </figure>
+
+        <!-- Hidden gallery images data -->
+        <div class="hidden">
+          <div data-gallery-index="0" data-gallery-src="../assets/images/Flunk-E_poster.jpg" data-gallery-alt="Flunk-E Poster"></div>
+          <div data-gallery-index="1" data-gallery-src="../assets/images/Flunk-E_FlascheAuf_BallAuf.png" data-gallery-alt="Flasche und Ball Hardware"></div>
+          <div data-gallery-index="2" data-gallery-src="../assets/images/Flunk-E_BallAuf.png" data-gallery-alt="Ball Detail"></div>
+          <div data-gallery-index="3" data-gallery-src="../assets/images/Flunk-E_Flasche_Ball.png" data-gallery-alt="Flasche und Ball"></div>
+          <div data-gallery-index="4" data-gallery-src="../assets/images/Flunk-E_FlascheLiegt.png" data-gallery-alt="Flasche Detail"></div>
+          <div data-gallery-index="5" data-gallery-src="../assets/images/Flunk-E_Flasche.png" data-gallery-alt="Die Flasche"></div>
+          <div data-gallery-index="6" data-gallery-src="../assets/images/Flunk-E_FlascheAuf.png" data-gallery-alt="Deckel offen"></div>
+          <div data-gallery-index="7" data-gallery-src="../assets/images/Flunk-E_Hardware_FlascheAuf_BallAuf.png" data-gallery-alt="Hardware Stack"></div>
+          <div data-gallery-index="8" data-gallery-src="../assets/images/Flunk-E-UIs.png" data-gallery-alt="App Interface"></div>
+          <div data-gallery-index="9" data-gallery-src="../assets/images/Flunk-E-Ablaufdiagramm.png" data-gallery-alt="Ablaufdiagramm"></div>
+          <div data-gallery-index="10" data-gallery-src="../assets/images/Flunk-E-challenges.png" data-gallery-alt="Challenges"></div>
+          <div data-gallery-index="11" data-gallery-src="../assets/images/MiroBoard-Flunk_E.jpg" data-gallery-alt="Miro Board"></div>
+          <div data-gallery-index="12" data-gallery-src="../assets/images/flunkechallenge.png" data-gallery-alt="Flunke Challenge"></div>
+          <div data-gallery-index="13" data-gallery-src="../assets/images/flunkechallengetornado.png" data-gallery-alt="Flunke Challenge Tornado"></div>
+          <div data-gallery-index="14" data-gallery-src="../assets/images/flunkethumbnail.jpg" data-gallery-alt="Flunke Thumbnail"></div>
+          <div data-gallery-index="15" data-gallery-src="../assets/images/flunkethumbnailbig.jpg" data-gallery-alt="Flunke Thumbnail Big"></div>
         </div>
       </div>
     </section>
@@ -552,13 +653,32 @@
 
   <!-- Image Modal -->
   <div id="imageModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm">
-    <button id="closeModal" class="absolute top-8 right-8 w-12 h-12 flex items-center justify-center text-white hover:text-neutral-300 transition-colors duration-300 group" aria-label="Modal schließen">
+    <button id="closeModal" class="absolute top-4 md:top-8 right-4 md:right-8 w-12 h-12 flex items-center justify-center text-white hover:text-neutral-300 transition-colors duration-300 group z-20" aria-label="Modal schließen">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:rotate-90">
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </button>
+
+    <!-- Navigation Arrows -->
+    <button id="prevImage" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-neutral-300 transition-all duration-300 group z-20 hover:scale-110" aria-label="Vorheriges Bild">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:-translate-x-1">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <button id="nextImage" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-neutral-300 transition-all duration-300 group z-20 hover:scale-110" aria-label="Nächstes Bild">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:translate-x-1">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
     <img id="modalImage" src="" alt="Vergrößertes Bild" class="max-w-[90vw] max-h-[90vh] object-contain" />
+
+    <!-- Image Counter -->
+    <div class="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-white text-sm font-light tracking-wider z-20">
+      <span id="imageCounter"></span>
+    </div>
   </div>
 
   <!-- Scripts -->
@@ -633,21 +753,155 @@
       });
     });
 
-    // Image Modal Functionality
+    // Gallery Navigation on Page
+    const galleryContainer = document.querySelector('.gallery-item');
+    const galleryImage = document.querySelector('.gallery-main-image');
+    const galleryPrevBtn = document.querySelector('.gallery-prev-btn');
+    const galleryNextBtn = document.querySelector('.gallery-next-btn');
+    const galleryCounter = document.querySelector('.gallery-counter');
+
+    let currentPageGalleryIndex = 0;
+    let pageGalleryImages = [];
+
+    // Sammle alle Galerie-Bilder aus den Hidden Data Divs
+    document.querySelectorAll('[data-gallery-index][data-gallery-src]').forEach(item => {
+      const index = parseInt(item.getAttribute('data-gallery-index'));
+      pageGalleryImages[index] = {
+        src: item.getAttribute('data-gallery-src'),
+        alt: item.getAttribute('data-gallery-alt')
+      };
+    });
+
+    // Aktualisiere das angezeigte Bild in der Galerie
+    function updatePageGalleryImage(index) {
+      if (index >= 0 && index < pageGalleryImages.length && galleryImage) {
+        currentPageGalleryIndex = index;
+        galleryImage.src = pageGalleryImages[index].src;
+        galleryImage.alt = pageGalleryImages[index].alt;
+        galleryCounter.textContent = `${index + 1} / ${pageGalleryImages.length}`;
+      }
+    }
+
+    // Navigation: Vorheriges Bild (auf Seite)
+    if (galleryPrevBtn) {
+      galleryPrevBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (currentPageGalleryIndex > 0) {
+          updatePageGalleryImage(currentPageGalleryIndex - 1);
+        } else {
+          updatePageGalleryImage(pageGalleryImages.length - 1);
+        }
+      });
+    }
+
+    // Navigation: Nächstes Bild (auf Seite)
+    if (galleryNextBtn) {
+      galleryNextBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (currentPageGalleryIndex < pageGalleryImages.length - 1) {
+          updatePageGalleryImage(currentPageGalleryIndex + 1);
+        } else {
+          updatePageGalleryImage(0);
+        }
+      });
+    }
+
+    // Tastatursteuerung für Galerie auf Seite
+    document.addEventListener('keydown', function(e) {
+      // Nur wenn Modal geschlossen ist
+      const imageModal = document.getElementById('imageModal');
+      if (imageModal && imageModal.classList.contains('hidden')) {
+        if (e.key === 'ArrowLeft') {
+          if (currentPageGalleryIndex > 0) {
+            updatePageGalleryImage(currentPageGalleryIndex - 1);
+          } else {
+            updatePageGalleryImage(pageGalleryImages.length - 1);
+          }
+        } else if (e.key === 'ArrowRight') {
+          if (currentPageGalleryIndex < pageGalleryImages.length - 1) {
+            updatePageGalleryImage(currentPageGalleryIndex + 1);
+          } else {
+            updatePageGalleryImage(0);
+          }
+        }
+      }
+    });
+
+    // Image Modal Functionality (für andere Bilder auf der Seite)
     const imageModal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
     const closeModalBtn = document.getElementById('closeModal');
+    const modalPrevBtn = document.getElementById('prevImage');
+    const modalNextBtn = document.getElementById('nextImage');
+    const modalImageCounter = document.getElementById('imageCounter');
 
-    // Alle Bilder in figure-Elementen klickbar machen
+    let currentModalIndex = -1;
+    let isModalGalleryMode = false;
+
+    // Bilder außerhalb der Galerie-Sektion klickbar machen (für Modal)
     document.querySelectorAll('figure img').forEach(img => {
-      img.style.cursor = 'pointer';
-      img.addEventListener('click', function() {
-        modalImage.src = this.src;
-        modalImage.alt = this.alt;
+      // Nur Bilder, die NICHT in der Gallery-Sektion sind
+      if (!img.closest('.gallery-item')) {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', function() {
+          isModalGalleryMode = false;
+          modalImage.src = this.src;
+          modalImage.alt = this.alt;
+          modalPrevBtn.style.display = 'none';
+          modalNextBtn.style.display = 'none';
+          modalImageCounter.style.display = 'none';
+
+          imageModal.classList.remove('hidden');
+          imageModal.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+    });
+
+    // Galerie-Bild klickbar machen (öffnet Modal mit Galerie-Navigation)
+    if (galleryImage) {
+      galleryImage.addEventListener('click', function() {
+        isModalGalleryMode = true;
+        currentModalIndex = currentPageGalleryIndex;
+        showModalGalleryImage(currentModalIndex);
+        modalPrevBtn.style.display = 'flex';
+        modalNextBtn.style.display = 'flex';
+        modalImageCounter.style.display = 'block';
+
         imageModal.classList.remove('hidden');
         imageModal.classList.add('flex');
         document.body.style.overflow = 'hidden';
       });
+    }
+
+    // Zeige Bild im Modal
+    function showModalGalleryImage(index) {
+      if (index >= 0 && index < pageGalleryImages.length) {
+        currentModalIndex = index;
+        modalImage.src = pageGalleryImages[index].src;
+        modalImage.alt = pageGalleryImages[index].alt;
+        modalImageCounter.textContent = `${index + 1} / ${pageGalleryImages.length}`;
+      }
+    }
+
+    // Navigation: Vorheriges Bild (im Modal)
+    modalPrevBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (isModalGalleryMode && currentModalIndex > 0) {
+        showModalGalleryImage(currentModalIndex - 1);
+      } else if (isModalGalleryMode && currentModalIndex === 0) {
+        showModalGalleryImage(pageGalleryImages.length - 1);
+      }
+    });
+
+    // Navigation: Nächstes Bild (im Modal)
+    modalNextBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (isModalGalleryMode && currentModalIndex < pageGalleryImages.length - 1) {
+        showModalGalleryImage(currentModalIndex + 1);
+      } else if (isModalGalleryMode && currentModalIndex === pageGalleryImages.length - 1) {
+        showModalGalleryImage(0);
+      }
     });
 
     // Modal schließen: X-Button
@@ -662,10 +916,24 @@
       }
     });
 
-    // Modal schließen: ESC-Taste
+    // Tastatursteuerung für Modal
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && !imageModal.classList.contains('hidden')) {
-        closeModal();
+      if (!imageModal.classList.contains('hidden')) {
+        if (e.key === 'Escape') {
+          closeModal();
+        } else if (e.key === 'ArrowLeft' && isModalGalleryMode) {
+          if (currentModalIndex > 0) {
+            showModalGalleryImage(currentModalIndex - 1);
+          } else {
+            showModalGalleryImage(pageGalleryImages.length - 1);
+          }
+        } else if (e.key === 'ArrowRight' && isModalGalleryMode) {
+          if (currentModalIndex < pageGalleryImages.length - 1) {
+            showModalGalleryImage(currentModalIndex + 1);
+          } else {
+            showModalGalleryImage(0);
+          }
+        }
       }
     });
 
@@ -674,6 +942,8 @@
       imageModal.classList.add('hidden');
       imageModal.classList.remove('flex');
       document.body.style.overflow = '';
+      currentModalIndex = -1;
+      isModalGalleryMode = false;
     }
   </script>
 </body>

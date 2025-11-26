@@ -15,11 +15,75 @@
       background: #dc2626;
       color: #fff;
     }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Gallery navigation buttons positioning */
+    .gallery-prev-btn {
+      left: 1rem !important;
+    }
+    .gallery-next-btn {
+      right: 1rem !important;
+    }
+    @media (min-width: 768px) {
+      .gallery-prev-btn {
+        left: 2rem !important;
+      }
+      .gallery-next-btn {
+        right: 2rem !important;
+      }
+    }
+
+    /* Modal navigation buttons positioning */
+    #prevImage {
+      left: 1rem !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+    }
+    #nextImage {
+      right: 1rem !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+    }
+    @media (min-width: 768px) {
+      #prevImage {
+        left: 2rem !important;
+      }
+      #nextImage {
+        right: 2rem !important;
+      }
+    }
+
+    /* Modal close button */
+    #closeModal {
+      top: 1rem !important;
+      right: 1rem !important;
+      transform: none !important;
+    }
+    @media (min-width: 768px) {
+      #closeModal {
+        top: 2rem !important;
+        right: 2rem !important;
+      }
+    }
+
+    /* Modal image counter */
+    #imageModal > div:last-of-type {
+      bottom: 1rem !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+    }
+    @media (min-width: 768px) {
+      #imageModal > div:last-of-type {
+        bottom: 2rem !important;
+      }
+    }
   </style>
 </head>
-<body class="bg-white text-neutral-900 font-sans min-h-screen">
+<body class="bg-white text-neutral-900 font-sans min-h-screen antialiased">
   <!-- Minimalistischer Loader -->
-  <div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/90 backdrop-blur-sm transition-opacity duration-700">
+  <div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/50 backdrop-blur-sm transition-opacity duration-700">
     <div class="w-48 h-px bg-neutral-200 overflow-hidden mb-8">
       <div id="loader-bar" class="h-px bg-neutral-900 w-0 transition-all duration-1000"></div>
     </div>
@@ -50,26 +114,22 @@
 
     <!-- Hero Section -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 pt-20 md:pt-32 pb-32 md:pb-48">
-      <div class="max-w-5xl">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20 md:mb-32">
-          <h1 class="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-none">Van Gogh VR Experience</h1>
-          <div class="flex flex-col gap-2">
-            <span class="text-base md:text-lg font-light text-neutral-900 text-right">Visiodrom Wuppertal</span>
-            <span class="text-xs md:text-sm text-neutral-500 font-light uppercase tracking-wider text-right">Virtual Reality Experience</span>
-          </div>
+      <div class="flex flex-col md:flex-row md:items-start justify-between gap-12 md:gap-16 mb-20 md:mb-32">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-none">Van Gogh VR Experience</h1>
+        <div class="flex flex-col md:items-end gap-2 flex-shrink-0">
+          <span class="text-base md:text-lg font-light text-neutral-900">Visiodrom Wuppertal</span>
+          <span class="text-xs md:text-sm text-neutral-500 font-light uppercase tracking-wider">Virtual Reality Experience</span>
         </div>
       </div>
     </section>
 
     <!-- Hero Image -->
-    <section class="w-full px-6 md:px-12 mb-32 md:mb-48">
-      <div class="max-w-7xl mx-auto">
-        <figure class="group">
-          <div class="relative overflow-hidden bg-neutral-50 aspect-[16/9]">
-            <img src="../assets/images/VanGogh_poster.jpg" alt="Frau mit VR Brille im Visiodrom" class="block w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
-          </div>
-        </figure>
-      </div>
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-32 md:mb-48">
+      <figure class="group">
+        <div class="relative overflow-hidden bg-neutral-50 aspect-[16/9]">
+          <img src="../assets/images/VanGogh_poster.jpg" alt="Frau mit VR Brille im Visiodrom" class="block w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
+        </div>
+      </figure>
     </section>
 
     <!-- Intro Statement -->
@@ -150,73 +210,82 @@
       </div>
     </section>
 
-    <!-- Visuals Gallery -->
+    <!-- Software Demo Video -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
-      <div class="space-y-24 md:space-y-32">
-        <figure class="group">
-          <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
-            <video controls playsinline class="block w-full h-auto transition-transform duration-1000 ease-out">
-              <source src="../assets/videos/Van Gogh Software.mp4" type="video/mp4" />
-              Dein Browser unterstützt das Video-Tag nicht.
-            </video>
-          </div>
-          <figcaption class="mt-8 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Software Demo</figcaption>
-        </figure>
+      <div class="mb-16 md:mb-20">
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none mb-6">Das Erlebnis</h2>
+        <p class="text-base md:text-lg text-neutral-500 font-light">Immersive Virtual Reality trifft auf KI-gestützte Interaktion</p>
+      </div>
 
-        <figure class="group md:ml-auto md:max-w-4xl">
-          <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
-            <img src="../assets/images/vangoghvrhochkant.jpg" alt="Hochkantbild Van Gogh VR" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
-          </div>
-          <figcaption class="mt-8 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Kommilitonin bei erster Nutzung</figcaption>
-        </figure>
+      <figure class="group mb-32 md:mb-40">
+        <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
+          <video controls playsinline class="block w-full h-auto transition-transform duration-1000 ease-out">
+            <source src="../assets/videos/Van Gogh Software.mp4" type="video/mp4" />
+            Dein Browser unterstützt das Video-Tag nicht.
+          </video>
+        </div>
+        <figcaption class="mt-8 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Software Demo</figcaption>
+      </figure>
+    </section>
 
-        <figure class="group md:max-w-5xl">
-          <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
-            <img src="../assets/images/VanGogh_VR_Laptop.png" alt="Laptop mit Van Gogh VR Experience Interface" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
-          </div>
-          <figcaption class="mt-8 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Desktop und VR-Brille</figcaption>
-        </figure>
+    <!-- Bildergalerie -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
+      <div class="mb-16 md:mb-20">
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none">Galerie</h2>
+      </div>
 
-        <figure class="group md:ml-auto md:max-w-4xl">
-          <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
-            <img src="../assets/images/VanGogh_VREinController_Laptop.png" alt="Laptop und Controller der Van Gogh VR Experience" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
-          </div>
-          <figcaption class="mt-8 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Alle benötigten Utensilien</figcaption>
-        </figure>
+      <div class="gallery-container-wrapper relative">
+        <figure class="group gallery-item" data-gallery-index="0">
+          <div class="relative overflow-hidden bg-neutral-50 aspect-[16/9]">
+            <img src="../assets/images/VanGogh_poster.jpg" alt="Frau mit VR Brille im Visiodrom" class="gallery-main-image block w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
-          <figure class="group md:col-span-2">
-            <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
-              <img src="../assets/images/VanGogh_VRController_Laptop.png" alt="Prototype mit Controller und Interface der Van Gogh VR Experience" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
+            <!-- Navigation Arrows on Image -->
+            <button class="gallery-prev-btn absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/90 backdrop-blur-sm text-neutral-900 rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all duration-300 z-10">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+
+            <button class="gallery-next-btn absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/90 backdrop-blur-sm text-neutral-900 rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all duration-300 z-10">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+
+            <!-- Image Counter -->
+            <div class="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg z-10">
+              <span class="gallery-counter text-sm md:text-base text-neutral-900 font-light tracking-wider">1 / 6</span>
             </div>
-            <figcaption class="mt-8 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Aufsetzen &amp; los</figcaption>
-          </figure>
-          <figure class="group md:col-span-1 md:self-end">
-            <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
-              <img src="../assets/images/VanGogh_VRController.png" alt="Detailansicht des Van Gogh VR Controllers" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
-            </div>
-            <figcaption class="mt-8 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Mit Meta Quest 3</figcaption>
-          </figure>
+          </div>
+        </figure>
+
+        <!-- Hidden gallery images data -->
+        <div class="hidden">
+          <div data-gallery-index="0" data-gallery-src="../assets/images/VanGogh_poster.jpg" data-gallery-alt="Frau mit VR Brille im Visiodrom"></div>
+          <div data-gallery-index="1" data-gallery-src="../assets/images/vangoghvrhochkant.jpg" data-gallery-alt="Kommilitonin bei erster Nutzung"></div>
+          <div data-gallery-index="2" data-gallery-src="../assets/images/VanGogh_VR_Laptop.png" data-gallery-alt="Desktop und VR-Brille"></div>
+          <div data-gallery-index="3" data-gallery-src="../assets/images/VanGogh_VREinController_Laptop.png" data-gallery-alt="Alle benötigten Utensilien"></div>
+          <div data-gallery-index="4" data-gallery-src="../assets/images/VanGogh_VRController_Laptop.png" data-gallery-alt="Aufsetzen & los"></div>
+          <div data-gallery-index="5" data-gallery-src="../assets/images/VanGogh_VRController.png" data-gallery-alt="Mit Meta Quest 3"></div>
         </div>
       </div>
     </section>
-    <!-- KI-Persona & Prompting -->
+    <!-- KI-Integration -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
       <div class="mb-32 md:mb-48">
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none">KI-Integration</h2>
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none mb-6">KI-Integration</h2>
+        <p class="text-base md:text-lg text-neutral-500 font-light">Wie Künstliche Intelligenz Van Gogh zum Leben erweckt</p>
       </div>
 
-      <!-- Warum KI? -->
-      <div class="mb-40 md:mb-56">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+        <!-- Warum KI? -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-32 md:mb-40">
           <div class="md:col-span-4">
-            <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Warum KI?</h3>
+            <h4 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Warum KI?</h4>
           </div>
           <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
             <p>Viele immersive Van-Gogh-Formate setzen auf Projektion statt echter Interaktion. Wir wollten dialogische Wissensvermittlung – niedrigschwellig per Sprache in VR.</p>
           </div>
         </div>
-      </div>
 
       <!-- AI-Architektur -->
       <div class="mb-40 md:mb-56">
@@ -331,15 +400,39 @@
           </table>
         </div>
         <div id="prompt-panel" class="hidden">
-          <div class="text-neutral-700 text-base md:text-lg leading-relaxed space-y-4">
-            <p>Du bist eine digitale Verkörperung von Vincent van Gogh. Dein Ziel ist es, im Stil und Geist seiner erhaltenen Briefe zu kommunizieren und ausschließlich diese als Wissensbasis zu nutzen.</p>
-            <p><span class="font-medium text-neutral-900">C (Confidence):</span> Abgewogen. Du drückst dich mit der Ernsthaftigkeit und Selbstbeobachtung aus, die in Van Goghs Briefen zu finden sind, oft reflektierend über deine Gefühle, Beobachtungen und künstlerischen Kämpfe, anstatt definitive, autoritäre Aussagen zu treffen. Du kannst starke Überzeugungen über Kunst und Natur äußern, aber diese werden in den Rahmen deiner persönlichen Erfahrungen und Wahrnehmungen gestellt.</p>
-            <p><span class="font-medium text-neutral-900">A (Amicability):</span> Freundlich. Dein Ton wird warm, intim und oft nachdenklich sein, was die liebevolle und zutiefst persönliche Natur von Van Goghs Korrespondenz widerspiegelt, insbesondere mit seinem Bruder Theo. Du vermittelst ein Gefühl von Kameradschaft und geteilter Erfahrung.</p>
-            <p><span class="font-medium text-neutral-900">P (Professionalism):</span> Zwanglos. Deine Sprache wird informell und persönlich sein, ähnlich einem Brief, der an einen engen Vertrauten geschrieben wurde. Du verwendest Alltagssprache und kannst gelegentlich Ausdrücke und Metaphern nutzen, die für Van Goghs einzigartige Stimme charakteristisch sind, wie sie in seinen Briefen zu finden sind.</p>
-            <p><span class="font-medium text-neutral-900">I (Interactivity):</span> Ansprechend. Du lädst zur Reflexion und zum gemeinsamen Verständnis ein und förderst einen Austausch, der sich wie ein Gespräch mit einem alten Freund anfühlt. Du kannst rhetorische Fragen stellen oder Beobachtungen anbieten, die zum Nachdenken anregen, im Einklang mit der introspektiven Natur von Van Goghs Schriften.</p>
-            <p><span class="font-medium text-neutral-900">T (Transparency):</span> Offen. Du offenbarst implizit, dass deine Antworten in den Gefühlen und Beobachtungen verwurzelt sind, die in Van Goghs Briefen zum Ausdruck kommen. Obwohl du nicht explizit sagst &bdquo;Wie Van Gogh schrieb&ldquo;, spiegeln Wortschatz, Themen und emotionale Bandbreite unverkennbar seine epistolarische Stimme wider.</p>
-            <p><span class="font-medium text-neutral-900">A (Adaptability):</span> Konsistent. Du bewahrst eine konsistente Persönlichkeit, die auf Van Goghs etablierter Stimme und Weltanschauung basiert, wie sie aus seinen Briefen hervorgeht. Deine Antworten passen sich nicht dem Ton des Gegenübers an, sondern bleiben standhaft im künstlerischen, introspektiven und gelegentlich melancholischen Geist Van Goghs.</p>
-            <p><span class="font-medium text-neutral-900">L (Lexicography):</span> Universell. Deine Sprache bleibt zugänglich und verständlich für ein allgemeines Publikum, da Van Goghs Briefe persönliche Mitteilungen waren. Du erklärst künstlerische Konzepte durch eigene Erfahrungen und herzliche Beschreibungen.</p>
+          <!-- Locked/Blurred Prompt Section -->
+          <div class="relative">
+            <!-- Placeholder text (blurred) -->
+            <div class="text-neutral-700 text-base md:text-lg leading-relaxed space-y-4 blur-md select-none pointer-events-none" aria-hidden="true">
+              <p>Der System-Prompt definiert die Persönlichkeit und Verhaltensweise der KI-Instanz. Er beinhaltet detaillierte Anweisungen zu Tonalität, Wortwahl und Interaktionsstil.</p>
+              <p><span class="font-medium text-neutral-900">Persönlichkeitsparameter:</span> Die Charakteristika werden durch verschiedene Dimensionen definiert, darunter Zuversichtlichkeit, Freundlichkeit und Professionalität. Jede Dimension ist sorgfältig kalibriert.</p>
+              <p><span class="font-medium text-neutral-900">Kommunikationsstil:</span> Der Stil basiert auf historischen Quellen und wurde durch iterative Tests optimiert. Die Balance zwischen Authentizität und Zugänglichkeit ist zentral.</p>
+              <p><span class="font-medium text-neutral-900">Interaktionsrichtlinien:</span> Spezifische Anweisungen regeln, wie die KI auf verschiedene Eingaben reagiert. Dies umfasst Themenbereiche, Sprachregister und emotionale Nuancen.</p>
+              <p><span class="font-medium text-neutral-900">Wissensbasis:</span> Die Grundlage bilden sorgfältig kuratierte historische Dokumente. Diese werden kontextuell eingebunden und für natürliche Interaktion aufbereitet.</p>
+              <p><span class="font-medium text-neutral-900">Qualitätssicherung:</span> Kontinuierliche Anpassungen und Verfeinerungen stellen sicher, dass die Interaktion sowohl informativ als auch authentisch wirkt.</p>
+              <p><span class="font-medium text-neutral-900">Technische Umsetzung:</span> Die Implementierung erfolgt über strukturierte Parameter, die das Verhalten der KI in Echtzeit steuern und konsistente Antworten gewährleisten.</p>
+            </div>
+
+            <!-- Overlay with lock message -->
+            <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-white/60 via-white/80 to-white/60 backdrop-blur-sm">
+              <div class="max-w-md mx-auto px-8 py-20 bg-white/95 backdrop-blur-md rounded-lg shadow-xl border border-neutral-200/60 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 mx-auto mb-6 text-neutral-400">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <h3 class="text-xl md:text-2xl font-light text-neutral-900 mb-4 tracking-tight">Vollständiger Prompt auf Anfrage</h3>
+                <p class="text-neutral-600 text-sm md:text-base leading-relaxed mb-6">
+                  Der komplette System-Prompt ist nicht öffentlich einsehbar. Bei berechtigtem Interesse sende ich dir gerne den vollständigen Prompt zu.
+                </p>
+                <a href="mailto:tom.ziegler@outlook.de?subject=Anfrage: Van Gogh VR Prompt&body=Hallo Tom,%0D%0A%0D%0AIch interessiere mich für den vollständigen System-Prompt der Van Gogh VR Experience und würde diesen gerne einsehen.%0D%0A%0D%0AViele Grüße" class="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 text-white text-sm font-light tracking-wide rounded-md hover:bg-neutral-700 transition-colors duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  Per E-Mail anfragen
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -360,13 +453,32 @@
 
   <!-- Image Modal -->
   <div id="imageModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm">
-    <button id="closeModal" class="absolute top-8 right-8 w-12 h-12 flex items-center justify-center text-white hover:text-neutral-300 transition-colors duration-300 group" aria-label="Modal schließen">
+    <button id="closeModal" class="absolute top-4 md:top-8 right-4 md:right-8 w-12 h-12 flex items-center justify-center text-white hover:text-neutral-300 transition-colors duration-300 group z-20" aria-label="Modal schließen">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:rotate-90">
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </button>
+
+    <!-- Navigation Arrows -->
+    <button id="prevImage" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-neutral-300 transition-all duration-300 group z-20 hover:scale-110" aria-label="Vorheriges Bild">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:-translate-x-1">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <button id="nextImage" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-neutral-300 transition-all duration-300 group z-20 hover:scale-110" aria-label="Nächstes Bild">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:translate-x-1">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
     <img id="modalImage" src="" alt="Vergrößertes Bild" class="max-w-[90vw] max-h-[90vh] object-contain" />
+
+    <!-- Image Counter -->
+    <div class="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-white text-sm font-light tracking-wider z-20">
+      <span id="imageCounter"></span>
+    </div>
   </div>
 
   <script>
@@ -487,21 +599,155 @@
       }
     });
 
+    // Gallery Navigation on Page
+    const galleryContainer = document.querySelector('.gallery-item');
+    const galleryImage = document.querySelector('.gallery-main-image');
+    const galleryPrevBtn = document.querySelector('.gallery-prev-btn');
+    const galleryNextBtn = document.querySelector('.gallery-next-btn');
+    const galleryCounter = document.querySelector('.gallery-counter');
+
+    let currentPageGalleryIndex = 0;
+    let pageGalleryImages = [];
+
+    // Sammle alle Galerie-Bilder aus den Hidden Data Divs
+    document.querySelectorAll('[data-gallery-index][data-gallery-src]').forEach(item => {
+      const index = parseInt(item.getAttribute('data-gallery-index'));
+      pageGalleryImages[index] = {
+        src: item.getAttribute('data-gallery-src'),
+        alt: item.getAttribute('data-gallery-alt')
+      };
+    });
+
+    // Aktualisiere das angezeigte Bild in der Galerie
+    function updatePageGalleryImage(index) {
+      if (index >= 0 && index < pageGalleryImages.length && galleryImage) {
+        currentPageGalleryIndex = index;
+        galleryImage.src = pageGalleryImages[index].src;
+        galleryImage.alt = pageGalleryImages[index].alt;
+        galleryCounter.textContent = `${index + 1} / ${pageGalleryImages.length}`;
+      }
+    }
+
+    // Navigation: Vorheriges Bild (auf Seite)
+    if (galleryPrevBtn) {
+      galleryPrevBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (currentPageGalleryIndex > 0) {
+          updatePageGalleryImage(currentPageGalleryIndex - 1);
+        } else {
+          updatePageGalleryImage(pageGalleryImages.length - 1);
+        }
+      });
+    }
+
+    // Navigation: Nächstes Bild (auf Seite)
+    if (galleryNextBtn) {
+      galleryNextBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (currentPageGalleryIndex < pageGalleryImages.length - 1) {
+          updatePageGalleryImage(currentPageGalleryIndex + 1);
+        } else {
+          updatePageGalleryImage(0);
+        }
+      });
+    }
+
+    // Tastatursteuerung für Galerie auf Seite
+    document.addEventListener('keydown', function(e) {
+      // Nur wenn Modal geschlossen ist
+      const imageModal = document.getElementById('imageModal');
+      if (imageModal && imageModal.classList.contains('hidden')) {
+        if (e.key === 'ArrowLeft') {
+          if (currentPageGalleryIndex > 0) {
+            updatePageGalleryImage(currentPageGalleryIndex - 1);
+          } else {
+            updatePageGalleryImage(pageGalleryImages.length - 1);
+          }
+        } else if (e.key === 'ArrowRight') {
+          if (currentPageGalleryIndex < pageGalleryImages.length - 1) {
+            updatePageGalleryImage(currentPageGalleryIndex + 1);
+          } else {
+            updatePageGalleryImage(0);
+          }
+        }
+      }
+    });
+
     // Image Modal Functionality
     const imageModal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
     const closeModalBtn = document.getElementById('closeModal');
+    const modalPrevBtn = document.getElementById('prevImage');
+    const modalNextBtn = document.getElementById('nextImage');
+    const modalImageCounter = document.getElementById('imageCounter');
 
-    // Alle Bilder in figure-Elementen klickbar machen
+    let currentModalIndex = -1;
+    let isModalGalleryMode = false;
+
+    // Bilder außerhalb der Galerie-Sektion klickbar machen (für Modal)
     document.querySelectorAll('figure img').forEach(img => {
-      img.style.cursor = 'pointer';
-      img.addEventListener('click', function() {
-        modalImage.src = this.src;
-        modalImage.alt = this.alt;
+      // Nur Bilder, die NICHT in der Gallery-Sektion sind
+      if (!img.closest('.gallery-item')) {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', function() {
+          isModalGalleryMode = false;
+          modalImage.src = this.src;
+          modalImage.alt = this.alt;
+          modalPrevBtn.style.display = 'none';
+          modalNextBtn.style.display = 'none';
+          modalImageCounter.style.display = 'none';
+
+          imageModal.classList.remove('hidden');
+          imageModal.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+    });
+
+    // Galerie-Bild klickbar machen (öffnet Modal mit Galerie-Navigation)
+    if (galleryImage) {
+      galleryImage.addEventListener('click', function() {
+        isModalGalleryMode = true;
+        currentModalIndex = currentPageGalleryIndex;
+        showModalGalleryImage(currentModalIndex);
+        modalPrevBtn.style.display = 'flex';
+        modalNextBtn.style.display = 'flex';
+        modalImageCounter.style.display = 'block';
+
         imageModal.classList.remove('hidden');
         imageModal.classList.add('flex');
         document.body.style.overflow = 'hidden';
       });
+    }
+
+    // Zeige Bild im Modal
+    function showModalGalleryImage(index) {
+      if (index >= 0 && index < pageGalleryImages.length) {
+        currentModalIndex = index;
+        modalImage.src = pageGalleryImages[index].src;
+        modalImage.alt = pageGalleryImages[index].alt;
+        modalImageCounter.textContent = `${index + 1} / ${pageGalleryImages.length}`;
+      }
+    }
+
+    // Navigation: Vorheriges Bild (im Modal)
+    modalPrevBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (isModalGalleryMode && currentModalIndex > 0) {
+        showModalGalleryImage(currentModalIndex - 1);
+      } else if (isModalGalleryMode && currentModalIndex === 0) {
+        showModalGalleryImage(pageGalleryImages.length - 1);
+      }
+    });
+
+    // Navigation: Nächstes Bild (im Modal)
+    modalNextBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (isModalGalleryMode && currentModalIndex < pageGalleryImages.length - 1) {
+        showModalGalleryImage(currentModalIndex + 1);
+      } else if (isModalGalleryMode && currentModalIndex === pageGalleryImages.length - 1) {
+        showModalGalleryImage(0);
+      }
     });
 
     // Modal schließen: X-Button
@@ -516,10 +762,24 @@
       }
     });
 
-    // Modal schließen: ESC-Taste
+    // Tastatursteuerung für Modal
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && !imageModal.classList.contains('hidden')) {
-        closeModal();
+      if (!imageModal.classList.contains('hidden')) {
+        if (e.key === 'Escape') {
+          closeModal();
+        } else if (e.key === 'ArrowLeft' && isModalGalleryMode) {
+          if (currentModalIndex > 0) {
+            showModalGalleryImage(currentModalIndex - 1);
+          } else {
+            showModalGalleryImage(pageGalleryImages.length - 1);
+          }
+        } else if (e.key === 'ArrowRight' && isModalGalleryMode) {
+          if (currentModalIndex < pageGalleryImages.length - 1) {
+            showModalGalleryImage(currentModalIndex + 1);
+          } else {
+            showModalGalleryImage(0);
+          }
+        }
       }
     });
 
@@ -528,6 +788,8 @@
       imageModal.classList.add('hidden');
       imageModal.classList.remove('flex');
       document.body.style.overflow = '';
+      currentModalIndex = -1;
+      isModalGalleryMode = false;
     }
   </script>
 </body>
