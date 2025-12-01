@@ -181,6 +181,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const updatePageGallery = (index) => {
       if (index >= 0 && index < pageGalleryImages.length && galleryImage) {
         currentPageGalleryIndex = index;
+
+        // Update das <picture> Element, falls vorhanden
+        const picture = galleryImage.closest('picture');
+        if (picture) {
+          const source = picture.querySelector('source');
+          if (source) {
+            source.srcset = pageGalleryImages[index].src;
+          }
+        }
+
         galleryImage.src = pageGalleryImages[index].src;
         galleryImage.alt = pageGalleryImages[index].alt;
         if(galleryCounter) galleryCounter.textContent = `${index + 1} / ${pageGalleryImages.length}`;
@@ -293,8 +303,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowLeft') navigateModal('prev');
       } else {
         // Modal zu -> Galerie auf Seite steuern
-        if (e.key === 'ArrowRight' && galleryNextBtn) galleryNextBtn.click();
-        if (e.key === 'ArrowLeft' && galleryPrevBtn) galleryPrevBtn.click();
+        if (e.key === 'ArrowRight' && galleryNextBtn) {
+          const newIndex = currentPageGalleryIndex < pageGalleryImages.length - 1 ? currentPageGalleryIndex + 1 : 0;
+          updatePageGallery(newIndex);
+        }
+        if (e.key === 'ArrowLeft' && galleryPrevBtn) {
+          const newIndex = currentPageGalleryIndex > 0 ? currentPageGalleryIndex - 1 : pageGalleryImages.length - 1;
+          updatePageGallery(newIndex);
+        }
       }
     });
   }
