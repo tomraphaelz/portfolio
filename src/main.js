@@ -191,8 +191,14 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
 
-        galleryImage.src = pageGalleryImages[index].src;
-        galleryImage.alt = pageGalleryImages[index].alt;
+        // Force image reload by setting src to empty first, then to new source
+        galleryImage.src = '';
+        // Use requestAnimationFrame to ensure the browser processes the empty src
+        requestAnimationFrame(() => {
+          galleryImage.src = pageGalleryImages[index].src;
+          galleryImage.alt = pageGalleryImages[index].alt;
+        });
+
         if(galleryCounter) galleryCounter.textContent = `${index + 1} / ${pageGalleryImages.length}`;
       }
     };
