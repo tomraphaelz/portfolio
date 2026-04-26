@@ -24,7 +24,7 @@
     }
 
     /* --- Back-Link Styling (Clean CSS statt JS-Injection) --- */
-    .back-link {
+    .tech-link, .back-link {
         color: #111;
         text-decoration: none;
         border-bottom: 1.5px solid transparent;
@@ -32,15 +32,19 @@
         display: inline-flex;
         align-items: center;
         font-weight: 400;
+        position: relative;
     }
-    .back-link:hover {
+    .tech-link:hover, .back-link:hover {
         color: #111;
         border-bottom: 1.5px solid #111;
         text-decoration: none;
     }
-    .back-link svg {
+    .tech-link svg, .back-link svg {
         stroke: #111;
         transition: transform 0.2s;
+    }
+    .tech-link:hover svg {
+        transform: translate(2px, -2px);
     }
     .back-link:hover svg {
         transform: translate(-2px, 0);
@@ -166,6 +170,8 @@
           <p>Flunkyball lebt von seiner Einfachheit, hat aber auch eine große Schwäche: Wer gut wirft, dominiert. Wer schlecht wirft, verliert.</p>
           <p>Unsere Antwort: Ein intelligentes Spielsystem, das Sensoren, Bluetooth und Challenges kombiniert, um Balance zu schaffen ohne die soziale Essenz des Spiels zu verlieren.</p>
           <p class="text-neutral-900 font-normal pt-4">Das Ergebnis: Ein smarter Ball, eine robuste Sensor-Flasche und eine App, die als digitaler Game Master das Spiel für alle spannend hält.</p>
+          <p>Ein Projekt im Dreierteam mit <a href="https://joosthaschen.de" target="_blank" rel="noopener" class="tech-link">Joost Haschen<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-4 h-4 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></a> und Nicklas Spiering.</p>
+
         </div>
       </div>
     </section>
