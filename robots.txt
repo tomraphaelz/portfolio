@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tom-ziegler.com/sitemap.xml
