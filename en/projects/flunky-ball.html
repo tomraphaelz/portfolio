@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link href="../../src/output.css" rel="stylesheet">
+  <title>Flunk-E – Tom Ziegler</title>
+  <style>
+    ::selection {
+      background: #dc2626;
+      color: #fff;
+    }
+    ::-moz-selection {
+      background: #dc2626;
+      color: #fff;
+    }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    body {
+      overflow-x: hidden;
+    }
+
+    /* --- Back-Link Styling --- */
+    .tech-link, .back-link {
+        color: #111;
+        text-decoration: none;
+        border-bottom: 1.5px solid transparent;
+        transition: color 0.2s, border-color 0.2s;
+        display: inline-flex;
+        align-items: center;
+        font-weight: 400;
+        position: relative;
+    }
+    .tech-link:hover, .back-link:hover {
+        color: #111;
+        border-bottom: 1.5px solid #111;
+        text-decoration: none;
+    }
+    .tech-link svg, .back-link svg {
+        stroke: #111;
+        transition: transform 0.2s;
+    }
+    .tech-link:hover svg {
+        transform: translate(2px, -2px);
+    }
+    .back-link:hover svg {
+        transform: translate(-2px, 0);
+    }
+
+    /* --- Gallery & Modal Layout Fixes --- */
+    .gallery-prev-btn {
+      left: 1rem !important;
+    }
+    .gallery-next-btn {
+      right: 1rem !important;
+    }
+    @media (min-width: 768px) {
+      .gallery-prev-btn {
+        left: 2rem !important;
+      }
+      .gallery-next-btn {
+        right: 2rem !important;
+      }
+    }
+
+    /* Modal navigation buttons positioning fix */
+    #prevImage {
+      left: 1rem !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+    }
+    #nextImage {
+      right: 1rem !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+    }
+    @media (min-width: 768px) {
+      #prevImage {
+        left: 2rem !important;
+      }
+      #nextImage {
+        right: 2rem !important;
+      }
+    }
+
+    /* Modal close button */
+    #closeModal {
+      top: 1rem !important;
+      right: 1rem !important;
+      transform: none !important;
+    }
+    @media (min-width: 768px) {
+      #closeModal {
+        top: 2rem !important;
+        right: 2rem !important;
+      }
+    }
+
+    /* Modal image counter */
+    #imageModal > div:last-of-type {
+      bottom: 1rem !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+    }
+    @media (min-width: 768px) {
+      #imageModal > div:last-of-type {
+        bottom: 2rem !important;
+      }
+    }
+    /* --- Lang Pill --- */
+    .lang-pill {
+      display: inline-flex;
+      align-items: center;
+      background: #f5f5f5;
+      border-radius: 999px;
+      padding: 3px;
+    }
+    .lang-pill a {
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #9ca3af;
+      transition: color 0.2s, background 0.2s;
+    }
+    .lang-pill a.lang-active {
+      background: #171717;
+      color: #fff;
+    }
+    .lang-pill a:not(.lang-active):hover {
+      color: #171717;
+    }
+  </style>
+</head>
+<body class="bg-white text-neutral-900 font-sans min-h-screen antialiased">
+  
+  <div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/50 backdrop-blur-sm transition-opacity duration-700">
+    <div class="w-32 sm:w-48 h-px bg-neutral-200 overflow-hidden mb-8">
+      <div id="loader-bar" class="h-px bg-neutral-900 w-0 transition-all duration-1000"></div>
+    </div>
+    <span class="text-neutral-400 text-sm font-light tracking-wider uppercase">Loading</span>
+  </div>
+
+  <header class="w-full border-b border-neutral-200/60 py-8 px-6 md:px-12 sticky top-0 bg-white/80 backdrop-blur-md z-40">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="../../en/index.html" class="text-base font-light tracking-tight hover:text-neutral-600 transition-colors duration-300">Tom Ziegler</a>
+      <div class="hidden md:flex items-center gap-10">
+        <nav class="flex gap-8">
+          <a href="../../en/index.html#about" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">About</a>
+          <a href="../../en/index.html#projects" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Projects</a>
+          <a href="../../en/index.html#footer" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Contact</a>
+        </nav>
+        <div class="lang-pill">
+          <a href="../../projekte/flunky-ball.html" aria-label="Deutsch">DE</a>
+          <a href="flunky-ball.html" class="lang-active" aria-label="English">EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <button id="scrollToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-neutral-900 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-neutral-700 hover:scale-110 z-50 flex items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <main class="w-full">
+
+    <!-- HERO -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 pt-20 md:pt-32 pb-32 md:pb-48">
+      <div class="flex flex-col md:flex-row md:items-start justify-between gap-12 md:gap-16 mb-20 md:mb-32">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-none">Flunk-E</h1>
+        <div class="flex flex-col md:items-end gap-2 flex-shrink-0">
+          <span class="text-base md:text-lg font-light text-neutral-900">EMAF 2025</span>
+          <span class="text-xs md:text-sm text-neutral-500 font-light uppercase tracking-wider">Interactive Party Game</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- HERO IMAGE -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-32 md:mb-48">
+      <figure class="group">
+        <div class="relative overflow-hidden bg-neutral-50 aspect-[16/9]">
+          <picture>
+            <source srcset="../../assets/images/Flunk-E_poster.webp" type="image/webp">
+            <img src="../../assets/images/Flunk-E_poster.jpg" alt="Flunk-E Project Hero" class="block w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
+          </picture>
+        </div>
+      </figure>
+    </section>
+
+    <!-- INTRO -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+        <div class="md:col-span-5">
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-light text-neutral-900 tracking-tight leading-snug">"How do you make a party game fair without killing the fun?"</h2>
+        </div>
+        <div class="md:col-span-7 space-y-8 text-neutral-700 text-base md:text-lg leading-relaxed">
+          <p>Flunkyball thrives on its simplicity — but it has one big flaw: good throwers dominate. Bad throwers lose.</p>
+          <p>Our answer: an intelligent game system combining sensors, Bluetooth, and challenges to create balance without losing the social essence of the game.</p>
+          <p class="text-neutral-900 font-normal pt-4">The result: a smart ball, a robust sensor bottle, and an app that acts as a digital game master — keeping the game exciting for everyone.</p>
+          <p>A team project of three, together with <a href="https://joosthaschen.de" target="_blank" rel="noopener" class="tech-link">Joost Haschen<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-4 h-4 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></a> and Nicklas Spiering.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE VISION -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
+      <div class="mb-32 md:mb-48">
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none">The Vision</h2>
+      </div>
+
+      <div class="mb-40 md:mb-56">
+        <h3 class="text-2xl md:text-4xl lg:text-5xl font-light text-neutral-900 tracking-tight leading-snug mb-32 md:mb-40 max-w-5xl">How can sensors make a social game better — without replacing it?</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-32 md:mb-40">
+          <div class="md:col-span-4">
+            <h4 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Context: A popular game with one flaw</h4>
+          </div>
+          <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
+            <p>Flunkyball couldn't be simpler: throw the ball, hit the bottle, drink. That simplicity is exactly what makes it a festival classic. But after a few rounds, the same pattern emerges: the best throwers dominate, the weaker ones just watch. The game becomes one-sided — and less fun for everyone.</p>
+            <p class="text-neutral-900 text-lg md:text-xl font-light italic pt-4">We asked ourselves: does it have to be this way?</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-32 md:mb-40">
+          <div class="md:col-span-4">
+            <h4 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">The idea: adding dynamics through challenges</h4>
+          </div>
+          <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
+            <p>Instead of changing the core concept, we wanted to add a layer: challenges.</p>
+            <div class="pl-8 space-y-4 border-l border-neutral-300 mt-8">
+              <p><span class="font-normal text-neutral-900">The thinking:</span></p>
+              <p>Strong throwers get harder tasks (e.g. "throw with your left hand" or "eyes closed")</p>
+              <p>The game stays physical and social, but becomes fairer and less predictable</p>
+            </div>
+            <p class="pt-8 text-neutral-900 font-normal">Our goal: technology shouldn't take over the game — it should work in the background to make sure everyone has more fun.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+          <div class="md:col-span-4">
+            <h4 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">The goal: a system that thinks for itself</h4>
+          </div>
+          <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
+            <p>Our approach was clear: an intelligent game system that:</p>
+            <ul class="space-y-4 pl-8 border-l border-neutral-300 mt-8">
+              <li>Automatically detects whether the bottle was hit</li>
+              <li>Assigns fun challenges</li>
+              <li>Connects physical and digital play — without the app getting in the way</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-32 md:mt-40">
+        <figure class="group">
+          <div class="relative overflow-hidden bg-neutral-50">
+            <picture>
+              <source srcset="../../assets/images/MiroBoard-Flunk_E.webp" type="image/webp">
+              <img src="../../assets/images/MiroBoard-Flunk_E.jpg" alt="Miro Board ideation process" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.01]" loading="lazy" />
+            </picture>
+          </div>
+          <figcaption class="mt-8 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Ideation & Concept Development</figcaption>
+        </figure>
+        <div class="mt-12 max-w-3xl">
+          <p class="text-neutral-600 text-sm md:text-base leading-relaxed font-light">
+            From first idea to timeline: our Miro board shows the full process — including discarded ideas like GPS tracking or voice recognition that would have been too complex or unreliable.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FROM IDEA TO SYSTEM -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
+      <div class="mb-32 md:mb-48">
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none mb-6">From Idea to System</h2>
+        <p class="text-base md:text-lg text-neutral-500 font-light">Concept & Design: How hardware, software, and game mechanics come together</p>
+      </div>
+
+      <!-- Sub 1: Reimagining the game mechanics -->
+      <div class="mb-40 md:mb-56">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-20">
+          <div class="md:col-span-4">
+            <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Reimagining the game mechanics</h3>
+          </div>
+          <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-8">
+            <p>The fundamental challenge was: how do we create balance without overcomplicating the game?</p>
+            <p class="font-normal text-neutral-900">Our solution rests on three pillars:</p>
+
+            <div class="space-y-12 mt-12">
+              <div class="pl-8 border-l border-neutral-300">
+                <h4 class="text-base md:text-lg font-normal text-neutral-900 mb-3">1. Automatic hit detection</h4>
+                <p class="text-neutral-700">Helps the app keep track of who threw and whether they earn a challenge.</p>
+              </div>
+
+              <div class="pl-8 border-l border-neutral-300">
+                <h4 class="text-base md:text-lg font-normal text-neutral-900 mb-3">2. Challenge assignment</h4>
+                <p class="text-neutral-700">The team that scores gets a challenge — giving the opposing team an advantage.</p>
+              </div>
+
+              <div class="pl-8 border-l border-neutral-300">
+                <h4 class="text-base md:text-lg font-normal text-neutral-900 mb-3">3. Social interaction stays analogue</h4>
+                <p class="text-neutral-700">The technology runs in the background. No staring at your phone — just brief interactions with the app when a new challenge comes up.</p>
+              </div>
+            </div>
+
+            <p class="pt-12 text-neutral-900 font-normal">The core idea: the system is intelligent, but invisible. It feels like regular Flunkyball — just fairer and more fun.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub 2: System architecture -->
+      <div class="mb-40 md:mb-56">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-20">
+          <div class="md:col-span-4">
+            <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">System architecture: three components, one experience</h3>
+          </div>
+          <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-8">
+            <p class="font-normal text-neutral-900">Ball + Bottle + App = seamless connection</p>
+            <figure class="group md:ml-auto md:max-w-4xl">
+              <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
+                <picture>
+                  <source srcset="../../assets/images/Flunk-E_FlascheLiegt.webp" type="image/webp">
+                  <img src="../../assets/images/Flunk-E_FlascheLiegt.png" alt="Bottle detail" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
+                </picture>
+              </div>
+            </figure>
+            <p>The technical core is surprisingly straightforward:</p>
+
+            <div class="space-y-12 mt-12">
+              <div class="pl-8 border-l border-neutral-300">
+                <h4 class="text-lg md:text-xl font-light text-neutral-900 mb-4 tracking-tight">The smart ball</h4>
+                <ul class="space-y-3 text-neutral-700 text-sm md:text-base">
+                  <li>Accelerometer detects throw motion and impact</li>
+                  <li>BLE module sends signal to the app</li>
+                </ul>
+              </div>
+
+              <div class="pl-8 border-l border-neutral-300">
+                <h4 class="text-lg md:text-xl font-light text-neutral-900 mb-4 tracking-tight">The sensor bottle</h4>
+                <ul class="space-y-3 text-neutral-700 text-sm md:text-base">
+                  <li>Accelerometer registers when it tips over</li>
+                  <li>Extra durable bottle built to withstand countless throws</li>
+                </ul>
+              </div>
+
+              <div class="pl-8 border-l border-neutral-300">
+                <h4 class="text-lg md:text-xl font-light text-neutral-900 mb-4 tracking-tight">The app as game master</h4>
+                <ul class="space-y-3 text-neutral-700 text-sm md:text-base">
+                  <li>Receives sensor data via BLE</li>
+                  <li>Manages score and challenge assignment</li>
+                  <li>Displays the current challenge</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-32 md:mt-40">
+          <figure class="group max-w-5xl mx-auto">
+            <div class="relative overflow-hidden">
+              <picture>
+                <source srcset="../../assets/images/Flunk-E-Ablaufdiagramm.webp" type="image/webp">
+                <img src="../../assets/images/Flunk-E-Ablaufdiagramm.png" alt="System architecture data flow" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.01]" loading="lazy" />
+              </picture>
+            </div>
+            <figcaption class="mt-8 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">System Architecture & Flow Diagram</figcaption>
+          </figure>
+          <div class="mt-12 max-w-3xl mx-auto">
+            <p class="text-neutral-600 text-sm md:text-base leading-relaxed font-light">
+              One of the key challenges: all three components had to communicate reliably in real time — even when the ball flies a little further.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub 3: The digital interface -->
+      <div class="mb-40 md:mb-56">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-20">
+          <div class="md:col-span-4">
+            <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug mb-8">The digital interface: the invisible game master</h3>
+          </div>
+          <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-8">
+            <h4 class="text-lg md:text-xl font-light text-neutral-900 tracking-tight">Design principles for the app</h4>
+            <p>Designing the app wasn't primarily about looks — it was about clarity under party conditions:</p>
+
+            <div class="space-y-10 mt-12">
+              <div class="pl-8 border-l border-neutral-300">
+                <h5 class="text-base font-normal text-neutral-900 mb-3">1. Information at a glance</h5>
+                <ul class="space-y-2 text-neutral-700 text-sm md:text-base">
+                  <li>As accessible as possible, but energetic in feel</li>
+                  <li>Current challenge easy to find instantly</li>
+                  <li>Score visible at a glance</li>
+                </ul>
+              </div>
+
+              <div class="pl-8 border-l border-neutral-300">
+                <h5 class="text-base font-normal text-neutral-900 mb-3">2. Minimal interaction</h5>
+                <ul class="space-y-2 text-neutral-700 text-sm md:text-base">
+                  <li>No complex menus during gameplay</li>
+                  <li>Few taps for the most important actions</li>
+                  <li>Automatic transitions between game phases</li>
+                </ul>
+              </div>
+
+              <div class="pl-8 border-l border-neutral-300">
+                <h5 class="text-base font-normal text-neutral-900 mb-3">3. Visual feedback</h5>
+                <ul class="space-y-2 text-neutral-700 text-sm md:text-base">
+                  <li>Animations confirm a hit</li>
+                  <li>Challenges shown in team-specific colors</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="">
+          <figure class="group">
+            <div class="relative overflow-hidden bg-neutral-50">
+              <picture>
+                <source srcset="../../assets/images/Flunk-E-UIs.webp" type="image/webp">
+                <img src="../../assets/images/Flunk-E-UIs.png" alt="Flunk-E App Interface Screens" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.01]" loading="lazy" />
+              </picture>
+            </div>
+          </figure>
+        </div>
+
+        <div class="mt-32 md:mt-40">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+            <div class="md:col-span-4">
+              <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">App Walkthrough</h3>
+            </div>
+            <div class="md:col-span-8">
+              <div class="flex justify-center md:justify-start">
+                <div class="relative w-[320px] h-[660px] md:w-[360px] md:h-[740px] flex items-center justify-center">
+                  <video controls playsinline class="absolute left-1/2 top-1/2 w-[288px] h-[624px] -translate-x-1/2 -translate-y-1/2 rounded-[36px] shadow-2xl object-cover bg-black" poster="../../assets/images/Flunk-E-App-Thumbnail.png">
+                    <source src="../../assets/videos/flunkyball.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub 4: Challenge design -->
+      <div class="mb-40 md:mb-56">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+          <div class="md:col-span-4">
+            <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Challenge design: AI as a creative sparring partner</h3>
+          </div>
+          <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-8">
+            <p>One of the most interesting conceptual questions: which challenges make the game fairer without being frustrating?</p>
+
+            <div class="pl-8 border-l border-neutral-300 space-y-8 mt-12">
+              <div>
+                <h4 class="text-base md:text-lg font-normal text-neutral-900 mb-4">Our process:</h4>
+                <div class="space-y-6">
+                  <div>
+                    <h5 class="text-base md:text-lg font-normal text-neutral-900 mb-2">1. Brainstorming with AI</h5>
+                    <p class="text-neutral-700">We used AI to generate a broad range of challenge ideas — from simple ("throw with your left hand") to absurd ("throw backwards with eyes closed").</p>
+                    <p class="text-neutral-700">We tested different AI tools, including ChatGPT and DeepSeek, and found that each had its own strengths.</p>
+                  </div>
+
+                  <div>
+                    <h5 class="text-base md:text-lg font-normal text-neutral-900 mb-2">2. Reality check</h5>
+                    <p class="text-neutral-700">Which challenges are actually feasible? Which ones are genuinely fun? Which ones are too frustrating?</p>
+                    <p class="text-neutral-700">AI output needed to be taken with a grain of salt and required human curation. By providing examples, we were able to steer the AI in the right direction.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEARNINGS & TAKEAWAYS -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
+      <div class="mb-32 md:mb-48">
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none">Learnings & Takeaways</h2>
+      </div>
+
+      <div class="space-y-24 md:space-y-32">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+          <div class="md:col-span-4">
+            <h4 class="text-lg md:text-xl font-normal text-neutral-900 tracking-tight leading-snug">Hardware is different from what you'd expect</h4>
+          </div>
+          <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed">
+            <p>Before Flunk-E, I had only worked on digital projects. The combination of Arduino, Bluetooth, and app development showed me just how much more complex things get when physical components are involved. Things that work in the app suddenly fail due to Bluetooth range or sensor inaccuracies. That changed how I approach design: you need to engage with technical constraints early on. AI was a big help here too — it was great for giving us an overview of suitable hardware we previously knew nothing about.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+          <div class="md:col-span-4">
+            <h4 class="text-lg md:text-xl font-normal text-neutral-900 tracking-tight leading-snug">Designing for specific contexts</h4>
+          </div>
+          <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed">
+            <p>An app that needs to work outdoors in noise and distraction requires different solutions. Large text, minimal interaction, clear feedback — those were my guiding principles for the UI design.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+          <div class="md:col-span-4">
+            <h4 class="text-lg md:text-xl font-normal text-neutral-900 tracking-tight leading-snug">Teamwork under time pressure</h4>
+          </div>
+          <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed">
+            <p>We divided tasks efficiently and synced up regularly. What helped: clear responsibilities with deadlines and regular feedback from lecturers and fellow students.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="imageModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm">
+    <button id="closeModal" class="absolute top-4 md:top-8 right-4 md:right-8 w-12 h-12 flex items-center justify-center text-white hover:text-neutral-300 transition-colors duration-300 group z-20" aria-label="Close modal">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:rotate-90">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <button id="prevImage" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-neutral-300 transition-all duration-300 group z-20 hover:scale-110" aria-label="Previous image">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:-translate-x-1">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <button id="nextImage" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-neutral-300 transition-all duration-300 group z-20 hover:scale-110" aria-label="Next image">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:translate-x-1">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
+    <img id="modalImage" src="" alt="Enlarged image" class="max-w-[90vw] max-h-[90vh] object-contain" />
+
+    <div class="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-white text-sm font-light tracking-wider z-20">
+      <span id="imageCounter"></span>
+    </div>
+  </div>
+
+  <script src="../../src/main.js" defer></script>
+</body>
+</html>
