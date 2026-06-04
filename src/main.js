@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================
   // 2. HOMEPAGE LOGIK (Nur Index.html)
   // =========================================
-  
+
   // --- Mobile Menu (Nur wenn Button existiert) ---
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -56,9 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function toggleMenu(forceClose = false) {
     if (!menuBtn || !mobileMenu) return;
-    
+
     isMenuOpen = forceClose ? false : !isMenuOpen;
-    
+
     if (isMenuOpen) {
       mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
       mobileMenu.classList.add('opacity-100');
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tabExp.classList.toggle('border-neutral-950', isExp);
       tabExp.classList.toggle('text-neutral-400', !isExp);
       tabExp.classList.toggle('border-transparent', !isExp);
-      
+
       tabCert.classList.toggle('text-neutral-900', !isExp);
       tabCert.classList.toggle('border-neutral-950', !isExp);
       tabCert.classList.toggle('text-neutral-400', isExp);
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
       imgEl.addEventListener('mouseleave', () => linkEl.classList.remove('active-hover'));
     }
   });
-  
+
   // --- Fade In Observer (Home & Project Pages) ---
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
@@ -152,16 +152,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================
   // 3. PROJEKT-SEITEN LOGIK (Galerie & Modal)
   // =========================================
-  
+
   const galleryContainer = document.querySelector('.gallery-container-wrapper');
-  
+
   if (galleryContainer) {
     // --- Galerie Setup ---
     const galleryImage = document.querySelector('.gallery-main-image');
     const galleryPrevBtn = document.querySelector('.gallery-prev-btn');
     const galleryNextBtn = document.querySelector('.gallery-next-btn');
     const galleryCounter = document.querySelector('.gallery-counter');
-    
+
     let pageGalleryImages = [];
     let currentPageGalleryIndex = 0;
 
@@ -170,8 +170,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const idx = parseInt(item.getAttribute('data-gallery-index'));
       const src = item.getAttribute('data-gallery-src');
       // Fix: Manchmal ist das Data-Attribut im hidden div, manchmal im figure
-      if(src) {
-         pageGalleryImages[idx] = {
+      if (src) {
+        pageGalleryImages[idx] = {
           src: src,
           alt: item.getAttribute('data-gallery-alt') || ''
         };
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
           galleryImage.alt = pageGalleryImages[index].alt;
         });
 
-        if(galleryCounter) galleryCounter.textContent = `${index + 1} / ${pageGalleryImages.length}`;
+        if (galleryCounter) galleryCounter.textContent = `${index + 1} / ${pageGalleryImages.length}`;
       }
     };
 
@@ -231,21 +231,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentModalIndex = -1;
 
     const openModal = (src, alt, galleryMode = false, index = -1) => {
-      if(!imageModal || !modalImage) return;
-      
+      if (!imageModal || !modalImage) return;
+
       isModalGalleryMode = galleryMode;
       currentModalIndex = index;
-      
+
       modalImage.src = src;
       modalImage.alt = alt;
-      
+
       // Buttons zeigen/verstecken
       const displayStyle = galleryMode ? 'flex' : 'none';
-      if(modalPrevBtn) modalPrevBtn.style.display = displayStyle;
-      if(modalNextBtn) modalNextBtn.style.display = displayStyle;
-      if(modalCounter) {
+      if (modalPrevBtn) modalPrevBtn.style.display = displayStyle;
+      if (modalNextBtn) modalNextBtn.style.display = displayStyle;
+      if (modalCounter) {
         modalCounter.style.display = galleryMode ? 'block' : 'none';
-        if(galleryMode) modalCounter.textContent = `${index + 1} / ${pageGalleryImages.length}`;
+        if (galleryMode) modalCounter.textContent = `${index + 1} / ${pageGalleryImages.length}`;
       }
 
       imageModal.classList.remove('hidden');
@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const closeModal = () => {
-      if(!imageModal) return;
+      if (!imageModal) return;
       imageModal.classList.add('hidden');
       imageModal.classList.remove('flex');
       document.body.style.overflow = '';
@@ -273,9 +273,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (galleryImage) {
       galleryImage.addEventListener('click', () => {
         openModal(
-          pageGalleryImages[currentPageGalleryIndex].src, 
-          pageGalleryImages[currentPageGalleryIndex].alt, 
-          true, 
+          pageGalleryImages[currentPageGalleryIndex].src,
+          pageGalleryImages[currentPageGalleryIndex].alt,
+          true,
           currentPageGalleryIndex
         );
       });
@@ -284,21 +284,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Modal Navigation
     const navigateModal = (direction) => {
       if (!isModalGalleryMode) return;
-      
-      let newIndex = direction === 'next' 
+
+      let newIndex = direction === 'next'
         ? (currentModalIndex < pageGalleryImages.length - 1 ? currentModalIndex + 1 : 0)
         : (currentModalIndex > 0 ? currentModalIndex - 1 : pageGalleryImages.length - 1);
-      
+
       currentModalIndex = newIndex;
       modalImage.src = pageGalleryImages[newIndex].src;
       modalImage.alt = pageGalleryImages[newIndex].alt;
-      if(modalCounter) modalCounter.textContent = `${newIndex + 1} / ${pageGalleryImages.length}`;
+      if (modalCounter) modalCounter.textContent = `${newIndex + 1} / ${pageGalleryImages.length}`;
     };
 
-    if(modalNextBtn) modalNextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateModal('next'); });
-    if(modalPrevBtn) modalPrevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateModal('prev'); });
-    if(closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-    if(imageModal) imageModal.addEventListener('click', (e) => { if (e.target === imageModal) closeModal(); });
+    if (modalNextBtn) modalNextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateModal('next'); });
+    if (modalPrevBtn) modalPrevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateModal('prev'); });
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+    if (imageModal) imageModal.addEventListener('click', (e) => { if (e.target === imageModal) closeModal(); });
 
     // Keyboard Events (Galerie & Modal)
     document.addEventListener('keydown', (e) => {

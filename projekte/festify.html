@@ -77,6 +77,75 @@
     @media (min-width: 768px) {
       #imageModal > div:last-of-type { bottom: 2rem !important; }
     }
+    /* --- Lang Pill --- */
+    .lang-pill {
+      display: inline-flex;
+      align-items: center;
+      background: #f5f5f5;
+      border-radius: 999px;
+      padding: 3px;
+    }
+    .lang-pill a {
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #9ca3af;
+      transition: color 0.2s, background 0.2s;
+    }
+    .lang-pill a.lang-active {
+      background: #171717;
+      color: #fff;
+    }
+    .lang-pill a:not(.lang-active):hover { color: #171717; }
+    .lang-pill-disabled {
+      position: relative;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #d1d5db;
+      cursor: not-allowed;
+      user-select: none;
+    }
+    .lang-pill-disabled::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #171717;
+      color: #fff;
+      font-size: 0.65rem;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      font-weight: 300;
+      white-space: nowrap;
+      padding: 6px 10px;
+      border-radius: 6px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .lang-pill-disabled::before {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 4px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #171717;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .lang-pill-disabled:hover::after,
+    .lang-pill-disabled:hover::before { opacity: 1; }
   </style>
 </head>
 <body class="bg-white text-neutral-900 font-sans min-h-screen antialiased">
@@ -91,11 +160,17 @@
   <header class="w-full border-b border-neutral-200/60 py-8 px-6 md:px-12 sticky top-0 bg-white/80 backdrop-blur-md z-40">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <a href="../index.html" class="text-base font-light tracking-tight hover:text-neutral-600 transition-colors duration-300">Tom Ziegler</a>
-      <nav class="hidden md:flex gap-8">
-        <a href="../index.html#about" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Über</a>
-        <a href="../index.html#projekte" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Projekte</a>
-        <a href="../index.html#kontakt" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Kontakt</a>
-      </nav>
+      <div class="hidden md:flex items-center gap-10">
+        <nav class="flex gap-8">
+          <a href="../index.html#about" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Über</a>
+          <a href="../index.html#projekte" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Projekte</a>
+          <a href="../index.html#kontakt" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Kontakt</a>
+        </nav>
+        <div class="lang-pill">
+          <a href="../index.html" class="lang-active" aria-label="Deutsch">DE</a>
+          <span class="lang-pill-disabled" data-tooltip="Working on it — EN page follows ASAP" aria-disabled="true">EN</span>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -435,5 +510,7 @@
   </div>
 
   <script src="../src/main.js" defer></script>
+</body>
+</html>
 </body>
 </html>
