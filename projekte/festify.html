@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link href="../src/output.css" rel="stylesheet">
-  <title>Festify – Tom Ziegler</title>
+  <title>Festify – Der gemeinsame Erinnerungsraum für Events</title>
   <style>
     ::selection {
       background: #dc2626;
@@ -23,7 +23,7 @@
       overflow-x: hidden;
     }
 
-    /* --- Custom Link Styles (Clean CSS statt JS-Injection) --- */
+    /* --- Custom Link Styles --- */
     .tech-link, .back-link {
       color: #111;
       text-decoration: none;
@@ -101,51 +101,6 @@
       color: #fff;
     }
     .lang-pill a:not(.lang-active):hover { color: #171717; }
-    .lang-pill-disabled {
-      position: relative;
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #d1d5db;
-      cursor: not-allowed;
-      user-select: none;
-    }
-    .lang-pill-disabled::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: calc(100% + 10px);
-      left: 50%;
-      transform: translateX(-50%);
-      background: #171717;
-      color: #fff;
-      font-size: 0.65rem;
-      letter-spacing: 0.02em;
-      text-transform: none;
-      font-weight: 300;
-      white-space: nowrap;
-      padding: 6px 10px;
-      border-radius: 6px;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-    .lang-pill-disabled::before {
-      content: '';
-      position: absolute;
-      bottom: calc(100% + 4px);
-      left: 50%;
-      transform: translateX(-50%);
-      border: 5px solid transparent;
-      border-top-color: #171717;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-    .lang-pill-disabled:hover::after,
-    .lang-pill-disabled:hover::before { opacity: 1; }
   </style>
 </head>
 <body class="bg-white text-neutral-900 font-sans min-h-screen antialiased">
@@ -182,302 +137,413 @@
 
   <main class="w-full">
 
-    <section class="max-w-7xl mx-auto px-6 md:px-12 pt-20 md:pt-32 pb-32 md:pb-48">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-12 md:gap-16 mb-20 md:mb-32">
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-none">Festify – laufendes Projekt</h1>
-        <div class="flex flex-col md:items-end gap-2 flex-shrink-0">
-          <span class="text-base md:text-lg font-light text-neutral-900">Hochschule Osnabrück</span>
-          <span class="text-xs md:text-sm text-neutral-500 font-light uppercase tracking-wider">Event Memories</span>
+    <!-- Header & Metadata -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 pt-24 md:pt-40 pb-16">
+      <!-- Top Row: Giant Title & Brief Description -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end mb-16 md:mb-28">
+        <div class="md:col-span-8">
+          <h1 class="text-[12vw] md:text-[8vw] font-extralight tracking-tighter leading-[0.85] uppercase text-neutral-900">
+            Festify<span class="text-red-600">.</span>
+          </h1>
+        </div>
+        <div class="md:col-span-4 md:pl-8">
+          <p class="text-lg md:text-xl text-neutral-500 font-light leading-relaxed max-w-sm">
+            Der gemeinsame Erinnerungsraum für Events. Eine intergenerative Web-App, die das fragmentierte Event-Gedächtnis nahtlos bündelt.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Metadata Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-neutral-200/60 text-sm">
+        <div>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-2">Kontext</span>
+          <p class="text-neutral-800 font-light leading-relaxed">
+            Hochschule Osnabrück<br>Projektsemester (Note 1,0)
+          </p>
+        </div>
+        <div>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-2">Rolle</span>
+          <p class="text-neutral-800 font-light leading-relaxed">
+            UX/UI Design & Research<br>Teamarbeit
+          </p>
+        </div>
+        <div>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-2">Tech-Stack</span>
+          <p class="text-neutral-800 font-light leading-relaxed">
+            React, Vite, Tailwind CSS,<br>Supabase, TensorFlow.js
+          </p>
+        </div>
+        <div>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-2">Jahr</span>
+          <p class="text-neutral-800 font-light leading-relaxed">
+            2026
+          </p>
         </div>
       </div>
     </section>
 
+    <!-- Immersive Hero Image -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 mb-32 md:mb-48">
-      <figure class="group">
-        <div class="relative overflow-hidden bg-neutral-50 ">
-          <picture>
-            <source srcset="../assets/images/festify-thumbnail.webp" type="image/webp">
-            <img src="../assets/images/festify-thumbnail.webp" alt="Festify Projekt Hero" class="block w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]" fetchpriority="high" />
-          </picture>
+      <figure>
+        <div class="overflow-hidden bg-neutral-50">
+          <img src="../assets/images/festify-thumbnail.webp" alt="Festify App Mockup" class="w-full h-auto object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-1000 ease-out">
         </div>
+        <figcaption class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest mt-4">
+          Fig. 01 / Festify Interface & User Experience Mockup
+        </figcaption>
       </figure>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
-        <div class="md:col-span-5">
-          <h2 class="text-2xl md:text-3xl lg:text-4xl font-light text-neutral-900 tracking-tight leading-snug">"Wie hält man die Erinnerungen an einen tollen Abend sicher fest?"</h2>
+    <!-- 1. Die Herausforderung & Leitfrage -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-32 md:mb-48">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-16 border-t border-neutral-100">
+        <!-- Left Column: Title and Lead-in -->
+        <div class="md:col-span-5 md:border-r md:border-neutral-100 md:pr-8">
+          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">01 / Die Herausforderung</span>
+          <h2 class="text-2xl md:text-3xl font-light text-neutral-900 tracking-tight leading-tight mb-8">Das fragmentierte Event-Gedächtnis</h2>
+          <p class="text-neutral-600 text-sm md:text-base leading-relaxed">
+            Besondere Ereignisse wie Hochzeiten oder Geburtstage werden heute von fast allen Gästen fotografisch festgehalten. Am Tag danach zeigt sich jedoch ein massiver UX-Bruch: Die Bilder verbleiben isoliert auf den Endgeräten oder verschwinden in unübersichtlichen Messenger-Gruppen.
+          </p>
         </div>
-        <div class="md:col-span-7 space-y-8 text-neutral-700 text-base md:text-lg leading-relaxed">
-          <div>
-            <p>Auf Events entstehen hunderte Fotos, doch sie verschwinden in unübersichtlichen WhatsApp-Gruppen oder bleiben auf privaten Geräten isoliert. Der Gastgeber hat Mühe, sie zu sammeln, und es fehlt der emotionale Rückblick.</p>
+        
+        <!-- Right Column: Staggered Problems List -->
+        <div class="md:col-span-6 md:col-start-7 space-y-12 text-neutral-700 text-base md:text-lg leading-relaxed">
+          <!-- Problem 1 -->
+          <div class="border-t border-neutral-100 pt-6">
+            <span class="text-xs font-mono text-neutral-400 block mb-1">01 / Qualitätsverlust</span>
+            <h3 class="text-lg font-normal text-neutral-900 mb-2">Messenger-Kompression</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              Durch die aggressive Kompression gängiger Chat-Dienste gehen wertvolle Bilddetails verloren, was den emotionalen und physischen Wert der Aufnahmen drastisch mindert.
+            </p>
           </div>
 
-          <div>
-            <p>Wie man das löst? Eine "Zero-Friction" PWA (Progressive Web App), die den Prozess des Sammelns und Teilens automatisiert. Kein Download, kein Login-Zwang, aber volle Privatsphäre.</p>
+          <!-- Problem 2 -->
+          <div class="border-t border-neutral-100 pt-6">
+            <span class="text-xs font-mono text-neutral-400 block mb-1">02 / Plattform-Barrieren</span>
+            <h3 class="text-lg font-normal text-neutral-900 mb-2">Homogene Hardware-Ökosysteme</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              Übertragungsdienste wie AirDrop setzen einheitliche Betriebssysteme voraus. Sie schließen Gäste mit anderen Geräten systematisch aus und fragmentieren die Hochzeitsgesellschaft.
+            </p>
           </div>
 
-          <div class="pt-4">
-            <p class="text-neutral-900 font-normal">Festify. Ein digitaler Begleiter, der im Hintergrund agiert, alle Perspektiven bündelt und am nächsten Tag automatisch eine gemeinsame "Story of the Night" erzählt.</p>
+          <!-- Problem 3 -->
+          <div class="border-t border-neutral-100 pt-6">
+            <span class="text-xs font-mono text-neutral-400 block mb-1">03 / Mangelnde Struktur</span>
+            <h3 class="text-lg font-normal text-neutral-900 mb-2">Unstrukturierte Cloud-Ordner</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              Herkömmliche Cloud-Speicher bieten keinerlei emotionale Aufbereitung, erzwingen Registrierungen und überfordern Nutzer durch unübersichtliche Dateiwüsten.
+            </p>
           </div>
         </div>
+      </div>
+
+      <!-- Large full-width raster-breaking Leitfrage quote -->
+      <div class="mt-24 md:mt-36 max-w-5xl">
+        <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-6">Die Leitfrage</span>
+        <blockquote class="text-3xl md:text-5xl font-light text-neutral-900 italic tracking-tight leading-snug">
+          „Wie kann eine digitale Anwendung den kollektiven Erinnerungsprozess nahtlos und emotional spürbar bündeln, ohne Barrieren für den Nutzer aufzubauen?“
+        </blockquote>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
-      <div class="mb-20 md:mb-32">
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none mb-6">Die Recherche</h2>
-        <p class="text-base md:text-lg text-neutral-500 font-light">User Research als Fundament für datenbasiertes Design</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-32 md:mb-40">
-        <div class="md:col-span-4">
-          <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Der Status Quo</h3>
+    <!-- 2. Evidence-Based Research & Die Persona-Divergenz -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-32 md:mb-48">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-16 border-t border-neutral-100">
+        <!-- Left Column: Title and Number -->
+        <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
+          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">02 / Research</span>
+          <h2 class="text-2xl md:text-3xl font-light text-neutral-900 tracking-tight leading-tight">Die Persona-Divergenz</h2>
         </div>
-        <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
-          <p>Event-Fotos sind heute oft überall, aber nirgendwo wirklich gut aufgehoben. Was passiert mit den hunderten Bildern nach einem Event?</p>
-          <div class="pl-8 border-l-2 border-neutral-300 mt-8 py-6">
-            <p class="text-neutral-900 font-normal mb-4">Unsere Umfrage unter Teilnehmern bestätigte das Problem:</p>
-            <p class="text-neutral-700">Für die Mehrheit "vergammeln" Event-Fotos ungenutzt in der Galerie oder gehen in chaotischen WhatsApp-Gruppen unter. Bestehende Cloud-Lösungen wie Dropbox werden als zu umständlich empfunden. Es gibt zwar extra Cloud-Lösungen wie Events, diese haben – laut unseren Recherchen – allerdings kaum hilfreiche Funktionen.</p>
-          </div>
-        </div>
-      </div>
+        
+        <!-- Right Column: Main Content -->
+        <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed">
+          <p class="max-w-2xl mb-12">
+            Unsere Primärforschung durch leitfadengestützte Interviews mit 12 Personen offenbarte eine fundamentale Divergenz der Bedürfnisse zwischen Gastgebern und Gästen. Diese Kluft bestimmt die gesamte UX-Architektur von Festify.
+          </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-32 md:mb-40">
-        <div class="md:col-span-4">
-          <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">User Pain Points</h3>
-        </div>
-        <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
-          <p>Die Befragung offenbarte klare Prioritäten und Schmerzpunkte der Nutzerinnen und Nutzer:</p>
-          <div class="pl-8 border-l-2 border-neutral-300 mt-8 py-6">
-            <p class="text-neutral-900 font-normal mb-4">Das wichtigste Ergebnis: Einfachheit ist King.</p>
-            <p class="text-neutral-700">Die Befragten gaben an, dass sie eine App nur nutzen würden, wenn sie keinen Speicherplatz frisst und extrem schnell zu bedienen ist. Datenschutz war zudem ein schwieriger Punkt.</p>
-          </div>
+          <!-- Typographic Comparison Table -->
+          <div class="border-t border-neutral-200 mt-12 divide-y divide-neutral-100 text-sm md:text-base">
+            <!-- Header Row -->
+            <div class="grid grid-cols-1 md:grid-cols-12 py-4 gap-4 text-neutral-400 font-mono text-xs uppercase tracking-wider">
+              <div class="md:col-span-3">Fokus</div>
+              <div class="md:col-span-4 md:col-start-4">Host / Lukas</div>
+              <div class="md:col-span-5 md:col-start-8">Gast / Maria (Gen 60+)</div>
+            </div>
 
-          <div class="mt-12 space-y-6">
-            <h4 class="text-base md:text-lg font-normal text-neutral-900">Die häufigsten Probleme:</h4>
-            <ul class="space-y-4">
-              <li class="flex items-start gap-3">
-                <span class="inline-block text-base leading-none text-neutral-400 mt-1.5 flex-shrink-0">—</span>
-                <span class="text-neutral-700">Fotos verschwinden in verschiedenen Chats und Clouds</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="inline-block text-base leading-none text-neutral-400 mt-1.5 flex-shrink-0">—</span>
-                <span class="text-neutral-700">Bestehende Lösungen sind zu kompliziert oder bieten zu wenig</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="inline-block text-base leading-none text-neutral-400 mt-1.5 flex-shrink-0">—</span>
-                <span class="text-neutral-700">Bedenken bezüglich Datenschutz und Privatsphäre</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="inline-block text-base leading-none text-neutral-400 mt-1.5 flex-shrink-0">—</span>
-                <span class="text-neutral-700">Zeitaufwand für Organisation und Teilen ist zu hoch</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+            <!-- Row 1: O-Ton -->
+            <div class="grid grid-cols-1 md:grid-cols-12 py-6 gap-4">
+              <div class="md:col-span-3 font-mono text-xs text-neutral-400 uppercase tracking-widest pt-1">O-Ton</div>
+              <div class="md:col-span-4 md:col-start-4 text-neutral-900 italic pr-4">
+                „Ich muss am Tag danach jedem Gast hinterherlaufen, um an die guten Fotos zu kommen.“
+              </div>
+              <div class="md:col-span-5 md:col-start-8 text-neutral-900 italic">
+                „Ich will nicht erst eine App herunterladen oder mich registrieren müssen, nur um ein Bild zu teilen.“
+              </div>
+            </div>
 
-    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
-      <div class="mb-20 md:mb-32">
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none mb-6">Die User Journey: Analog trifft Digital</h2>
-        <p class="text-base md:text-lg text-neutral-500 font-light">Der "Phygital"-Ansatz als Schlüssel zur Akzeptanz der Nutzerinnen und Nutzer</p>
-      </div>
+            <!-- Row 2: Bedürfnis -->
+            <div class="grid grid-cols-1 md:grid-cols-12 py-6 gap-4">
+              <div class="md:col-span-3 font-mono text-xs text-neutral-400 uppercase tracking-widest pt-1">Bedürfnis</div>
+              <div class="md:col-span-4 md:col-start-4 text-neutral-600 pr-4">
+                Struktur, einfache Verwaltung und eine lückenlose Dokumentation des Events.
+              </div>
+              <div class="md:col-span-5 md:col-start-8 text-neutral-600">
+                Null kognitive Last, verständlicher Datenschutz und absolute Einfachheit.
+              </div>
+            </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-32 md:mb-40">
-        <div class="md:col-span-4">
-          <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Der Einstieg</h3>
-        </div>
-        <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
-          <p>Eine große Hürde für Event-Apps? Der Download. Niemand möchte für ein einmaliges Event extra eine App installieren, die danach nur Speicherplatz frisst.</p>
-
-          <div class="pl-8 border-l-2 border-neutral-300 mt-8 py-6">
-            <p class="text-neutral-900 font-normal mb-4">Unsere Lösung: Der analoge Start</p>
-            <p class="text-neutral-700">Um die Hürde "App-Download" zu eliminieren, beginnt die Experience analog. Ein persönlicher Einladungsbrief mit QR-Code onboarded die Gäste, noch bevor das Event startet. Das klärt auch die Datenschutz-Frage proaktiv. <br><i>Diese Version war v.A. auf Hochzeiten ausgelegt. Der Fokus hat sich durch die Umfrage verschoben.</i></p>
-          </div>
-
-          <div class="mt-12 space-y-6">
-            <h4 class="text-base md:text-lg font-normal text-neutral-900">Warum das funktioniert:</h4>
-            <ul class="space-y-4">
-              <li class="flex items-start gap-3">
-                <span class="inline-block text-base leading-none text-neutral-400 mt-1.5 flex-shrink-0">—</span>
-                <span class="text-neutral-700"><span class="font-medium text-neutral-900">Persönlich & Einladend:</span> Ein physischer Brief schafft Vorfreude und wirkt weniger technisch</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="inline-block text-base leading-none text-neutral-400 mt-1.5 flex-shrink-0">—</span>
-                <span class="text-neutral-700"><span class="font-medium text-neutral-900">Transparenz von Anfang an:</span> Datenschutz-Infos sind direkt im Brief integriert</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="inline-block text-base leading-none text-neutral-400 mt-1.5 flex-shrink-0">—</span>
-                <span class="text-neutral-700"><span class="font-medium text-neutral-900">Keine Download-Barriere:</span> QR-Code führt direkt zur Web-App – kein App Store nötig</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="inline-block text-base leading-none text-neutral-400 mt-1.5 flex-shrink-0">—</span>
-                <span class="text-neutral-700"><span class="font-medium text-neutral-900">Event-Gefühl:</span> Verbindet digitale Convenience mit analoger Wertschätzung</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-32 md:mt-40">
-        <figure class="group">
-          <div class="relative overflow-hidden bg-neutral-50 border border-neutral-200">
-            <picture>
-              <source srcset="../assets/images/Festify Gäste Flow.webp" type="image/webp">
-              <img src="../assets/images/Festify Gäste Flow.webp" alt="Festify User Journey Flow" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.01]" loading="lazy" />
-            </picture>
-          </div>
-          <figcaption class="mt-8 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500 text-center">User Journey: Von der Einladung bis zum Fotosharing</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
-      <div class="mb-20 md:mb-32">
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none mb-6">Design & Prototyping</h2>
-        <p class="text-base md:text-lg text-neutral-500 font-light">Von User Research zu High-Fidelity Screens</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-32 md:mb-40">
-        <div class="md:col-span-4">
-          <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">From Wireframe to Code</h3>
-        </div>
-        <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
-          <p>Nach der Validierung durch User Research ging es an die konkrete Gestaltung. Wie sieht eine App aus, die wirklich "simpel" zu bedienen ist?</p>
-
-          <div class="pl-8 border-l-2 border-neutral-300 mt-8 py-6">
-            <p class="text-neutral-900 font-normal mb-4">Design-Prinzipien – Ableitung aus der Research</p>
-            <p class="text-neutral-700">Basierend auf den Umfrage-Ergebnissen entstand der High-Fidelity Prototyp in Figma. Der Fokus lag auf einem einfach zu bedienenden Interface, welches kaum Zeit benötigt, um verstanden zu werden.</p>
-          </div>
-
-          <div class="mt-12 space-y-6">
-            <h4 class="text-base md:text-lg font-normal text-neutral-900">Key Design Decisions:</h4>
-            <ul class="space-y-4">
-              <li class="flex items-start gap-3">
-                <span class="inline-block text-base leading-none text-neutral-400 mt-1.5 flex-shrink-0">—</span>
-                <span class="text-neutral-700"><span class="font-medium text-neutral-900">Minimalistische UI:</span> Nur das Wichtigste ist sichtbar – keine ablenkenden Features</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="inline-block text-base leading-none text-neutral-400 mt-1.5 flex-shrink-0">—</span>
-                <span class="text-neutral-700"><span class="font-medium text-neutral-900">Progressive Web App:</span> Kein Download nötig, funktioniert direkt im Browser</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-32 md:mb-40">
-        <div class="md:col-span-4">
-          <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Proof of Concept</h3>
-        </div>
-        <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
-          <p>Design ist erst der Anfang. Um das Konzept wirklich zu validieren, musste es funktionieren.</p>
-
-          <div class="pl-8 border-l-2 border-neutral-300 mt-8 py-6">
-            <p class="text-neutral-900 font-normal mb-4">Von Figma zur funktionierenden Software</p>
-            <p class="text-neutral-700">Aktuell setzen wir das Design in einer funktionierenden Software-Version um. Die Kernfunktionen wie Bilder hochladen, Gallerie-Ansicht und sogar die Gesichtserkennung sind bereits live und werden kontinuierlich verbessert und getestet.</p>
-          </div>
-
-          <div class="mt-12">
-            <p class="text-neutral-900 font-normal mb-4">Tech Stack:</p>
-            <div class="flex flex-wrap gap-3">
-              <span class="px-4 py-2 bg-neutral-100 text-neutral-900 text-sm font-light rounded-md">React</span>
-              <span class="px-4 py-2 bg-neutral-100 text-neutral-900 text-sm font-light rounded-md">TypeScript</span>
-              <span class="px-4 py-2 bg-neutral-100 text-neutral-900 text-sm font-light rounded-md">Tailwind CSS</span>
-              <span class="px-4 py-2 bg-neutral-100 text-neutral-900 text-sm font-light rounded-md">Supabase</span>
+            <!-- Row 3: Pain Point -->
+            <div class="grid grid-cols-1 md:grid-cols-12 py-6 gap-4">
+              <div class="md:col-span-3 font-mono text-xs text-neutral-400 uppercase tracking-widest pt-1">Pain Point</div>
+              <div class="md:col-span-4 md:col-start-4 text-neutral-600 pr-4">
+                Hoher zeitlicher Aufwand bei der manuellen Bildersammlung nach dem Event.
+              </div>
+              <div class="md:col-span-5 md:col-start-8 text-neutral-600">
+                Schwellenangst vor App-Installationen, Pflicht-Registrierungen und Passwörtern.
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="mt-32 md:mt-40">
-        <h3 class="text-2xl md:text-3xl font-light text-neutral-900 tracking-tight leading-snug mb-12 md:mb-16 text-center">High-Fidelity Screens</h3>
-
-        <!-- Creative Asymmetric Grid Layout -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-
-          <!-- Login Screen - Large, takes up 7 columns -->
-          <div class="md:col-span-7">
-            <figure class="group">
-              <div class="relative overflow-hidden border border-neutral-200">
-                <picture>
-                  <source srcset="../assets/images/Web App - Login.webp" type="image/webp">
-                  <img src="../assets/images/Web App - Login.webp" alt="Festify Login Screen" class="block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.02]" loading="lazy" />
-                </picture>
-              </div>
-              <figcaption class="mt-6 text-xs md:text-sm text-neutral-500 font-light">Login & Onboarding</figcaption>
-            </figure>
-          </div>
-
-          <!-- Personal Data Screen - Smaller, takes up 5 columns -->
-          <div class="md:col-span-5 md:pt-20">
-            <figure class="group">
-              <div class="relative overflow-hidden border border-neutral-200">
-                <picture>
-                  <source srcset="../assets/images/Web App - Personal Data.webp" type="image/webp">
-                  <img src="../assets/images/Web App - Personal Data.webp" alt="Festify Personal Data Screen" class="block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.02]" loading="lazy" />
-                </picture>
-              </div>
-              <figcaption class="mt-6 text-xs md:text-sm text-neutral-500 font-light">Persönliche Daten</figcaption>
-            </figure>
-          </div>
-
-          <!-- Create Event Screen - Full width with offset -->
-          <div class="md:col-span-8 md:col-start-3 mt-12 md:mt-20">
-            <figure class="group">
-              <div class="relative overflow-hidden border border-neutral-200">
-                <picture>
-                  <source srcset="../assets/images/Web App - Create Event.webp" type="image/webp">
-                  <img src="../assets/images/Web App - Create Event.webp" alt="Festify Create Event Screen" class="block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.02]" loading="lazy" />
-                </picture>
-              </div>
-              <figcaption class="mt-6 text-xs md:text-sm text-neutral-500 font-light">Event erstellen</figcaption>
-            </figure>
-          </div>
-
-        </div>
-      </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
-      <div class="mb-16 md:mb-20">
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none">Galerie</h2>
+    <!-- 3. Konzept-Evolution: Vom analogen Brief zum "Zero-Friction"-Einstieg -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-32 md:mb-48 relative overflow-hidden">
+      <!-- Giant background typographic watermark with gradient fade -->
+      <div class="absolute inset-x-0 top-4 md:top-6 -z-10 flex items-start justify-center pointer-events-none select-none">
+        <span class="text-6xl md:text-[9vw] font-bold tracking-tighter leading-none whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-b from-neutral-200 to-transparent">
+          ZERO FRICTION
+        </span>
       </div>
 
-      <div class="gallery-container-wrapper relative">
-        <figure class="group gallery-item" data-gallery-index="0">
-          <div class="relative overflow-hidden bg-neutral-50 aspect-[16/9]">
-            <picture>
-              <source srcset="../assets/images/Festify-Hero.webp" type="image/webp">
-              <img src="../assets/images/Festify-Hero.webp" alt="Festify Hero" class="gallery-main-image block w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
-            </picture>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-28 md:pt-36 border-t border-neutral-100">
+        <!-- Left Column: Title and Number -->
+        <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
+          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">03 / Konzept-Evolution</span>
+          <h2 class="text-2xl md:text-3xl font-light text-neutral-900 tracking-tight leading-tight">Vom analogen Brief zum „Zero-Friction“-Einstieg</h2>
+        </div>
+        
+        <!-- Right Column: Main Content -->
+        <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed">
+          <p class="max-w-2xl mb-12">
+            In einer frühen Konzeptionsphase experimentierten wir mit einem „Phygital“-Ansatz: Einem physischen, gedruckten Einladungsbrief mit QR-Code, der den Gästen bereits vor dem Event zugestellt werden sollte.
+          </p>
 
-            <button class="gallery-prev-btn absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/90 backdrop-blur-sm text-neutral-900 rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all duration-300 z-10">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><polyline points="15 18 9 12 15 6"></polyline></svg>
-            </button>
+          <!-- Side-by-Side Typographic Columns -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-12 my-12 text-sm md:text-base">
+            <!-- Phase 01 -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 bg-neutral-100 px-2 py-0.5 rounded">Verworfen</span>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Phase 01</span>
+              </div>
+              <h4 class="text-lg font-normal text-neutral-900">Der gedruckte Brief</h4>
+              <p class="text-neutral-600 leading-relaxed">
+                Ein postalisch versendetes Medium. Nutzertests offenbarten jedoch eine hohe administrative Last für den Host und eine zu große Inflexibilität bei kurzfristigen oder spontanen Events, weshalb dieser Weg konsequent gestrichen wurde.
+              </p>
+            </div>
 
-            <button class="gallery-next-btn absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/90 backdrop-blur-sm text-neutral-900 rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all duration-300 z-10">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </button>
-
-            <div class="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg z-10">
-              <span class="gallery-counter text-sm md:text-base text-neutral-900 font-light tracking-wider">1 / 5</span>
+            <!-- Phase 02 -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-900 bg-neutral-100 px-2 py-0.5 rounded">Lösung</span>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-900">Phase 02</span>
+              </div>
+              <h4 class="text-lg font-normal text-neutral-900">Zero-Friction Einstieg</h4>
+              <p class="text-neutral-600 leading-relaxed">
+                Ein direkter QR-Scan vor Ort führt Gäste ohne Registrierung oder App-Download in die PWA (Instant Access). Der Host behält die volle Datenkontrolle via Row Level Security (RLS) über Supabase.
+              </p>
             </div>
           </div>
-        </figure>
 
-        <div class="hidden">
-          <div data-gallery-index="0" data-gallery-src="../assets/images/Festify-Hero.webp" data-gallery-alt="Festify Hero"></div>
-          <div data-gallery-index="1" data-gallery-src="../assets/images/Festify Gäste Flow.webp" data-gallery-alt="Festify User Journey Flow"></div>
-          <div data-gallery-index="2" data-gallery-src="../assets/images/Web App - Login.webp" data-gallery-alt="Festify Login Screen"></div>
-          <div data-gallery-index="3" data-gallery-src="../assets/images/Web App - Personal Data.webp" data-gallery-alt="Festify Personal Data Screen"></div>
-          <div data-gallery-index="4" data-gallery-src="../assets/images/Web App - Create Event.webp" data-gallery-alt="Festify Create Event Screen"></div>
+          <!-- Wireframe Showcase -->
+          <figure class="mt-16 bg-neutral-50 p-6 md:p-12 border border-neutral-100 overflow-hidden">
+            <img src="../assets/images/festify-wireframe.png" alt="Festify App Wireframe" class="w-full h-auto object-contain mx-auto max-h-[550px] transition-transform duration-700 ease-out hover:scale-[1.02]">
+            <figcaption class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest mt-6 pt-4 border-t border-neutral-100/50 flex justify-between">
+              <span>Fig. 02 / Wireframe-Flow zur Event-Erstellung</span>
+              <span>PWA-Struktur</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <!-- 4. UX-Architektur & "Invisible AI" -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-32 md:mb-48">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-16 border-t border-neutral-100">
+        <!-- Left Column: Title & Section -->
+        <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
+          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">04 / UX-Architektur</span>
+          <h2 class="text-2xl md:text-3xl font-light text-neutral-900 tracking-tight leading-tight mb-8">UX-Architektur & „Invisible AI“</h2>
+          
+          <!-- Technical Stamp -->
+          <div class="hidden md:inline-block p-5 border border-dashed border-neutral-300 font-mono text-[11px] leading-relaxed text-neutral-500 w-full max-w-[260px]">
+            <div class="flex justify-between border-b border-neutral-100 pb-1.5 mb-2">
+              <span class="text-neutral-400 uppercase">System:</span>
+              <span class="text-neutral-900 font-medium">Festify PWA</span>
+            </div>
+            <div class="flex justify-between border-b border-neutral-100 pb-1.5 mb-2">
+              <span class="text-neutral-400 uppercase">Core Stack:</span>
+              <span class="text-neutral-900">React / Supabase</span>
+            </div>
+            <div class="flex justify-between border-b border-neutral-100 pb-1.5 mb-2">
+              <span class="text-neutral-400 uppercase">AI Engine:</span>
+              <span class="text-neutral-900">TensorFlow.js</span>
+            </div>
+            <div class="flex justify-between border-b border-neutral-100 pb-1.5 mb-2">
+              <span class="text-neutral-400 uppercase">Media Engine:</span>
+              <span class="text-neutral-900">FFmpeg WASM</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-neutral-400 uppercase">Sec Layer:</span>
+              <span class="text-neutral-900">Supabase RLS</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Column: Staggered features layout -->
+        <div class="md:col-span-8 space-y-16 text-neutral-700 text-base md:text-lg leading-relaxed">
+          <!-- Lead-in text -->
+          <div class="max-w-2xl">
+            <p class="text-xl md:text-2xl font-light text-neutral-900 leading-relaxed">
+              Als UX-Designer habe ich mich intensiv dafür eingesetzt, dass künstliche Intelligenz nicht als komplexes Werkzeug die UI überlädt, sondern als unsichtbarer Hintergrundprozess agiert. Der Nutzer merkt nicht, dass er KI bedient – er spürt nur das magische Ergebnis.
+            </p>
+          </div>
+
+          <!-- Features Layout: Asymmetric, staggered offset -->
+          <div class="space-y-24 pt-8">
+            
+            <!-- Feature 1: Left-aligned -->
+            <div class="grid grid-cols-1 md:grid-cols-10 gap-4">
+              <div class="md:col-span-8 space-y-4">
+                <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block">Feature 01 / Asynchrone Gesichtserkennung</span>
+                <h3 class="text-xl font-normal text-neutral-900">Privatsphäre durch Client-Side ML</h3>
+                <p class="text-sm md:text-base text-neutral-600">
+                  Sobald Gäste Fotos hochladen, verarbeitet ein Express.js-Server im Hintergrund die Gesichtserkennung mithilfe vortrainierter TensorFlow.js-Modelle.
+                </p>
+                <p class="text-sm md:text-base text-neutral-600 font-light italic">
+                  <strong class="font-normal text-neutral-900">UX-Mehrwert:</strong> Bilder werden vollautomatisch und datenschutzkonform nach abgebildeten Personen kategorisiert. Maria kann am nächsten Morgen mit einem einzigen Klick auf ihr eigenes Gesicht filtern und sieht sofort alle Fotos, auf denen sie selbst zu sehen ist – ohne jemals ein Tagging-Tool bedient zu haben.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 2: Right-aligned & Staggered -->
+            <div class="grid grid-cols-1 md:grid-cols-10 gap-4">
+              <div class="md:col-start-3 md:col-span-8 space-y-4">
+                <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block">Feature 02 / Highlight-Scoring</span>
+                <h3 class="text-xl font-normal text-neutral-900">Automated Highlight-Scoring & Video-Generierung</h3>
+                <p class="text-sm md:text-base text-neutral-600">
+                  Aus der gesamten Bildmenge berechnet ein Algorithmus im Hintergrund einen kombinierten Score aus technischer Qualität, Gesichtskonfidenz und ästhetischer Komposition (z. B. Platzierung auf den Linien des Goldenen Schnitts). Die am besten bewerteten Bilder werden via FFmpeg automatisch zu einem flüssigen Highlight-Video mit harmonischen Übergängen gerendert.
+                </p>
+                <p class="text-sm md:text-base text-neutral-600 font-light italic">
+                  <strong class="font-normal text-neutral-900">UX-Mehrwert:</strong> Der emotionale Wert des Events wird sofort und ohne manuellen Schnitt-Aufwand für die Nutzer erlebbar gemacht.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 5. UI-Design, Usability & Barrierefreiheit -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-32 md:mb-48">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-16 border-t border-neutral-100">
+        <!-- Left Column: Title & Section -->
+        <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
+          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">05 / UI & Usability</span>
+          <h2 class="text-2xl md:text-3xl font-light text-neutral-900 tracking-tight leading-tight">UI-Design, Usability & Barrierefreiheit</h2>
+        </div>
+        
+        <!-- Right Column: Lead-in and Pillars Grid -->
+        <div class="md:col-span-8 space-y-16 text-neutral-700 text-base md:text-lg leading-relaxed">
+          <!-- Lead-in text -->
+          <div class="max-w-2xl">
+            <p class="text-xl md:text-2xl font-light text-neutral-900 leading-relaxed">
+              Das Interface wurde konsequent für ein intergenerationelles Nutzungsszenario optimiert, um insbesondere der Generation 60+ maximale Sicherheit zu geben. Um Barrierefreiheit nicht als technisches Regelwerk, sondern als integrales Designmerkmal zu verstehen, konzentriert sich die visuelle Ausgestaltung auf drei fundamentale Säulen.
+            </p>
+          </div>
+
+          <!-- 3-Column Pillars Layout -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pt-8">
+            
+            <!-- Pillar 1: Touch Targets -->
+            <div class="space-y-4">
+              <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block">Säule 01 / Motorik</span>
+              <h3 class="text-lg font-normal text-neutral-900">Großzügige Touch Targets</h3>
+              <p class="text-sm text-neutral-600 leading-relaxed">
+                Alle interaktiven Klickflächen und Buttons wurden stark vergrößert bemessen, um auch bei eingeschränkter Motorik im unruhigen Event-Kontext fehlerfreie Interaktionen zu ermöglichen.
+              </p>
+            </div>
+
+            <!-- Pillar 2: Kontrast & Typo -->
+            <div class="space-y-4">
+              <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block">Säule 02 / Sehkraft</span>
+              <h3 class="text-lg font-normal text-neutral-900">Kontrast & Typografie</h3>
+              <p class="text-sm text-neutral-600 leading-relaxed">
+                Der Einsatz einer serifenlosen, hochgradig lesbaren Systemschrift geht Hand in Hand mit der strikten Einhaltung der WCAG-Kontrastwerte, um optimale Lesbarkeit unter hellen Lichtbedingungen zu garantieren.
+              </p>
+            </div>
+
+            <!-- Pillar 3: Maskottchen -->
+            <div class="space-y-4">
+              <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block">Säule 03 / Vertrauen</span>
+              <h3 class="text-lg font-normal text-neutral-900">Psychologische Führung</h3>
+              <p class="text-sm text-neutral-600 leading-relaxed">
+                Ein sympathisches Kamera-Maskottchen macht im Hintergrund laufende KI-Prozesse nahbar und verständlich. Usability-Tests zeigten, dass diese visuelle Brücke das Vertrauen in die App massiv stärkt.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 6. Fazit & Outcome -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-32 md:mb-64">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-16 border-t border-neutral-100">
+        <!-- Left Column: Title & Section -->
+        <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
+          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">06 / Fazit</span>
+          <h2 class="text-2xl md:text-3xl font-light text-neutral-900 tracking-tight leading-tight">Fazit & Outcome</h2>
+        </div>
+        
+        <!-- Right Column: Editorial Conclusio -->
+        <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed max-w-2xl">
+          <p class="text-xl md:text-2xl font-light text-neutral-900 leading-relaxed">
+            Festify beweist, dass sich die Brücke zwischen funktionaler Datenverwaltung und hochgradig emotionaler User Experience schlagen lässt, wenn man Technologie konsequent unsichtbar gestaltet. Das Projekt wurde an der Hochschule Osnabrück mit der Spitzennote 1,0 ausgezeichnet.
+          </p>
+        </div>
+      </div>
+
+      <!-- Large typographic focal statement -->
+      <div class="mt-24 md:mt-32 max-w-5xl">
+        <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-6">Leitgedanke</span>
+        <p class="text-3xl md:text-6xl font-light text-neutral-900 italic tracking-tight leading-tight">
+          „Technologie konsequent unsichtbar gestalten.“
+        </p>
+      </div>
+
+      <!-- Staggered Key Learnings Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 mt-20 md:mt-32">
+        <!-- Key Learning 1: Left-aligned -->
+        <div class="col-span-12 md:col-span-5 space-y-4">
+          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block">Learning 01 / Das Werkzeug</span>
+          <h3 class="text-xl font-normal text-neutral-900">KI ist ein UX-Werkzeug, kein Selbstzweck</h3>
+          <p class="text-sm md:text-base text-neutral-600 leading-relaxed">
+            Die beste KI-Funktion nützt nichts, wenn der Nutzer sie erst konfigurieren oder verstehen muss. Sie muss lautlos und unsichtbar im Hintergrund für den Menschen arbeiten.
+          </p>
+        </div>
+
+        <!-- Key Learning 2: Right-aligned & Offset/Staggered downwards -->
+        <div class="col-span-12 md:col-span-5 md:col-start-8 md:mt-32 space-y-4">
+          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block">Learning 02 / Die Iteration</span>
+          <h3 class="text-xl font-normal text-neutral-900">Datenbasierte Iteration schützt vor Fehlentscheidungen</h3>
+          <p class="text-sm md:text-base text-neutral-600 leading-relaxed">
+            Der frühe Pivot weg vom analogen Brief hin zum reinen digitalen Zugangscode hat das Projekt vor einer unpraktikablen Hürde gerettet und den Weg für einen echten „Zero-Friction“-Einstieg geebnet.
+          </p>
         </div>
       </div>
     </section>
 
+    <!-- Back to Projects Link -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 pb-20 md:pb-32">
       <div class="pt-12 border-t border-neutral-200">
         <a href="../index.html#projekte" class="back-link">
@@ -488,29 +554,9 @@
         </a>
       </div>
     </section>
+
   </main>
 
-  <div id="imageModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm">
-    <button id="closeModal" class="absolute top-4 md:top-8 right-4 md:right-8 w-12 h-12 flex items-center justify-center text-white hover:text-neutral-300 transition-colors duration-300 group z-20" aria-label="Modal schließen">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:rotate-90">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
-    <button id="prevImage" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-neutral-300 transition-all duration-300 group z-20 hover:scale-110" aria-label="Vorheriges Bild">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:-translate-x-1"><polyline points="15 18 9 12 15 6"></polyline></svg>
-    </button>
-    <button id="nextImage" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-neutral-300 transition-all duration-300 group z-20 hover:scale-110" aria-label="Nächstes Bild">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:translate-x-1"><polyline points="9 18 15 12 9 6"></polyline></svg>
-    </button>
-    <img id="modalImage" src="" alt="Vergrößertes Bild" class="max-w-[90vw] max-h-[90vh] object-contain" />
-    <div class="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-white text-sm font-light tracking-wider z-20">
-      <span id="imageCounter"></span>
-    </div>
-  </div>
-
   <script src="../src/main.js" defer></script>
-</body>
-</html>
 </body>
 </html>
