@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <link href="../src/output.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link href="../../src/output.css" rel="stylesheet">
   <title>Van Gogh VR Experience – Tom Ziegler</title>
   <style>
     ::selection {
@@ -23,7 +23,7 @@
       overflow-x: hidden;
     }
 
-    /* --- Custom Link Styles (Clean CSS statt JS-Injection) --- */
+    /* --- Custom Link Styles --- */
     .tech-link, .back-link {
       color: #111;
       text-decoration: none;
@@ -77,6 +77,7 @@
     @media (min-width: 768px) {
       #imageModal > div:last-of-type { bottom: 2rem !important; }
     }
+
     /* --- Lang Pill --- */
     .lang-pill {
       display: inline-flex;
@@ -101,60 +102,15 @@
       color: #fff;
     }
     .lang-pill a:not(.lang-active):hover { color: #171717; }
-    .lang-pill-disabled {
-      position: relative;
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #d1d5db;
-      cursor: not-allowed;
-      user-select: none;
-    }
-    .lang-pill-disabled::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: calc(100% + 10px);
-      left: 50%;
-      transform: translateX(-50%);
-      background: #171717;
-      color: #fff;
-      font-size: 0.65rem;
-      letter-spacing: 0.02em;
-      text-transform: none;
-      font-weight: 300;
-      white-space: nowrap;
-      padding: 6px 10px;
-      border-radius: 6px;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-    .lang-pill-disabled::before {
-      content: '';
-      position: absolute;
-      bottom: calc(100% + 4px);
-      left: 50%;
-      transform: translateX(-50%);
-      border: 5px solid transparent;
-      border-top-color: #171717;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-    .lang-pill-disabled:hover::after,
-    .lang-pill-disabled:hover::before { opacity: 1; }
   </style>
 </head>
 <body class="bg-white text-neutral-900 font-sans min-h-screen antialiased">
-  
+
   <div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/50 backdrop-blur-sm transition-opacity duration-700">
     <div class="w-32 sm:w-48 h-px bg-neutral-200 overflow-hidden mb-8">
       <div id="loader-bar" class="h-px bg-neutral-900 w-0 transition-all duration-1000"></div>
     </div>
-    <span class="text-neutral-400 text-sm font-light tracking-wider uppercase">Lädt</span>
+    <span class="text-neutral-400 text-sm font-light tracking-wider uppercase">Loading</span>
   </div>
 
   <header class="w-full border-b border-neutral-200/60 py-8 px-6 md:px-12 sticky top-0 bg-white/80 backdrop-blur-md z-40">
@@ -162,13 +118,13 @@
       <a href="../index.html" class="text-base font-light tracking-tight hover:text-neutral-600 transition-colors duration-300">Tom Ziegler</a>
       <div class="hidden md:flex items-center gap-10">
         <nav class="flex gap-8">
-          <a href="../index.html#about" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Über</a>
-          <a href="../index.html#projekte" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Projekte</a>
-          <a href="../index.html#kontakt" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Kontakt</a>
+          <a href="../index.html#about" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">About</a>
+          <a href="../index.html#projects" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Projects</a>
+          <a href="../index.html#footer" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Contact</a>
         </nav>
         <div class="lang-pill">
-          <a href="van-gogh-vr-experience.html" class="lang-active" aria-label="Deutsch">DE</a>
-          <a href="../en/projects/van-gogh-vr-experience.html" aria-label="English">EN</a>
+          <a href="../../projekte/van-gogh-vr-experience.html" aria-label="Deutsch">DE</a>
+          <a href="van-gogh-vr-experience.html" class="lang-active" aria-label="English">EN</a>
         </div>
       </div>
     </div>
@@ -182,6 +138,7 @@
 
   <main class="w-full">
 
+    <!-- HERO -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 pt-20 md:pt-32 pb-32 md:pb-48">
       <div class="flex flex-col md:flex-row md:items-start justify-between gap-12 md:gap-16 mb-20 md:mb-32">
         <h1 class="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-none">Van Gogh VR Experience</h1>
@@ -192,39 +149,41 @@
       </div>
     </section>
 
+    <!-- HERO IMAGE -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 mb-32 md:mb-48">
       <figure class="group">
         <div class="relative overflow-hidden bg-neutral-50 aspect-[16/9]">
           <picture>
-            <source srcset="../assets/images/VanGogh_poster.webp" type="image/webp">
-            <img src="../assets/images/VanGogh_poster.jpg" alt="Frau mit VR Brille im Visiodrom" class="block w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]" fetchpriority="high" />
+            <source srcset="../../assets/images/VanGogh_poster.webp" type="image/webp">
+            <img src="../../assets/images/VanGogh_poster.jpg" alt="Woman wearing VR headset at Visiodrom" class="block w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]" fetchpriority="high" />
           </picture>
         </div>
       </figure>
     </section>
 
+    <!-- INTRO -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
         <div class="md:col-span-5">
-          <h2 class="text-2xl md:text-3xl lg:text-4xl font-light text-neutral-900 tracking-tight leading-snug">"Wie lässt sich Kunst durch KI lebendig vermitteln?"</h2>
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-light text-neutral-900 tracking-tight leading-snug">"How can art be brought to life through AI?"</h2>
         </div>
         <div class="md:col-span-7 space-y-8 text-neutral-700 text-base md:text-lg leading-relaxed">
-          <p>Die Van Gogh VR Experience im Visiodrom Wuppertal verbindet Kunst und Technologie zu einem immersiven Erlebnis. Besucher tauchen mithilfe von Virtual Reality in den Kopf von Vincent van Gogh ein und erleben ihn auf eine völlig neue, interaktive Weise.</p>
-          <p>Das Projekt umfasste die Konzeption des Nutzerflusses, die Gestaltung der Interface-Elemente, die Abstimmung mit den technischen Anforderungen der VR-Plattform sowie das Nutzen von KI als interaktiven Chatbot.</p>
+          <p>The Van Gogh VR Experience at Visiodrom Wuppertal merges art and technology into an immersive encounter. Using virtual reality, visitors step inside the mind of Vincent van Gogh and experience him in an entirely new, interactive way.</p>
+          <p>The project covered the UX concept, interface design, coordination with the technical requirements of the VR platform, and using AI as an interactive chatbot.</p>
           <div class="pt-4">
-            <h3 class="text-lg md:text-xl font-normal text-neutral-900 mb-4">Ergebnis – Kurzfassung</h3>
+            <h3 class="text-lg md:text-xl font-normal text-neutral-900 mb-4">Result — in brief</h3>
             <ul class="space-y-3 text-neutral-700 font-light">
               <li class="flex items-start gap-3">
                 <span class="inline-block text-base leading-none text-neutral-400 mt-1">—</span>
-                <span>Funktionsfähiger <span class="font-medium text-neutral-900">VR-Dialogflow</span> mit Stimme &amp; visuellem Feedback.</span>
+                <span>A working <span class="font-medium text-neutral-900">VR dialogue flow</span> with voice &amp; visual feedback.</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="inline-block text-base leading-none text-neutral-400 mt-1">—</span>
-                <span>Stabile <span class="font-medium text-neutral-900">Sprachinteraktion</span> (Push-to-Talk) mit Latenz-UI.</span>
+                <span>Stable <span class="font-medium text-neutral-900">voice interaction</span> (push-to-talk) with latency UI.</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="inline-block text-base leading-none text-neutral-400 mt-1">—</span>
-                <span>Aus der Persona abgeleiteter <span class="font-medium text-neutral-900">Ton-Guide</span> für konsistente Microcopy.</span>
+                <span>A persona-derived <span class="font-medium text-neutral-900">tone guide</span> for consistent microcopy.</span>
               </li>
             </ul>
           </div>
@@ -232,10 +191,11 @@
       </div>
     </section>
 
+    <!-- PROJECT DETAILS -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
         <div class="md:col-span-4">
-          <h2 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Projektdetails</h2>
+          <h2 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Project Details</h2>
         </div>
         <div class="md:col-span-8">
           <table class="w-full text-left border-separate border-spacing-y-4 md:border-spacing-y-6">
@@ -249,11 +209,11 @@
                 </td>
               </tr>
               <tr>
-                <td class="align-top text-neutral-400 font-light text-base md:text-lg w-1/3">Meine Rolle</td>
-                <td class="text-neutral-900 font-light text-base md:text-lg">UX-Konzeption, Prompting für ChatGPT und Whisper, KI-Workflows</td>
+                <td class="align-top text-neutral-400 font-light text-base md:text-lg w-1/3">My role</td>
+                <td class="text-neutral-900 font-light text-base md:text-lg">UX concept, prompting for ChatGPT and Whisper, AI workflows</td>
               </tr>
               <tr>
-                <td class="align-top text-neutral-400 font-light text-base md:text-lg">Technologien</td>
+                <td class="align-top text-neutral-400 font-light text-base md:text-lg">Technologies</td>
                 <td class="text-neutral-900 font-light text-base md:text-lg">
                   <div class="flex flex-wrap gap-x-2">
                     <a href="https://chat.openai.com/" target="_blank" rel="noopener" class="tech-link">ChatGPT
@@ -278,8 +238,8 @@
                 </td>
               </tr>
               <tr>
-                <td class="align-top text-neutral-400 font-light text-base md:text-lg w-1/3">Stichworte</td>
-                <td class="text-neutral-900 font-light text-base md:text-lg">Ausstellung, Voice-Design, Persona-Design, Spatial UX, AI</td>
+                <td class="align-top text-neutral-400 font-light text-base md:text-lg w-1/3">Keywords</td>
+                <td class="text-neutral-900 font-light text-base md:text-lg">Exhibition, Voice Design, Persona Design, Spatial UX, AI</td>
               </tr>
             </tbody>
           </table>
@@ -287,80 +247,44 @@
       </div>
     </section>
 
+    <!-- THE EXPERIENCE -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
       <div class="mb-16 md:mb-20">
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none mb-6">Das Erlebnis</h2>
-        <p class="text-base md:text-lg text-neutral-500 font-light">Immersive Virtual Reality trifft auf KI-gestützte Interaktion</p>
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none mb-6">The Experience</h2>
+        <p class="text-base md:text-lg text-neutral-500 font-light">Immersive virtual reality meets AI-powered interaction</p>
       </div>
 
       <figure class="group mb-32 md:mb-40">
         <div class="relative overflow-hidden border border-neutral-200 bg-neutral-50">
           <video controls playsinline preload="metadata" class="block w-full h-auto transition-transform duration-1000 ease-out">
-            <source src="../assets/videos/Van Gogh Software.mp4" type="video/mp4" />
-            Dein Browser unterstützt das Video-Tag nicht.
+            <source src="../../assets/videos/Van Gogh Software.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
         </div>
         <figcaption class="mt-8 text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500">Software Demo</figcaption>
       </figure>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
-      <div class="mb-16 md:mb-20">
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none">Galerie</h2>
-      </div>
-
-      <div class="gallery-container-wrapper relative">
-        <figure class="group gallery-item" data-gallery-index="0">
-          <div class="relative overflow-hidden bg-neutral-50 aspect-[16/9]">
-            <picture>
-              <source srcset="../assets/images/VanGogh_poster.webp" type="image/webp">
-              <img src="../assets/images/VanGogh_poster.jpg" alt="Frau mit VR Brille im Visiodrom" class="gallery-main-image block w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
-            </picture>
-
-            <button class="gallery-prev-btn absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/90 backdrop-blur-sm text-neutral-900 rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all duration-300 z-10">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><polyline points="15 18 9 12 15 6"></polyline></svg>
-            </button>
-
-            <button class="gallery-next-btn absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/90 backdrop-blur-sm text-neutral-900 rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all duration-300 z-10">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </button>
-
-            <div class="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg z-10">
-              <span class="gallery-counter text-sm md:text-base text-neutral-900 font-light tracking-wider">1 / 6</span>
-            </div>
-          </div>
-        </figure>
-
-        <div class="hidden">
-          <div data-gallery-index="0" data-gallery-src="../assets/images/VanGogh_poster.webp" data-gallery-alt="Frau mit VR Brille im Visiodrom"></div>
-          <div data-gallery-index="1" data-gallery-src="../assets/images/vangoghvrhochkant.webp" data-gallery-alt="Kommilitonin bei erster Nutzung"></div>
-          <div data-gallery-index="2" data-gallery-src="../assets/images/VanGogh_VR_Laptop.webp" data-gallery-alt="Desktop und VR-Brille"></div>
-          <div data-gallery-index="3" data-gallery-src="../assets/images/VanGogh_VREinController_Laptop.webp" data-gallery-alt="Alle benötigten Utensilien"></div>
-          <div data-gallery-index="4" data-gallery-src="../assets/images/VanGogh_VRController_Laptop.webp" data-gallery-alt="Aufsetzen & los"></div>
-          <div data-gallery-index="5" data-gallery-src="../assets/images/VanGogh_VRController.webp" data-gallery-alt="Mit Meta Quest 3"></div>
-        </div>
-      </div>
-    </section>
-
+    <!-- AI INTEGRATION -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
       <div class="mb-32 md:mb-48">
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none mb-6">KI-Integration</h2>
-        <p class="text-base md:text-lg text-neutral-500 font-light">Wie Künstliche Intelligenz Van Gogh zum Leben erweckt</p>
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none mb-6">AI Integration</h2>
+        <p class="text-base md:text-lg text-neutral-500 font-light">How artificial intelligence brings Van Gogh to life</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-32 md:mb-40">
-          <div class="md:col-span-4"><h4 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Warum KI?</h4></div>
-          <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
-            <p>Viele immersive Van-Gogh-Formate setzen auf Projektion statt echter Interaktion. Wir wollten dialogische Wissensvermittlung – niedrigschwellig per Sprache in VR.</p>
-          </div>
+        <div class="md:col-span-4"><h4 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Why AI?</h4></div>
+        <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
+          <p>Many immersive Van Gogh formats rely on projection rather than genuine interaction. We wanted dialogue-based knowledge transfer — low-barrier, via voice in VR.</p>
+        </div>
       </div>
 
       <div class="mb-40 md:mb-56">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
-          <div class="md:col-span-4"><h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">AI-Architektur</h3></div>
+          <div class="md:col-span-4"><h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">AI Architecture</h3></div>
           <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
-            <p>Push-to-Talk triggert Speech-to-Text; die Antwort kommt aus einer LLM-Persona (System-Prompt), wird über Text-to-Speech ausgegeben, und Unity visualisiert einen Warte-Indikator für Transparenz.</p>
-            <p class="text-neutral-900 font-normal pt-4">Implementierung: erster Python-Prototyp mit OpenAI-API, danach komplette C#-Portierung für Audio-I/O, Controller-Anbindung und Model-Integration.</p>
+            <p>Push-to-talk triggers speech-to-text; the response comes from an LLM persona (system prompt), is delivered via text-to-speech, and Unity visualises a waiting indicator for transparency.</p>
+            <p class="text-neutral-900 font-normal pt-4">Implementation: first Python prototype with OpenAI API, then a full C# port for audio I/O, controller integration, and model integration.</p>
           </div>
         </div>
       </div>
@@ -369,53 +293,54 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
           <div class="md:col-span-4"><h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Persona & Prompting</h3></div>
           <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
-            <p>Ich gestaltete eine Persona auf Basis der Van-Gogh-Briefe und implementierte sie als System-Prompt mit stabilen Defaults, Markdown-Fallstricken aus dem Weg gehend. Leitplanke war das CAPITAL-Framework (zum Beispiel amicable, transparent, zugängliche Lexik).</p>
-            <p class="text-neutral-900 font-normal pt-4">Unser narrativer Pivot: Statt eines Avatars mit Lipsync führen Nutzerinnen und Nutzer ein Gespräch "im Kopf" – konsistent mit Persona und Technik. Außerdem wurde dadurch das Lipsync-Problem umgangen.</p>
+            <p>I designed a persona based on Van Gogh's letters and implemented it as a system prompt with stable defaults, avoiding Markdown pitfalls. The guiding framework was CAPITAL (e.g. amicable, transparent, accessible vocabulary).</p>
+            <p class="text-neutral-900 font-normal pt-4">Our narrative pivot: instead of an avatar with lip sync, users hold a conversation "inside the mind" — consistent with both the persona and the tech. It also sidestepped the lip-sync problem.</p>
           </div>
         </div>
       </div>
 
       <div class="mb-40 md:mb-56">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
-          <div class="md:col-span-4"><h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Qualität & Safety</h3></div>
+          <div class="md:col-span-4"><h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Quality & Safety</h3></div>
           <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed">
-            <p>Negativtests mit Provokation und Beleidigung: Die Persona blieb ruhig und respektvoll, Team-Ratings sowie Feedback von Dozierenden und Kommilitonen dienten als Qualitätssicherung.</p>
+            <p>Negative testing with provocation and insults: the persona remained calm and respectful. Team ratings and feedback from lecturers and fellow students served as quality assurance.</p>
           </div>
         </div>
       </div>
 
       <div class="mb-40 md:mb-56">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
-          <div class="md:col-span-4"><h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Latency & Robustheit</h3></div>
+          <div class="md:col-span-4"><h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Latency & Robustness</h3></div>
           <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed">
-            <p>Engpass war die Netzwerk-Latenz im Ausstellungs-WLAN. Wir machten sie sichtbar durch einen "Warte..."-State, milderten sie via privaten Hotspot.</p>
+            <p>The bottleneck was network latency on the exhibition Wi-Fi. We made it visible via a "Waiting…" state and mitigated it using a private hotspot.</p>
           </div>
         </div>
       </div>
 
       <div class="mb-40 md:mb-56">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
-          <div class="md:col-span-4"><h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Klang & Immersion</h3></div>
+          <div class="md:col-span-4"><h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Sound & Immersion</h3></div>
           <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed">
-            <p>Die Stimmausgabe wurde auf historische Erwartungen hin angepasst (z.B. Akzent, Stimmklang, etc.), Reverb in Unity sorgt für den "im-Kopf"-Effekt.</p>
+            <p>The voice output was tuned to meet historical expectations (e.g. accent, vocal tone). Reverb in Unity creates the "inside the mind" effect.</p>
           </div>
         </div>
       </div>
 
       <div class="mb-40 md:mb-56">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
-          <div class="md:col-span-4"><h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Zukunft & Verbesserungen</h3></div>
+          <div class="md:col-span-4"><h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Future & Improvements</h3></div>
           <div class="md:col-span-8 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
-            <p>Demnächst: Van Goghs Briefe als lokale Wissensbasis per RAG einbinden. Die Persona antwortet ausschließlich auf Basis der Briefausschnitte und kann bei Bedarf (z.B. beim Testen) Brief-ID/Datum angeben.</p>
-            <p>Der Prompt soll mehr Informationen über den Kontext, in dem sich die KI befindet, erhalten (Raum, Station, sichtbare Werke). Antworten würden so den Aufenthaltsort („Du stehst im Zimmer von Arles; an der Wand hängen die Sonnenblumen von 1888") berücksichtigen.</p>
-            <p class="text-neutral-900 font-normal pt-4">Im „Briefe-only"-Setup würde sich die Installation vollständig offline betreiben lassen – sofern auch das Sprachmodell lokal läuft. Das würde die Latenz senken und macht die Experience unabhängig vom Internet. Durch Open-Source LLMs ist das in naher Zukunft realistisch.</p>
+            <p>Next up: integrating Van Gogh's letters as a local knowledge base via RAG. The persona would respond exclusively based on letter excerpts and can cite letter ID/date if needed.</p>
+            <p>The prompt would also receive more context about the environment (room, station, visible works) — so responses reference the visitor's location ("You are standing in the room from Arles; on the wall hang the Sunflowers from 1888").</p>
+            <p class="text-neutral-900 font-normal pt-4">In a "letters-only" setup, the installation could run fully offline — making it internet-independent. Realistic in the near future thanks to open-source LLMs.</p>
           </div>
         </div>
       </div>
 
+      <!-- Technical Details Tabs -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
         <div class="md:col-span-4">
-          <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Technische Details</h3>
+          <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight leading-snug">Technical Details</h3>
         </div>
         <div class="md:col-span-8">
           <div class="flex gap-2 mb-8 border-b border-neutral-200">
@@ -434,16 +359,16 @@
                   <td class="text-neutral-900 font-light text-base md:text-lg">CAPITAL (Constraints, Accessibility, Professionalism, Interactivity, Transparency, Adaptability, Lexicography)</td>
                 </tr>
                 <tr>
-                  <td class="align-top text-neutral-400 font-light text-base md:text-lg">Persona &amp; Quellen</td>
-                  <td class="text-neutral-900 font-light text-base md:text-lg">Stil &amp; Haltung aus Van-Gogh-Briefen; System-Prompt als Guardrail</td>
+                  <td class="align-top text-neutral-400 font-light text-base md:text-lg">Persona &amp; Sources</td>
+                  <td class="text-neutral-900 font-light text-base md:text-lg">Style &amp; attitude derived from Van Gogh's letters; system prompt as guardrail</td>
                 </tr>
                 <tr>
-                  <td class="align-top text-neutral-400 font-light text-base md:text-lg">Interaktion</td>
-                  <td class="text-neutral-900 font-light text-base md:text-lg">Push-to-Talk, gesprochene Antwort (TTS), Latenz-Feedback im UI</td>
+                  <td class="align-top text-neutral-400 font-light text-base md:text-lg">Interaction</td>
+                  <td class="text-neutral-900 font-light text-base md:text-lg">Push-to-talk, spoken response (TTS), latency feedback in UI</td>
                 </tr>
                 <tr>
-                  <td class="align-top text-neutral-400 font-light text-base md:text-lg">Qualitätssicherung</td>
-                  <td class="text-neutral-900 font-light text-base md:text-lg">Team-Review, Negativtests (Provokation/Beleidigung), Prompt-Versionierung</td>
+                  <td class="align-top text-neutral-400 font-light text-base md:text-lg">Quality assurance</td>
+                  <td class="text-neutral-900 font-light text-base md:text-lg">Team review, negative tests (provocation/insults), prompt versioning</td>
                 </tr>
               </tbody>
             </table>
@@ -451,20 +376,20 @@
           <div id="prompt-panel" class="hidden">
             <div class="relative">
               <div class="text-neutral-700 text-base md:text-lg leading-relaxed space-y-4 blur-md select-none pointer-events-none" aria-hidden="true">
-                <p>Der System-Prompt definiert die Persönlichkeit und Verhaltensweise der KI-Instanz. Er beinhaltet detaillierte Anweisungen zu Tonalität, Wortwahl und Interaktionsstil.</p>
-                <p><span class="font-medium text-neutral-900">Persönlichkeitsparameter:</span> Die Charakteristika werden durch verschiedene Dimensionen definiert, darunter Zuversichtlichkeit, Freundlichkeit und Professionalität. Jede Dimension ist sorgfältig kalibriert.</p>
-                </div>
+                <p>The system prompt defines the personality and behaviour of the AI instance. It contains detailed instructions on tone, vocabulary, and interaction style.</p>
+                <p><span class="font-medium text-neutral-900">Personality parameters:</span> The characteristics are defined across various dimensions, including confidence, friendliness, and professionalism. Each dimension is carefully calibrated.</p>
+              </div>
               <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-white/60 via-white/80 to-white/60 backdrop-blur-sm">
                 <div class="max-w-md mx-auto px-8 py-20 bg-white/95 backdrop-blur-md rounded-lg shadow-xl border border-neutral-200/60 text-center">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 mx-auto mb-6 text-neutral-400">
                     <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                     <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                   </svg>
-                  <h3 class="text-xl md:text-2xl font-light text-neutral-900 mb-4 tracking-tight">Vollständiger Prompt auf Anfrage</h3>
-                  <p class="text-neutral-600 text-sm md:text-base leading-relaxed mb-6">Der komplette System-Prompt ist nicht öffentlich einsehbar. Bei berechtigtem Interesse sende ich dir gerne den vollständigen Prompt zu.</p>
-                  <a href="mailto:tom.ziegler@outlook.de?subject=Anfrage: Van Gogh VR Prompt&body=Hallo Tom,%0D%0A%0D%0AIch interessiere mich für den vollständigen System-Prompt der Van Gogh VR Experience und würde diesen gerne einsehen.%0D%0A%0D%0AViele Grüße" class="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 text-white text-sm font-light tracking-wide rounded-md hover:bg-neutral-700 transition-colors duration-300">
+                  <h3 class="text-xl md:text-2xl font-light text-neutral-900 mb-4 tracking-tight">Full prompt available on request</h3>
+                  <p class="text-neutral-600 text-sm md:text-base leading-relaxed mb-6">The complete system prompt is not publicly available. If you have a legitimate interest, I'm happy to share it with you.</p>
+                  <a href="mailto:tom.ziegler@outlook.de?subject=Request: Van Gogh VR Prompt&body=Hi Tom,%0D%0A%0D%0AI'm interested in the full system prompt for the Van Gogh VR Experience and would love to take a look.%0D%0A%0D%0ABest regards" class="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 text-white text-sm font-light tracking-wide rounded-md hover:bg-neutral-700 transition-colors duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    Per E-Mail anfragen
+                    Request via email
                   </a>
                 </div>
               </div>
@@ -474,70 +399,108 @@
       </div>
     </section>
 
+    <!-- GALLERY -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
+      <div class="mb-16 md:mb-20">
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-none">Gallery</h2>
+      </div>
+
+      <div class="gallery-container-wrapper relative">
+        <figure class="group gallery-item" data-gallery-index="0">
+          <div class="relative overflow-hidden bg-neutral-50 aspect-[16/9]">
+            <picture>
+              <source srcset="../../assets/images/VanGogh_poster.webp" type="image/webp">
+              <img src="../../assets/images/VanGogh_poster.jpg" alt="Woman wearing VR headset at Visiodrom" class="gallery-main-image block w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
+            </picture>
+
+            <button class="gallery-prev-btn absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/90 backdrop-blur-sm text-neutral-900 rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all duration-300 z-10">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+
+            <button class="gallery-next-btn absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/90 backdrop-blur-sm text-neutral-900 rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all duration-300 z-10">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+
+            <div class="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg z-10">
+              <span class="gallery-counter text-sm md:text-base text-neutral-900 font-light tracking-wider">1 / 6</span>
+            </div>
+          </div>
+        </figure>
+
+        <div class="hidden">
+          <div data-gallery-index="0" data-gallery-src="../../assets/images/VanGogh_poster.webp" data-gallery-alt="Woman wearing VR headset at Visiodrom"></div>
+          <div data-gallery-index="1" data-gallery-src="../../assets/images/vangoghvrhochkant.webp" data-gallery-alt="Fellow student using it for the first time"></div>
+          <div data-gallery-index="2" data-gallery-src="../../assets/images/VanGogh_VR_Laptop.webp" data-gallery-alt="Laptop and VR headset"></div>
+          <div data-gallery-index="3" data-gallery-src="../../assets/images/VanGogh_VREinController_Laptop.webp" data-gallery-alt="All required equipment"></div>
+          <div data-gallery-index="4" data-gallery-src="../../assets/images/VanGogh_VRController_Laptop.webp" data-gallery-alt="Put it on &amp; go"></div>
+          <div data-gallery-index="5" data-gallery-src="../../assets/images/VanGogh_VRController.webp" data-gallery-alt="With Meta Quest 3"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BACK LINK -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 pb-20 md:pb-32">
       <div class="pt-12 border-t border-neutral-200">
-        <a href="../index.html#projekte" class="back-link">
+        <a href="../index.html#projects" class="back-link">
           <span class="inline-flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="w-4 h-4 mr-1 align-baseline transition-transform duration-200"><path d="M11 8H5M5 8l3-3M5 8l3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-            Zurück zu den Projekten
+            Back to projects
           </span>
         </a>
       </div>
     </section>
+
   </main>
 
   <div id="imageModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm">
-    <button id="closeModal" class="absolute top-4 md:top-8 right-4 md:right-8 w-12 h-12 flex items-center justify-center text-white hover:text-neutral-300 transition-colors duration-300 group z-20" aria-label="Modal schließen">
+    <button id="closeModal" class="absolute top-4 md:top-8 right-4 md:right-8 w-12 h-12 flex items-center justify-center text-white hover:text-neutral-300 transition-colors duration-300 group z-20" aria-label="Close modal">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:rotate-90">
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </button>
-    <button id="prevImage" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-neutral-300 transition-all duration-300 group z-20 hover:scale-110" aria-label="Vorheriges Bild">
+    <button id="prevImage" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-neutral-300 transition-all duration-300 group z-20 hover:scale-110" aria-label="Previous image">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:-translate-x-1"><polyline points="15 18 9 12 15 6"></polyline></svg>
     </button>
-    <button id="nextImage" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-neutral-300 transition-all duration-300 group z-20 hover:scale-110" aria-label="Nächstes Bild">
+    <button id="nextImage" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-neutral-300 transition-all duration-300 group z-20 hover:scale-110" aria-label="Next image">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:translate-x-1"><polyline points="9 18 15 12 9 6"></polyline></svg>
     </button>
-    <img id="modalImage" src="" alt="Vergrößertes Bild" class="max-w-[90vw] max-h-[90vh] object-contain" />
+    <img id="modalImage" src="" alt="Enlarged image" class="max-w-[90vw] max-h-[90vh] object-contain" />
     <div class="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-white text-sm font-light tracking-wider z-20">
       <span id="imageCounter"></span>
     </div>
   </div>
 
   <script>
-    // Kleines Script nur für die spezifischen "Setup/Prompt" Tabs dieser Seite
+    // Tab switching for Setup/Prompt tabs
     document.addEventListener('DOMContentLoaded', function() {
       const tabSetup = document.getElementById('tab-setup');
       const tabPrompt = document.getElementById('tab-prompt');
       const setupPanel = document.getElementById('setup-panel');
       const promptPanel = document.getElementById('prompt-panel');
-      
+
       if (tabSetup && tabPrompt && setupPanel && promptPanel) {
         function switchTab(isSetup) {
-           // Styles Setup
            tabSetup.classList.toggle('text-neutral-900', isSetup);
            tabSetup.classList.toggle('border-neutral-900', isSetup);
            tabSetup.classList.toggle('text-neutral-400', !isSetup);
            tabSetup.classList.toggle('border-transparent', !isSetup);
-           
-           // Styles Prompt
+
            tabPrompt.classList.toggle('text-neutral-900', !isSetup);
            tabPrompt.classList.toggle('border-neutral-900', !isSetup);
            tabPrompt.classList.toggle('text-neutral-400', isSetup);
            tabPrompt.classList.toggle('border-transparent', isSetup);
 
-           // Panels
            isSetup ? setupPanel.classList.remove('hidden') : setupPanel.classList.add('hidden');
            isSetup ? promptPanel.classList.add('hidden') : promptPanel.classList.remove('hidden');
         }
-        
+
         tabSetup.addEventListener('click', () => switchTab(true));
         tabPrompt.addEventListener('click', () => switchTab(false));
       }
     });
   </script>
-  
-  <script src="../src/main.js" defer></script>
+
+  <script src="../../src/main.js" defer></script>
 </body>
 </html>
