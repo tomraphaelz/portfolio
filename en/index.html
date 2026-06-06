@@ -8,21 +8,6 @@
   <link href="../src/output.css" rel="stylesheet">
   <title>Tom Ziegler – UX/UI Designer for Enterprise</title>
 
-  <script>
-    // --- Language Auto-Routing ---
-    (function() {
-      var pref = localStorage.getItem('preferredLang');
-      if (pref === 'de') {
-        window.location.replace('../index.html' + window.location.hash);
-      } else if (!pref) {
-        var lang = navigator.language || navigator.userLanguage;
-        if (lang.toLowerCase().startsWith('de')) {
-          window.location.replace('../index.html' + window.location.hash);
-        }
-      }
-    })();
-  </script>
-  
   <style>
     html {
       scroll-behavior: smooth;
@@ -150,7 +135,7 @@
   <header class="w-full border-b border-neutral-200/60 py-8 px-6 md:px-12 sticky top-0 bg-white/80 backdrop-blur-md z-40">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <span class="text-base font-light tracking-tight">Tom Ziegler</span>
-      <div class="hidden md:flex items-center gap-10">
+      <div class="hidden md:flex items-center gap-8">
         <nav class="flex gap-8">
           <a href="#about" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">About</a>
           <a href="#projects" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Projects</a>
