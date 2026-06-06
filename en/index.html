@@ -7,6 +7,21 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link href="../src/output.css" rel="stylesheet">
   <title>Tom Ziegler – UX/UI Designer for Enterprise</title>
+
+  <script>
+    // --- Language Auto-Routing ---
+    (function() {
+      var pref = localStorage.getItem('preferredLang');
+      if (pref === 'de') {
+        window.location.replace('../index.html' + window.location.hash);
+      } else if (!pref) {
+        var lang = navigator.language || navigator.userLanguage;
+        if (lang.toLowerCase().startsWith('de')) {
+          window.location.replace('../index.html' + window.location.hash);
+        }
+      }
+    })();
+  </script>
   
   <style>
     html {

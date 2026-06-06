@@ -1,6 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // =========================================
+  // 0. LANGUAGE MEMORY
+  // =========================================
+  const langLinks = document.querySelectorAll('.lang-pill a');
+  langLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const text = link.textContent.trim().toUpperCase();
+      if (text === 'EN') {
+        localStorage.setItem('preferredLang', 'en');
+      } else if (text === 'DE') {
+        localStorage.setItem('preferredLang', 'de');
+      }
+    });
+  });
+
+  // =========================================
   // 1. GLOBALE FUNKTIONEN (Laufen überall)
   // =========================================
 
