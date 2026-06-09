@@ -163,6 +163,84 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.15 });
   document.querySelectorAll('.project-fadein').forEach(el => observer.observe(el));
 
+  // --- Project Tags Hover & Accordion Logik ---
+  const tagWrappers = document.querySelectorAll('.project-tags-wrapper');
+
+  function checkTagOverflows() {
+    tagWrappers.forEach(wrapper => {
+      const container = wrapper.querySelector('.project-tags-container');
+      const toggle = wrapper.querySelector('.project-tags-toggle');
+      if (!container || !toggle) return;
+
+      // Zustand temporär zurücksetzen, um korrekte Höhenberechnung durchzuführen
+      const wasExpanded = container.classList.contains('is-expanded');
+      const hasInlineHeight = container.style.maxHeight && container.style.maxHeight !== '28px';
+      
+      if (wasExpanded) container.classList.remove('is-expanded');
+      if (hasInlineHeight) container.style.maxHeight = '';
+
+      // Wenn scrollHeight > clientHeight, sind Tags in die nächste Zeile umgebrochen
+      const hasOverflow = container.scrollHeight > container.clientHeight;
+
+      if (hasOverflow) {
+        toggle.classList.remove('hidden');
+      } else {
+        toggle.classList.add('hidden');
+      }
+
+      // Zustand wiederherstellen
+      if (wasExpanded) container.classList.add('is-expanded');
+      if (hasInlineHeight) container.style.maxHeight = container.scrollHeight + 'px';
+    });
+  }
+
+  // Desktop Hover-Steuerung via JS für perfekt flüssige Transition
+  const projectCards = document.querySelectorAll('.project-fadein');
+  projectCards.forEach(card => {
+    const container = card.querySelector('.project-tags-container');
+    if (!container) return;
+
+    card.addEventListener('mouseenter', () => {
+      if (window.innerWidth >= 768) { // Nur auf Desktop-Auflösung
+        container.style.maxHeight = container.scrollHeight + 'px';
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      if (window.innerWidth >= 768) { // Nur auf Desktop-Auflösung
+        container.style.maxHeight = '28px';
+      }
+    });
+  });
+
+  // Click-Event-Listener für Mobile-Toggles
+  tagWrappers.forEach(wrapper => {
+    const container = wrapper.querySelector('.project-tags-container');
+    const toggle = wrapper.querySelector('.project-tags-toggle');
+    if (!container || !toggle) return;
+
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // Verhindert Klick-Trigger des Projekts links daneben
+      
+      const isExpanded = container.classList.contains('is-expanded');
+      if (isExpanded) {
+        container.classList.remove('is-expanded');
+        toggle.textContent = toggle.getAttribute('data-more');
+        toggle.setAttribute('aria-expanded', 'false');
+      } else {
+        container.classList.add('is-expanded');
+        toggle.textContent = toggle.getAttribute('data-less');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Ausführen nach dem Laden & bei Resize
+  checkTagOverflows();
+  window.addEventListener('load', checkTagOverflows);
+  window.addEventListener('resize', checkTagOverflows);
+
 
   // =========================================
   // 3. PROJEKT-SEITEN LOGIK (Galerie & Modal)

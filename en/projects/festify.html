@@ -17,10 +17,8 @@
     }
     html {
       scroll-behavior: smooth;
-      overflow-x: hidden;
     }
     body {
-      overflow-x: hidden;
     }
 
     /* --- Custom Link Styles --- */
@@ -102,6 +100,16 @@
       color: #fff;
     }
     .lang-pill a:not(.lang-active):hover { color: #171717; }
+
+    /* --- Watermark Text Clamping --- */
+    .watermark-text {
+      font-size: 3.75rem;
+    }
+    @media (min-width: 768px) {
+      .watermark-text {
+        font-size: clamp(3rem, 9vw, 115px);
+      }
+    }
   </style>
 </head>
 <body class="bg-white text-neutral-900 font-sans min-h-screen antialiased">
@@ -113,7 +121,7 @@
     <span class="text-neutral-400 text-sm font-light tracking-wider uppercase">Loading</span>
   </div>
 
-  <header class="w-full border-b border-neutral-200/60 py-8 px-6 md:px-12 sticky top-0 bg-white/80 backdrop-blur-md z-40">
+  <header class="w-full border-b border-neutral-200/60 py-4 md:py-8 px-6 md:px-12 sticky top-0 bg-white/70 backdrop-blur-lg z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <a href="../index.html" class="text-base font-light tracking-tight hover:text-neutral-600 transition-colors duration-300">Tom Ziegler</a>
       <div class="hidden md:flex items-center gap-8">
@@ -136,14 +144,14 @@
     </svg>
   </button>
 
-  <main class="w-full">
+  <main class="w-full overflow-x-clip">
 
     <!-- Header & Metadata -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 pt-24 md:pt-40 pb-16">
       <!-- Top Row: Giant Title & Brief Description -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end mb-16 md:mb-28">
         <div class="md:col-span-8">
-          <h1 class="text-[12vw] md:text-[8vw] font-extralight tracking-tighter leading-[0.85] uppercase text-neutral-900">
+          <h1 class="font-display text-[12vw] md:text-[8vw] font-normal tracking-tighter leading-[0.85] uppercase text-neutral-900">
             Festify<span class="text-red-600">.</span>
           </h1>
         </div>
@@ -201,7 +209,7 @@
         <!-- Left Column: Title and Lead-in -->
         <div class="md:col-span-5 md:border-r md:border-neutral-100 md:pr-8">
           <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">01 / The Challenge</span>
-          <h2 class="text-2xl md:text-3xl font-light text-neutral-900 tracking-tight leading-tight mb-8">The Fragmented Event Memory</h2>
+          <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight mb-8">The Fragmented Event Memory</h2>
           <p class="text-neutral-600 text-sm md:text-base leading-relaxed">
             Special events like weddings or birthdays are captured photographically by almost all guests today. The day after, however, a massive UX gap is revealed: the images remain isolated on individual devices or disappear into unstructured messenger group chats.
           </p>
@@ -252,7 +260,7 @@
         <!-- Left Column: Title -->
         <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
           <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">02 / Research & Insights</span>
-          <h2 class="text-2xl md:text-3xl font-light text-neutral-900 tracking-tight leading-tight">The Persona Divergence</h2>
+          <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight">The Persona Divergence</h2>
         </div>
         
         <!-- Right Column: Research Context & Typographic Table Grid -->
@@ -299,7 +307,7 @@
     <section class="max-w-7xl mx-auto px-6 md:px-12 mb-32 md:mb-48 relative overflow-hidden">
       <!-- Giant background typographic watermark with gradient fade -->
       <div class="absolute inset-x-0 top-4 md:top-6 -z-10 flex items-start justify-center pointer-events-none select-none">
-        <span class="text-6xl md:text-[9vw] font-bold tracking-tighter leading-none whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-b from-neutral-200 to-transparent">
+        <span class="watermark-text font-bold tracking-tighter leading-none whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-b from-neutral-200 to-transparent">
           ZERO FRICTION
         </span>
       </div>
@@ -308,7 +316,7 @@
         <!-- Left Column: Title and Number -->
         <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
           <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">03 / Concept Evolution</span>
-          <h2 class="text-2xl md:text-3xl font-light text-neutral-900 tracking-tight leading-tight">From Analog Invitation to Zero-Friction Scan</h2>
+          <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight">From Analog Invitation to Zero-Friction Scan</h2>
         </div>
         
         <!-- Right Column: Main Content -->
@@ -362,7 +370,7 @@
         <!-- Left Column: Title & Section -->
         <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
           <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">04 / UX Architecture</span>
-          <h2 class="text-2xl md:text-3xl font-light text-neutral-900 tracking-tight leading-tight mb-8">UX Architecture & “Invisible AI”</h2>
+          <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight mb-8">UX Architecture & “Invisible AI”</h2>
 
           <!-- Technical Stamp -->
           <div class="hidden md:inline-block p-5 border border-dashed border-neutral-300 font-mono text-[11px] leading-relaxed text-neutral-500 w-full max-w-[260px]">
@@ -427,7 +435,7 @@
         <!-- Left Column: Title & Section -->
         <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
           <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">05 / UI & Usability</span>
-          <h2 class="text-2xl md:text-3xl font-light text-neutral-900 tracking-tight leading-tight">UI Design, Usability & Accessibility</h2>
+          <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight">UI Design, Usability & Accessibility</h2>
         </div>
 
         <!-- Right Column: Intro & 3-Column Pillar Grid -->
@@ -477,7 +485,7 @@
         <!-- Left Column: Title & Section -->
         <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
           <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">06 / Conclusion</span>
-          <h2 class="text-2xl md:text-3xl font-light text-neutral-900 tracking-tight leading-tight">Conclusion & Outcome</h2>
+          <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight">Conclusion & Outcome</h2>
         </div>
 
         <!-- Right Column: Editorial Text & Learnings -->
