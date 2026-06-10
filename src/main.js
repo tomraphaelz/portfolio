@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================
   // 0. LANGUAGE MEMORY
   // =========================================
-  const langLinks = document.querySelectorAll('.lang-pill a');
+  const langLinks = document.querySelectorAll('.lang-pill-custom a');
   langLinks.forEach(link => {
     link.addEventListener('click', () => {
       const text = link.textContent.trim().toUpperCase();
@@ -137,21 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
     tabCert.addEventListener('click', () => switchTab(false));
   }
 
-  // --- Project Hover Sync ---
-  // (Nur relevant für die Index Seite)
-  const homeProjects = [
-    { img: 'a[href="projekte/van-gogh-vr-experience.html"] .project-img', link: 'a[href="projekte/van-gogh-vr-experience.html"].project-link' },
-    { img: 'a[href="projekte/flunky-ball.html"] .project-img', link: 'a[href="projekte/flunky-ball.html"].project-link' }
-  ];
-  homeProjects.forEach(p => {
-    const imgEl = document.querySelector(p.img);
-    const linkEl = document.querySelector(p.link);
-    if (imgEl && linkEl) {
-      imgEl.addEventListener('mouseenter', () => linkEl.classList.add('active-hover'));
-      imgEl.addEventListener('mouseleave', () => linkEl.classList.remove('active-hover'));
-    }
-  });
-
   // --- Fade In Observer (Home & Project Pages) ---
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
@@ -163,83 +148,150 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.15 });
   document.querySelectorAll('.project-fadein').forEach(el => observer.observe(el));
 
-  // --- Project Tags Hover & Accordion Logik ---
-  const tagWrappers = document.querySelectorAll('.project-tags-wrapper');
+  // --- DYNAMIC PROJECT HOVER REVEAL & MOBILE ACCORDION LOGIK ---
+  const projectItems = document.querySelectorAll('.project-item');
+  const hoverImageContainer = document.getElementById('project-hover-image');
+  const hoverImg = hoverImageContainer ? hoverImageContainer.querySelector('img') : null;
 
-  function checkTagOverflows() {
-    tagWrappers.forEach(wrapper => {
-      const container = wrapper.querySelector('.project-tags-container');
-      const toggle = wrapper.querySelector('.project-tags-toggle');
-      if (!container || !toggle) return;
+  // Mouse Cursor Follow (Lerp Physics)
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+  const lerpFactor = 0.12; 
+  let hideTimeout = null;
 
-      // Zustand temporär zurücksetzen, um korrekte Höhenberechnung durchzuführen
-      const wasExpanded = container.classList.contains('is-expanded');
-      const hasInlineHeight = container.style.maxHeight && container.style.maxHeight !== '28px';
-      
-      if (wasExpanded) container.classList.remove('is-expanded');
-      if (hasInlineHeight) container.style.maxHeight = '';
+  function updateHoverPosition() {
+    if (hoverImageContainer && !hoverImageContainer.classList.contains('hidden')) {
+      currentX += (targetX - currentX) * lerpFactor;
+      currentY += (targetY - currentY) * lerpFactor;
 
-      // Wenn scrollHeight > clientHeight, sind Tags in die nächste Zeile umgebrochen
-      const hasOverflow = container.scrollHeight > container.clientHeight;
+      // Apply offset so image floats top-right of cursor (height is ~213px + 15px gap = 228px offset)
+      hoverImageContainer.style.transform = `translate3d(${currentX + 15}px, ${currentY - 228}px, 0)`;
+    }
 
-      if (hasOverflow) {
-        toggle.classList.remove('hidden');
-      } else {
-        toggle.classList.add('hidden');
-      }
-
-      // Zustand wiederherstellen
-      if (wasExpanded) container.classList.add('is-expanded');
-      if (hasInlineHeight) container.style.maxHeight = container.scrollHeight + 'px';
-    });
+    requestAnimationFrame(updateHoverPosition);
   }
 
-  // Desktop Hover-Steuerung via JS für perfekt flüssige Transition
-  const projectCards = document.querySelectorAll('.project-fadein');
-  projectCards.forEach(card => {
-    const container = card.querySelector('.project-tags-container');
-    if (!container) return;
+  if (projectItems.length > 0 && hoverImageContainer && hoverImg) {
+    let firstMove = true;
 
-    card.addEventListener('mouseenter', () => {
-      if (window.innerWidth >= 768) { // Nur auf Desktop-Auflösung
-        container.style.maxHeight = container.scrollHeight + 'px';
+    document.addEventListener('mousemove', (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+
+      if (firstMove) {
+        currentX = targetX;
+        currentY = targetY;
+        firstMove = false;
       }
     });
 
-    card.addEventListener('mouseleave', () => {
-      if (window.innerWidth >= 768) { // Nur auf Desktop-Auflösung
-        container.style.maxHeight = '28px';
+    // Start continuous loop
+    requestAnimationFrame(updateHoverPosition);
+
+    projectItems.forEach(item => {
+      // Desktop Hover Behavior
+      item.addEventListener('mouseenter', () => {
+        if (window.innerWidth >= 768) {
+          if (hideTimeout) clearTimeout(hideTimeout);
+          
+          const imgSrc = item.getAttribute('data-image');
+          if (imgSrc) {
+            hoverImg.src = imgSrc;
+          }
+
+          hoverImageContainer.classList.remove('hidden');
+          // Force layout reflow before adding opacity class
+          void hoverImageContainer.offsetWidth;
+          hoverImageContainer.classList.add('is-visible');
+        }
+      });
+
+      item.addEventListener('mouseleave', () => {
+        if (window.innerWidth >= 768) {
+          hoverImageContainer.classList.remove('is-visible');
+          if (hideTimeout) clearTimeout(hideTimeout);
+          hideTimeout = setTimeout(() => {
+            hoverImageContainer.classList.add('hidden');
+          }, 350); 
+        }
+      });
+
+      // Click Navigation (Desktop) & Accordion Toggle (Mobile)
+      item.addEventListener('click', (e) => {
+        const url = item.getAttribute('data-url');
+        
+        // On desktop: direct navigate
+        if (window.innerWidth >= 768) {
+          if (url) window.location.href = url;
+          return;
+        }
+
+        // On mobile: accordion expand/collapse
+        // If clicking on direct links inside expanded area, proceed with navigation
+        if (e.target.closest('a') || e.target.closest('.mobile-accordion a')) {
+          return;
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        const accordion = item.querySelector('.mobile-accordion');
+        const arrow = item.querySelector('.flex svg');
+        if (!accordion) return;
+
+        const isExpanded = accordion.classList.contains('is-expanded');
+
+        // Collapse all other accordions first
+        projectItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            const otherAccordion = otherItem.querySelector('.mobile-accordion');
+            const otherArrow = otherItem.querySelector('.flex svg');
+            if (otherAccordion && otherAccordion.classList.contains('is-expanded')) {
+              otherAccordion.style.maxHeight = '0';
+              otherAccordion.classList.remove('is-expanded');
+              if (otherArrow) otherArrow.classList.remove('rotate-90');
+              otherItem.setAttribute('aria-expanded', 'false');
+            }
+          }
+        });
+
+        // Toggle current accordion
+        if (isExpanded) {
+          accordion.style.maxHeight = '0';
+          accordion.classList.remove('is-expanded');
+          if (arrow) arrow.classList.remove('rotate-90');
+          item.setAttribute('aria-expanded', 'false');
+        } else {
+          accordion.classList.add('is-expanded');
+          accordion.style.maxHeight = accordion.scrollHeight + 'px';
+          if (arrow) arrow.classList.add('rotate-90');
+          item.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Close accordion if resizing above mobile breakpoint
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        projectItems.forEach(item => {
+          const accordion = item.querySelector('.mobile-accordion');
+          const arrow = item.querySelector('.flex svg');
+          if (accordion && accordion.classList.contains('is-expanded')) {
+            accordion.style.maxHeight = '0';
+            accordion.classList.remove('is-expanded');
+            if (arrow) arrow.classList.remove('rotate-90');
+            item.setAttribute('aria-expanded', 'false');
+          }
+        });
+        if (hoverImageContainer) {
+          hoverImageContainer.classList.remove('is-visible');
+          hoverImageContainer.classList.add('hidden');
+        }
       }
     });
-  });
-
-  // Click-Event-Listener für Mobile-Toggles
-  tagWrappers.forEach(wrapper => {
-    const container = wrapper.querySelector('.project-tags-container');
-    const toggle = wrapper.querySelector('.project-tags-toggle');
-    if (!container || !toggle) return;
-
-    toggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation(); // Verhindert Klick-Trigger des Projekts links daneben
-      
-      const isExpanded = container.classList.contains('is-expanded');
-      if (isExpanded) {
-        container.classList.remove('is-expanded');
-        toggle.textContent = toggle.getAttribute('data-more');
-        toggle.setAttribute('aria-expanded', 'false');
-      } else {
-        container.classList.add('is-expanded');
-        toggle.textContent = toggle.getAttribute('data-less');
-        toggle.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
-  // Ausführen nach dem Laden & bei Resize
-  checkTagOverflows();
-  window.addEventListener('load', checkTagOverflows);
-  window.addEventListener('resize', checkTagOverflows);
+  }
 
 
   // =========================================

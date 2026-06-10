@@ -145,18 +145,39 @@
     <span class="text-neutral-400 text-sm font-light tracking-wider uppercase">Loading</span>
   </div>
 
-  <header class="w-full border-b border-neutral-200/60 py-4 md:py-8 px-6 md:px-12 sticky top-0 bg-white/70 backdrop-blur-lg z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <a href="../../en/index.html" class="text-base font-light tracking-tight hover:text-neutral-600 transition-colors duration-300">Tom Ziegler</a>
+  <header class="nav-header">
+    <div class="nav-container">
+      <a href="../../en/index.html" class="nav-reveal-link text-base font-light tracking-tight text-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 rounded" aria-label="Tom Ziegler Home">
+        <span class="nav-reveal-wrapper">
+          <span class="nav-reveal-item transition-colors duration-300">Tom Ziegler</span>
+          <span class="nav-reveal-item font-mono text-xs uppercase text-red-600 tracking-wider" aria-hidden="true">TZ // INDEX</span>
+        </span>
+      </a>
       <div class="hidden md:flex items-center gap-8">
         <nav class="flex gap-8">
-          <a href="../../en/index.html#about" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">About</a>
-          <a href="../../en/index.html#projects" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Projects</a>
-          <a href="../../en/index.html#footer" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Contact</a>
+          <a href="../../en/index.html#about" class="nav-reveal-link text-sm text-neutral-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 rounded" aria-label="About">
+            <span class="nav-reveal-wrapper">
+              <span class="nav-reveal-item transition-colors duration-300">About</span>
+              <span class="nav-reveal-item font-mono text-xs uppercase text-red-600 tracking-wider" aria-hidden="true">01 // ABOUT</span>
+            </span>
+          </a>
+          <a href="../../en/index.html#projects" class="nav-reveal-link text-sm text-neutral-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 rounded" aria-label="Projects">
+            <span class="nav-reveal-wrapper">
+              <span class="nav-reveal-item transition-colors duration-300">Projects</span>
+              <span class="nav-reveal-item font-mono text-xs uppercase text-red-600 tracking-wider" aria-hidden="true">02 // WORK</span>
+            </span>
+          </a>
+          <a href="../../en/index.html#footer" class="nav-reveal-link text-sm text-neutral-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 rounded" aria-label="Contact">
+            <span class="nav-reveal-wrapper">
+              <span class="nav-reveal-item transition-colors duration-300">Contact</span>
+              <span class="nav-reveal-item font-mono text-xs uppercase text-red-600 tracking-wider" aria-hidden="true">03 // CONTACT</span>
+            </span>
+          </a>
         </nav>
-        <div class="lang-pill">
-          <a href="../../projekte/flunky-ball.html" aria-label="Deutsch">DE</a>
-          <a href="flunky-ball.html" class="lang-active" aria-label="English">EN</a>
+        <div class="lang-pill-custom lang-pill-en">
+          <div class="lang-indicator"></div>
+          <a href="../../projekte/flunky-ball.html" class="lang-link-de focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-1" aria-label="Deutsch">DE</a>
+          <a href="flunky-ball.html" class="lang-link-en focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-1" aria-label="English">EN</a>
         </div>
       </div>
     </div>

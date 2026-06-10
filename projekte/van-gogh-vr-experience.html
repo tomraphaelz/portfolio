@@ -155,18 +155,39 @@
     <span class="text-neutral-400 text-sm font-light tracking-wider uppercase">Lädt</span>
   </div>
 
-  <header class="w-full border-b border-neutral-200/60 py-4 md:py-8 px-6 md:px-12 sticky top-0 bg-white/70 backdrop-blur-lg z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <a href="../index.html" class="text-base font-light tracking-tight hover:text-neutral-600 transition-colors duration-300">Tom Ziegler</a>
-      <div class="hidden md:flex items-center gap-10">
+  <header class="nav-header">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-reveal-link text-base font-light tracking-tight text-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 rounded" aria-label="Tom Ziegler Home">
+        <span class="nav-reveal-wrapper">
+          <span class="nav-reveal-item transition-colors duration-300">Tom Ziegler</span>
+          <span class="nav-reveal-item font-mono text-xs uppercase text-red-600 tracking-wider" aria-hidden="true">TZ // INDEX</span>
+        </span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
         <nav class="flex gap-8">
-          <a href="../index.html#about" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Über</a>
-          <a href="../index.html#projekte" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Projekte</a>
-          <a href="../index.html#kontakt" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors duration-300">Kontakt</a>
+          <a href="../index.html#about" class="nav-reveal-link text-sm text-neutral-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 rounded" aria-label="Über">
+            <span class="nav-reveal-wrapper">
+              <span class="nav-reveal-item transition-colors duration-300">Über</span>
+              <span class="nav-reveal-item font-mono text-xs uppercase text-red-600 tracking-wider" aria-hidden="true">01 // ÜBER</span>
+            </span>
+          </a>
+          <a href="../index.html#projekte" class="nav-reveal-link text-sm text-neutral-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 rounded" aria-label="Projekte">
+            <span class="nav-reveal-wrapper">
+              <span class="nav-reveal-item transition-colors duration-300">Projekte</span>
+              <span class="nav-reveal-item font-mono text-xs uppercase text-red-600 tracking-wider" aria-hidden="true">02 // PROJEKTE</span>
+            </span>
+          </a>
+          <a href="../index.html#kontakt" class="nav-reveal-link text-sm text-neutral-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 rounded" aria-label="Kontakt">
+            <span class="nav-reveal-wrapper">
+              <span class="nav-reveal-item transition-colors duration-300">Kontakt</span>
+              <span class="nav-reveal-item font-mono text-xs uppercase text-red-600 tracking-wider" aria-hidden="true">03 // KONTAKT</span>
+            </span>
+          </a>
         </nav>
-        <div class="lang-pill">
-          <a href="van-gogh-vr-experience.html" class="lang-active" aria-label="Deutsch">DE</a>
-          <a href="../en/projects/van-gogh-vr-experience.html" aria-label="English">EN</a>
+        <div class="lang-pill-custom lang-pill-de">
+          <div class="lang-indicator"></div>
+          <a href="van-gogh-vr-experience.html" class="lang-link-de focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-1" aria-label="Deutsch">DE</a>
+          <a href="../en/projects/van-gogh-vr-experience.html" class="lang-link-en focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-1" aria-label="English">EN</a>
         </div>
       </div>
     </div>

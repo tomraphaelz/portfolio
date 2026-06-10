@@ -33,3 +33,226 @@
   letter-spacing: 0.0123em;
 }
 
+/* ==========================================================================
+   Interactive Project List (Awwward Hover-Reveal & Mobile Accordion)
+   ========================================================================== */
+
+/* Row Dimming Effect (Pure CSS for performance) */
+.project-list-container:hover .project-item {
+  opacity: 0.35;
+}
+.project-list-container .project-item:hover {
+  opacity: 1;
+}
+
+.project-item {
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+/* Typography Shift & Active Colors */
+.project-item h3 {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+.project-item:hover h3 {
+  transform: translateX(8px);
+  color: #171717;
+}
+.project-item:hover .font-mono {
+  color: #dc2626;
+}
+.project-item svg {
+  transition: stroke 0.3s ease, transform 0.3s ease;
+}
+.project-item:hover svg {
+  stroke: #dc2626;
+  transform: translateX(4px);
+}
+
+/* Floating Follow Image Container */
+#project-hover-image {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  width: 320px;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: 1px solid rgba(229, 229, 229, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  scale: 0.85;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), scale 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: scale, opacity;
+}
+#project-hover-image.is-visible {
+  opacity: 1;
+  scale: 1;
+}
+
+/* Mobile Accordion transition */
+.mobile-accordion {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+.mobile-accordion.is-expanded {
+  opacity: 1;
+}
+
+/* Custom fade-in for mobile elements */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==========================================================================
+   Header / Navigation Text-Shift-Reveal
+   ========================================================================== */
+
+.nav-reveal-link {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  height: 1.5em;
+  vertical-align: middle;
+}
+
+.nav-reveal-wrapper {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-reveal-item {
+  display: block;
+  height: 1.5em;
+  line-height: 1.5em;
+  white-space: nowrap;
+}
+
+/* Slide up on Hover or Keyboard Focus */
+.nav-reveal-link:hover .nav-reveal-wrapper,
+.nav-reveal-link:focus-visible .nav-reveal-wrapper {
+  transform: translateY(-1.5em);
+}
+
+/* ==========================================================================
+   Language Switch - Sliding Active Underlay (Pure CSS)
+   ========================================================================== */
+
+.lang-pill-custom {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 999px;
+  padding: 4px;
+  border: 1px solid rgba(229, 229, 229, 0.8);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  width: 90px;
+}
+
+.lang-pill-custom a {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  text-align: center;
+  padding: 4px 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: color 0.3s ease;
+}
+
+.lang-pill-custom .lang-indicator {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  background-color: #171717;
+  border-radius: 999px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* DE page styling (default left indicator) */
+.lang-pill-de .lang-indicator {
+  transform: translateX(0);
+}
+.lang-pill-de .lang-link-de {
+  color: #ffffff;
+}
+.lang-pill-de .lang-link-en {
+  color: #737373;
+}
+
+/* DE page: hover/focus on EN shifts indicator right and swaps colors */
+.lang-pill-de:has(.lang-link-en:not([aria-disabled="true"]):hover) .lang-indicator,
+.lang-pill-de:has(.lang-link-en:not([aria-disabled="true"]):focus-visible) .lang-indicator {
+  transform: translateX(100%);
+}
+.lang-pill-de:has(.lang-link-en:not([aria-disabled="true"]):hover) .lang-link-de,
+.lang-pill-de:has(.lang-link-en:not([aria-disabled="true"]):focus-visible) .lang-link-de {
+  color: #737373;
+}
+.lang-pill-de:has(.lang-link-en:not([aria-disabled="true"]):hover) .lang-link-en,
+.lang-pill-de:has(.lang-link-en:not([aria-disabled="true"]):focus-visible) .lang-link-en {
+  color: #ffffff;
+}
+
+/* EN page styling (default right indicator) */
+.lang-pill-en .lang-indicator {
+  transform: translateX(100%);
+}
+.lang-pill-en .lang-link-de {
+  color: #737373;
+}
+.lang-pill-en .lang-link-en {
+  color: #ffffff;
+}
+
+/* EN page: hover/focus on DE shifts indicator left and swaps colors */
+.lang-pill-en:has(.lang-link-de:not([aria-disabled="true"]):hover) .lang-indicator,
+.lang-pill-en:has(.lang-link-de:not([aria-disabled="true"]):focus-visible) .lang-indicator {
+  transform: translateX(0);
+}
+.lang-pill-en:has(.lang-link-de:not([aria-disabled="true"]):hover) .lang-link-en,
+.lang-pill-en:has(.lang-link-de:not([aria-disabled="true"]):focus-visible) .lang-link-en {
+  color: #737373;
+}
+.lang-pill-en:has(.lang-link-de:not([aria-disabled="true"]):hover) .lang-link-de,
+.lang-pill-en:has(.lang-link-de:not([aria-disabled="true"]):focus-visible) .lang-link-de {
+  color: #ffffff;
+}
+
+/* Disabled state for language switch links */
+.lang-pill-custom a[aria-disabled="true"] {
+  opacity: 0.35;
+  cursor: not-allowed !important;
+  color: #a3a3a3 !important;
+}
+
+/* Reusable navbar utility classes using Tailwind v4 @apply */
+.nav-header {
+  @apply w-full border-b border-neutral-200/60 py-4 md:py-8 px-6 md:px-12 sticky top-0 bg-white/70 backdrop-blur-lg z-50;
+}
+
+.nav-container {
+  @apply max-w-7xl mx-auto flex justify-between items-center;
+}
+
+
+
+
