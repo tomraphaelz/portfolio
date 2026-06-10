@@ -34,44 +34,7 @@
     ::-moz-selection {
       background: #dc2626;
       color: #fff;
-    }
-
-    /* --- Custom Styles (vorher im JS, jetzt sauber hier) --- */
-    
-    .group {
-      position: relative;
-    }
-    /* Projekt Links Hover Effekt */
-    .project-link {
-      color: #111;
-      text-decoration: none;
-      border-bottom: 1.5px solid transparent;
-      transition: color 0.2s, border-bottom 0.2s;
-      display: inline-flex;
-      align-items: center;
-      font-weight: 300;
-    }
-    .group .project-link::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 1;
-      cursor: pointer;
-    }
-    .group:hover .project-link, .project-link.active-hover {
-      border-bottom-color: #111;
-    }
-    .project-link svg {
-      stroke: #111;
-      transition: transform 0.2s;
-    }
-    .group:hover .project-link svg, .project-link.active-hover svg {
-      transform: translate(2px, -2px);
-    }
-
+    }    
     /* Sanfter Zoom-Effekt für Bilder */
     .project-img {
       transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -453,193 +416,458 @@
       </div>
 
       <!-- Desktop Floating Cursor Hover Image Container -->
-      <div id="project-hover-image" class="pointer-events-none fixed z-40 hidden w-[320px] aspect-[3/2] overflow-hidden rounded-xl bg-white border border-neutral-200/50 shadow-2xl">
-        <img src="" alt="Vorschau" class="w-full h-full object-cover" />
+      <div id="project-hover-image" class="pointer-events-none fixed z-40 hidden w-[320px] aspect-[3/2] bg-transparent">
+        <div class="w-full h-full relative squircle-wrapper bg-white">
+          <img src="" alt="Vorschau" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 border border-neutral-200/50 pointer-events-none"></div>
+        </div>
       </div>
     </section>
     <section id="cv" class="mb-32 pt-24 md:pt-32">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 items-start mb-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 items-start">
         <div class="md:col-span-1">
           <h2 class="font-display text-3xl md:text-5xl font-normal text-neutral-900">Lebenslauf</h2>
         </div>
         <div class="md:col-span-2">
-          <div class="flex gap-2 mb-8 border-b border-neutral-200">
-            <button id="tab-exp" class="px-4 py-2 -mb-px border-b-2 border-neutral-950 text-lg md:text-xl font-medium transition-colors focus:outline-none bg-transparent text-neutral-900 cursor-pointer hover:bg-neutral-100" aria-selected="true" aria-controls="exp-panel">Erfahrung</button>
-            <button id="tab-cert" class="px-4 py-2 -mb-px border-b-2 border-transparent text-lg md:text-xl font-medium transition-colors focus:outline-none bg-transparent text-neutral-400 cursor-pointer hover:bg-neutral-100" aria-selected="false" aria-controls="cert-panel">Zertifikate</button>
+          <!-- Switcher -->
+          <div class="flex mb-8">
+            <div class="cv-pill-custom cv-pill-exp">
+              <div class="cv-indicator"></div>
+              <button id="tab-exp" aria-selected="true" aria-controls="exp-panel">Erfahrung</button>
+              <button id="tab-cert" aria-selected="false" aria-controls="cert-panel">Zertifikate</button>
+            </div>
           </div>
-          <div id="exp-panel">
-            <div class="grid grid-cols-1 gap-8">
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-base font-light text-neutral-900">Vodafone GmbH</div>
-                  <div class="text-xs md:text-sm text-neutral-400 font-light">03/2026 – heute</div>
+
+          <!-- Erfahrung Panel -->
+          <div id="exp-panel" class="cv-list-container flex flex-col">
+            <!-- Vodafone GmbH -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">Vodafone GmbH</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">03/2026 – heute</span>
                 </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Praktikant UX Design</div>
-                  <div class="text-sm text-neutral-600">Evaluierung datenschutzkonformer KI-Integrationen für Design-Workflows im Unternehmen sowie Entwicklung eines Prompt-Engineering-Workshops für interne Teams. Mitwirkung an einem globalen Design-System vor dessen Launch durch die Migration von Screens, die Iteration von Komponenten und die Zusammenarbeit mit der Vodafone Group. Durchführung qualitativer Nutzerinterviews zur Validierung von UI-Komponenten und Analyse von KI-gesteuertem Konsumverhalten im E-Commerce sowie Erstellung von Research-Berichten und neuen Design-Entwürfen für Stakeholder-Präsentationen.</div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Praktikant UX Design</h3>
                 </div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-base font-light text-neutral-900">Zeemo GmbH & Co KG.</div>
-                  <div class="text-xs md:text-sm text-neutral-400 font-light">09/2024 – heute</div>
-                </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Werkstudent UX Designer</div>
-                  <div class="text-sm text-neutral-600">Konzeption und Gestaltung von User Interfaces für Mobile-Anwendungen, erstellen von Corporate Designs. Zusammenarbeit mit Entwicklern, anderen Designern und Stakeholdern.</div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
                 </div>
               </div>
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-base font-light text-neutral-900">Hochschule Osnabrück</div>
-                  <div class="text-xs md:text-sm text-neutral-400 font-light">09/2023 – heute</div>
-                </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Media & Interaction Design (B.A.)</div>
-                  <div class="text-md text-neutral-900 mb-1">Schwerpunkte: Application Design, Psychologische Usability-Forschung & Systemgestaltung.</div>
-                  <div class="text-sm text-neutral-600">Fokus auf Interface-Psychologie, komplexe Informationsarchitekturen und den Aufbau skalierbarer Design-Systeme. Fundiertes technologisches Grundverständnis (Webtechnologien/Code) als Brückenschlag zwischen Konzept, technischer Machbarkeit und effizientem Developer-Handoff.</div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <p class="text-sm text-neutral-600 font-light leading-relaxed">Evaluierung datenschutzkonformer KI-Integrationen für Design-Workflows im Unternehmen sowie Entwicklung eines Prompt-Engineering-Workshops für interne Teams. Mitwirkung an einem globalen Design-System vor dessen Launch durch die Migration von Screens, die Iteration von Komponenten und die Zusammenarbeit mit der Vodafone Group. Durchführung qualitativer Nutzerinterviews zur Validierung von UI-Komponenten und Analyse von KI-gesteuertem Konsumverhalten im E-Commerce sowie Erstellung von Research-Berichten und neuen Design-Entwürfen für Stakeholder-Präsentationen.</p>
+                  </div>
                 </div>
               </div>
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-base font-light text-neutral-900">Freiberuflicher Übersetzer</div>
-                  <div class="text-xs md:text-sm text-neutral-400 font-light">04/2023 – 02/2026</div>
+            </div>
+
+            <!-- Zeemo GmbH & Co KG. -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">Zeemo GmbH & Co KG.</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">09/2024 – heute</span>
                 </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Übersetzer von Englisch auf Deutsch</div>
-                  <div class="text-sm text-neutral-600">Pausiert, Fokus auf Praktikum. <br>Durch die Lokalisierung lerne ich ständig, wie unterschiedliche Formulierungen wahrgenommen werden, und bringe dieses Verständnis gezielt in die Gestaltung klarer, funktionaler Interfaces ein.</div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Werkstudent UX Designer</h3>
+                </div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <p class="text-sm text-neutral-600 font-light leading-relaxed">Konzeption und Gestaltung von User Interfaces für Mobile-Anwendungen, erstellen von Corporate Designs. Zusammenarbeit mit Entwicklern, anderen Designern und Stakeholdern.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hochschule Osnabrück -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">Hochschule Osnabrück</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">09/2023 – heute</span>
+                </div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Media & Interaction Design (B.A.)</h3>
+                </div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <div class="text-sm text-neutral-900 mb-2 font-medium">Schwerpunkte: Application Design, Psychologische Usability-Forschung & Systemgestaltung.</div>
+                    <p class="text-sm text-neutral-600 font-light leading-relaxed">Fokus auf Interface-Psychologie, komplexe Informationsarchitekturen und den Aufbau skalierbarer Design-Systeme. Fundiertes technologisches Grundverständnis (Webtechnologien/Code) als Brückenschlag zwischen Konzept, technischer Machbarkeit und effizientem Developer-Handoff.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Freiberuflicher Übersetzer -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">Freiberuflicher Übersetzer</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">04/2023 – 02/2026</span>
+                </div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Übersetzer von Englisch auf Deutsch</h3>
+                </div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <p class="text-sm text-neutral-600 font-light leading-relaxed">Pausiert, Fokus auf Praktikum. <br>Durch die Lokalisierung lerne ich ständig, wie unterschiedliche Formulierungen wahrgenommen werden, und bringe dieses Verständnis gezielt in die Gestaltung klarer, funktionaler Interfaces ein.</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div id="cert-panel" class="hidden">
-            <div class="grid grid-cols-1 gap-8">
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-sm text-neutral-400 font-light">Mai 2026</div>
+
+          <!-- Zertifikate Panel -->
+          <div id="cert-panel" class="cv-list-container flex flex-col hidden">
+            <!-- IBM: GenAI for Executives -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">IBM</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Mai 2026</span>
                 </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">GenAI for Executives &amp; Business Leaders: An Introduction</div>
-                  <div class="text-sm text-neutral-400 font-light">IBM</div>
-                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: O19G76ZQ7BFE</div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">GenAI for Executives &amp; Business Leaders: An Introduction</h3>
                 </div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-sm text-neutral-400 font-light">Oktober 2025</div>
-                </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Create your e-commerce store with Shopify</div>
-                  <div class="text-sm text-neutral-400 font-light">Coursera</div>
-                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: H1DND4PHLPY9</div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
                 </div>
               </div>
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-sm text-neutral-400 font-light">Juli 2025</div>
-                </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">OpenAI GPTs: Creating Your Own Custom AI Assistants</div>
-                  <div class="text-sm text-neutral-400 font-light">Vanderbilt University</div>
-                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: JNO4N7B5WY01</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-sm text-neutral-400 font-light">Juni 2025</div>
-                </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Advanced Prompt Engineering for Everyone</div>
-                  <div class="text-sm text-neutral-400 font-light">Vanderbilt University</div>
-                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: 7JB5WKG17MCD</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-sm text-neutral-400 font-light">Juni 2025</div>
-                </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Agentic AI and AI Agents: A Primer for Leaders</div>
-                  <div class="text-sm text-neutral-400 font-light">Vanderbilt University</div>
-                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: ZDQPUM8F92DG</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-sm text-neutral-400 font-light">Mai 2025</div>
-                </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Attract and Engage Customers with Digital Marketing</div>
-                  <div class="text-sm text-neutral-400 font-light">Google</div>
-                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: AFFNOP27PXJ4</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-sm text-neutral-400 font-light">Apr. 2025</div>
-                </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Foundations of Digital Marketing and E-commerce</div>
-                  <div class="text-sm text-neutral-400 font-light">Google</div>
-                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: ZXZIJWCCZWAG</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-sm text-neutral-400 font-light">Apr. 2025</div>
-                </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Prompt Engineering for ChatGPT</div>
-                  <div class="text-sm text-neutral-400 font-light">Vanderbilt University</div>
-                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: 65ZDPPJFX0OW</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-sm text-neutral-400 font-light">März 2025</div>
-                </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Foundations of User Experience (UX) Design</div>
-                  <div class="text-sm text-neutral-400 font-light">Google</div>
-                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: PRU0SEOX23DG</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-sm text-neutral-400 font-light">Feb. 2025</div>
-                </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Design Fundamentals</div>
-                  <div class="text-sm text-neutral-400 font-light">Adobe</div>
-                  <div class="text-sm text-neutral-400 font-light">Zertifikats-ID: OZU5MYM62E1G</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-sm text-neutral-400 font-light">Jan. 2025</div>
-                </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Google AI Essentials</div>
-                  <div class="text-sm text-neutral-400 font-light">Coursera</div>
-                </div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
-                <div class="md:col-span-1">
-                  <div class="text-sm text-neutral-400 font-light">Jan. 2025</div>
-                </div>
-                <div class="md:col-span-3">
-                  <div class="text-lg md:text-xl font-light text-neutral-900 mb-1">Google Prompting Essentials</div>
-                  <div class="text-sm text-neutral-400 font-light">Coursera</div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <p class="text-sm text-neutral-500 font-light leading-relaxed">Zertifikats-ID: O19G76ZQ7BFE</p>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <!-- Shopify -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">Coursera</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Oktober 2025</span>
+                </div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Create your e-commerce store with Shopify</h3>
+                </div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <p class="text-sm text-neutral-500 font-light leading-relaxed">Zertifikats-ID: H1DND4PHLPY9</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- OpenAI GPTs -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">Vanderbilt University</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Juli 2025</span>
+                </div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">OpenAI GPTs: Creating Your Own Custom AI Assistants</h3>
+                </div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <p class="text-sm text-neutral-500 font-light leading-relaxed">Zertifikats-ID: JNO4N7B5WY01</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Advanced Prompt Engineering -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">Vanderbilt University</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Juni 2025</span>
+                </div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Advanced Prompt Engineering for Everyone</h3>
+                </div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <p class="text-sm text-neutral-500 font-light leading-relaxed">Zertifikats-ID: 7JB5WKG17MCD</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Agentic AI -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">Vanderbilt University</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Juni 2025</span>
+                </div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Agentic AI and AI Agents: A Primer for Leaders</h3>
+                </div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <p class="text-sm text-neutral-500 font-light leading-relaxed">Zertifikats-ID: ZDQPUM8F92DG</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Digital Marketing Google -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">Google</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Mai 2025</span>
+                </div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Attract and Engage Customers with Digital Marketing</h3>
+                </div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <p class="text-sm text-neutral-500 font-light leading-relaxed">Zertifikats-ID: AFFNOP27PXJ4</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- E-commerce Google -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">Google</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Apr. 2025</span>
+                </div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Foundations of Digital Marketing and E-commerce</h3>
+                </div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <p class="text-sm text-neutral-500 font-light leading-relaxed">Zertifikats-ID: ZXZIJWCCZWAG</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Prompt Engineering Vanderbilt -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">Vanderbilt University</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Apr. 2025</span>
+                </div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Prompt Engineering for ChatGPT</h3>
+                </div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <p class="text-sm text-neutral-500 font-light leading-relaxed">Zertifikats-ID: 65ZDPPJFX0OW</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- UX Google -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">Google</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">März 2025</span>
+                </div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Foundations of User Experience (UX) Design</h3>
+                </div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <p class="text-sm text-neutral-500 font-light leading-relaxed">Zertifikats-ID: PRU0SEOX23DG</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Adobe -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">Adobe</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Feb. 2025</span>
+                </div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Design Fundamentals</h3>
+                </div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <p class="text-sm text-neutral-500 font-light leading-relaxed">Zertifikats-ID: OZU5MYM62E1G</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Google AI Essentials -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">Coursera</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Jan. 2025</span>
+                </div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Google AI Essentials</h3>
+                </div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <p class="text-sm text-neutral-500 font-light leading-relaxed">Ausgestellt von Coursera / Google AI Essentials Programm</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Google Prompting Essentials -->
+            <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
+              <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
+                <div class="flex flex-col md:col-span-4 pr-4">
+                  <span class="font-display text-base font-normal text-neutral-900">Coursera</span>
+                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Jan. 2025</span>
+                </div>
+                <div class="flex-1 md:col-span-7">
+                  <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Google Prompting Essentials</h3>
+                </div>
+                <div class="flex items-center justify-end md:col-span-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="cv-accordion overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+                <div class="pt-4 pb-2 md:grid md:grid-cols-12 md:gap-8">
+                  <div class="hidden md:block md:col-span-4"></div>
+                  <div class="md:col-span-7 pr-4">
+                    <p class="text-sm text-neutral-500 font-light leading-relaxed">Ausgestellt von Coursera / Google Prompting Essentials Programm</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
+    </section>
 
     <section id="about-me" class="mb-32 pt-24 md:pt-32">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 items-start">
-        <div class="md:col-span-1 flex flex-col gap-8">
+        <div class="md:col-span-1 flex flex-col gap-8 project-fadein">
           <h2 class="font-display text-3xl md:text-5xl font-normal text-neutral-900">Abseits<br>von Figma</h2>
           <img
             src="assets/images/Saya.webp"
@@ -649,12 +877,13 @@
           />
         </div>
         <div class="md:col-span-2 text-neutral-700 text-base md:text-lg leading-relaxed space-y-6">
-          <p>Ich bin 22 Jahre alt und lebe in Osnabrück, wo ich Media & Interaction Design an der Hochschule Osnabrück studiere. Abseits von Projekten und Nutzerforschung spiele ich Basketball mit Freunden, gehe gerne spazieren, verfolge aufmerksam, was sich in der KI-Welt tut, und bin leidenschaftlicher Gamer.</p>
-          <p>Basketball hat mich früh gelehrt, dass Teamplay mehr bringt als Einzelleistung – das gilt für mich genauso im Design-Prozess. Lange Spaziergänge sind für mich eine der besten Quellen für kreatives Denken: Abstand vom Bildschirm, Ideen setzen sich. KI interessiert mich nicht als Hype, sondern als ernstzunehmendes Werkzeug: Ich teste, was tatsächlich hilft, und lasse weg, was nur beeindrucken soll. Gaming hat meinen Blick für UX geschärft wie kaum etwas sonst – kein Medium ist so präzise in Sachen Feedback, Onboarding und Motivation wie ein gut gemachtes Spiel.</p>
-          <p>Gutes Design entsteht aus echtem Verständnis von Menschen. In UX über Interaktionen hinauszudenken bedeutet für mich, das Leben neben dem Bildschirm genauso ernst zu nehmen wie das auf ihm.</p>
+          <p class="project-fadein">Ich bin 22 Jahre alt und lebe in Osnabrück, wo ich Media & Interaction Design an der Hochschule Osnabrück studiere. Abseits von Projekten und Nutzerforschung spiele ich Basketball mit Freunden, gehe gerne spazieren, verfolge aufmerksam, was sich in der KI-Welt tut, und bin leidenschaftlicher Gamer.</p>
+          <p class="project-fadein delay-100">Basketball hat mich früh gelehrt, dass Teamplay mehr bringt als Einzelleistung – das gilt für mich genauso im Design-Prozess. Lange Spaziergänge sind für mich eine der besten Quellen für kreatives Denken: Abstand vom Bildschirm, Ideen setzen sich. KI interessiert mich nicht als Hype, sondern als ernstzunehmendes Werkzeug: Ich teste, was tatsächlich hilft, und lasse weg, was nur beeindrucken soll. Gaming hat meinen Blick für UX geschärft wie kaum etwas sonst – kein Medium ist so präzise in Sachen Feedback, Onboarding und Motivation wie ein gut gemachtes Spiel.</p>
+          <p class="project-fadein delay-200">Gutes Design entsteht aus echtem Verständnis von Menschen. In UX über Interaktionen hinauszudenken bedeutet für mich, das Leben neben dem Bildschirm genauso ernst zu nehmen wie das auf ihm.</p>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer id="footer" class="w-full max-w-7xl mx-auto border-t border-neutral-200 pt-10 pb-6 px-6 md:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm md:text-base">

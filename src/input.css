@@ -68,7 +68,7 @@
   transform: translateX(4px);
 }
 
-/* Floating Follow Image Container */
+/* Floating Follow Image Container with 60% Corner Smoothing */
 #project-hover-image {
   pointer-events: none;
   position: fixed;
@@ -77,19 +77,20 @@
   z-index: 40;
   width: 320px;
   aspect-ratio: 3 / 2;
-  overflow: hidden;
-  border-radius: 12px;
-  background-color: #ffffff;
-  border: 1px solid rgba(229, 229, 229, 0.5);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
   opacity: 0;
   scale: 0.85;
   transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), scale 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: scale, opacity;
+  /* Shadow for clipped inner contents */
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.12));
 }
 #project-hover-image.is-visible {
   opacity: 1;
   scale: 1;
+}
+
+.squircle-wrapper {
+  clip-path: path('M 300.8 0 c 6.7206 0 10.0809 0 12.6479 1.3079 a 12.0000 12.0000 0 0 1 5.2442 5.2442 c 1.3079 2.5669 1.3079 5.9273 1.3079 12.6479 L 320 194.13 c 0 6.7206 0 10.0809 -1.3079 12.6479 a 12.0000 12.0000 0 0 1 -5.2442 5.2442 c -2.5669 1.3079 -5.9273 1.3079 -12.6479 1.3079 L 19.200000000000003 213.33 c -6.7206 0 -10.0809 0 -12.6479 -1.3079 a 12.0000 12.0000 0 0 1 -5.2442 -5.2442 c -1.3079 -2.5669 -1.3079 -5.9273 -1.3079 -12.6479 L 0 19.200000000000003 c 0 -6.7206 0 -10.0809 1.3079 -12.6479 a 12.0000 12.0000 0 0 1 5.2442 -5.2442 c 2.5669 -1.3079 5.9273 -1.3079 12.6479 -1.3079 Z');
 }
 
 /* Mobile Accordion transition */
@@ -253,6 +254,203 @@
   @apply max-w-7xl mx-auto flex justify-between items-center;
 }
 
+/* ==========================================================================
+   CV Switcher & Accordion List Row Dimming
+   ========================================================================== */
 
+.cv-pill-custom {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 999px;
+  padding: 4px;
+  border: 1px solid rgba(229, 229, 229, 0.8);
+  font-size: 0.875rem;
+  font-weight: 500;
+  width: 280px;
+}
+
+.cv-pill-custom button {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  text-align: center;
+  padding: 6px 0;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: color 0.3s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.cv-pill-custom .cv-indicator {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  background-color: #171717;
+  border-radius: 999px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* State shifts */
+.cv-pill-exp .cv-indicator {
+  transform: translateX(0);
+}
+.cv-pill-exp #tab-exp {
+  color: #ffffff;
+}
+.cv-pill-exp #tab-cert {
+  color: #737373;
+}
+
+.cv-pill-cert .cv-indicator {
+  transform: translateX(100%);
+}
+.cv-pill-cert #tab-exp {
+  color: #737373;
+}
+.cv-pill-cert #tab-cert {
+  color: #ffffff;
+}
+
+/* Switcher Hover indicator sliding previews */
+.cv-pill-exp:has(#tab-cert:hover) .cv-indicator {
+  transform: translateX(100%);
+}
+.cv-pill-exp:has(#tab-cert:hover) #tab-exp {
+  color: #737373;
+}
+.cv-pill-exp:has(#tab-cert:hover) #tab-cert {
+  color: #ffffff;
+}
+
+.cv-pill-cert:has(#tab-exp:hover) .cv-indicator {
+  transform: translateX(0);
+}
+.cv-pill-cert:has(#tab-exp:hover) #tab-cert {
+  color: #737373;
+}
+.cv-pill-cert:has(#tab-exp:hover) #tab-exp {
+  color: #ffffff;
+}
+
+/* Row Dimming Effect */
+.cv-list-container:hover .cv-item {
+  opacity: 0.35;
+}
+.cv-list-container .cv-item:hover {
+  opacity: 1;
+}
+
+.cv-item {
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.cv-item h3 {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.cv-item:hover h3 {
+  transform: translateX(8px);
+  color: #171717;
+}
+
+.cv-item .font-display {
+  transition: color 0.3s ease;
+}
+.cv-item:hover .font-display {
+  color: #dc2626;
+}
+
+.cv-item svg {
+  transition: stroke 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+.cv-item:hover svg {
+  stroke: #dc2626;
+}
+
+/* Accordion transition */
+.cv-accordion {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+.cv-accordion.is-expanded {
+  opacity: 1;
+}
+
+.cv-item[aria-expanded="true"] svg {
+  transform: rotate(90deg);
+}
+/* ==========================================================================
+   Transition Stagger Delays for Scroll Reveals
+   ========================================================================== */
+
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+/* ==========================================================================
+   Project & Standalone External Links (Hover & Active state animations)
+   ========================================================================== */
+.group {
+  position: relative;
+}
+
+.project-link {
+  color: #111;
+  text-decoration: none;
+  border-bottom: 1.5px solid transparent;
+  transition: color 0.2s, border-bottom 0.2s;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 300;
+}
+
+.group .project-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.group:hover .project-link,
+.project-link.active-hover,
+.project-link:hover {
+  border-bottom-color: #111;
+}
+
+.project-link svg {
+  stroke: #111;
+  transition: transform 0.2s;
+}
+
+.group:hover .project-link svg,
+.project-link.active-hover svg,
+.project-link:hover svg {
+  transform: translate(2px, -2px);
+}
 
 

@@ -116,17 +116,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const certPanel = document.getElementById('cert-panel');
 
   if (tabExp && tabCert && expPanel && certPanel) {
+    const pillContainer = tabExp.closest('.cv-pill-custom');
     const switchTab = (isExp) => {
-      // Buttons
-      tabExp.classList.toggle('text-neutral-900', isExp);
-      tabExp.classList.toggle('border-neutral-950', isExp);
-      tabExp.classList.toggle('text-neutral-400', !isExp);
-      tabExp.classList.toggle('border-transparent', !isExp);
+      // Toggle container wrapper class
+      if (pillContainer) {
+        pillContainer.classList.toggle('cv-pill-exp', isExp);
+        pillContainer.classList.toggle('cv-pill-cert', !isExp);
+      }
 
-      tabCert.classList.toggle('text-neutral-900', !isExp);
-      tabCert.classList.toggle('border-neutral-950', !isExp);
-      tabCert.classList.toggle('text-neutral-400', isExp);
-      tabCert.classList.toggle('border-transparent', isExp);
+      // Accessibility attributes
+      tabExp.setAttribute('aria-selected', isExp ? 'true' : 'false');
+      tabCert.setAttribute('aria-selected', isExp ? 'false' : 'true');
 
       // Panels
       isExp ? expPanel.classList.remove('hidden') : expPanel.classList.add('hidden');
@@ -136,6 +136,62 @@ document.addEventListener('DOMContentLoaded', () => {
     tabExp.addEventListener('click', () => switchTab(true));
     tabCert.addEventListener('click', () => switchTab(false));
   }
+
+  // --- CV Accordions (Always active on desktop & mobile) ---
+  const cvItems = document.querySelectorAll('.cv-item');
+  if (cvItems.length > 0) {
+    cvItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        // If clicking a link inside, proceed normally
+        if (e.target.closest('a')) {
+          return;
+        }
+
+        const accordion = item.querySelector('.cv-accordion');
+        if (!accordion) return;
+
+        const isExpanded = accordion.classList.contains('is-expanded');
+        
+        // Get the parent container to only close items in the same tab/list panel
+        const parentContainer = item.closest('.cv-list-container');
+        if (parentContainer) {
+          const otherItems = parentContainer.querySelectorAll('.cv-item');
+          otherItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              const otherAccordion = otherItem.querySelector('.cv-accordion');
+              if (otherAccordion && otherAccordion.classList.contains('is-expanded')) {
+                otherAccordion.style.maxHeight = '0';
+                otherAccordion.classList.remove('is-expanded');
+                otherItem.setAttribute('aria-expanded', 'false');
+              }
+            }
+          });
+        }
+
+        // Toggle current accordion
+        if (isExpanded) {
+          accordion.style.maxHeight = '0';
+          accordion.classList.remove('is-expanded');
+          item.setAttribute('aria-expanded', 'false');
+        } else {
+          accordion.classList.add('is-expanded');
+          accordion.style.maxHeight = accordion.scrollHeight + 'px';
+          item.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Resize handler to adjust max-height of active accordions dynamically
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.cv-item[aria-expanded="true"]').forEach(item => {
+        const accordion = item.querySelector('.cv-accordion');
+        if (accordion && accordion.classList.contains('is-expanded')) {
+          accordion.style.maxHeight = accordion.scrollHeight + 'px';
+        }
+      });
+    });
+  }
+
 
   // --- Fade In Observer (Home & Project Pages) ---
   const observer = new IntersectionObserver((entries, obs) => {
