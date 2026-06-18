@@ -255,12 +255,14 @@ document.addEventListener('DOMContentLoaded', () => {
           const imgSrc = item.getAttribute('data-image');
           if (imgSrc) {
             hoverImg.src = imgSrc;
+            hoverImageContainer.classList.remove('hidden');
+            // Force layout reflow before adding opacity class
+            void hoverImageContainer.offsetWidth;
+            hoverImageContainer.classList.add('is-visible');
+          } else {
+            hoverImageContainer.classList.remove('is-visible');
+            hoverImageContainer.classList.add('hidden');
           }
-
-          hoverImageContainer.classList.remove('hidden');
-          // Force layout reflow before adding opacity class
-          void hoverImageContainer.offsetWidth;
-          hoverImageContainer.classList.add('is-visible');
         }
       });
 
