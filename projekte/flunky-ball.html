@@ -342,6 +342,38 @@
     </section>
 
     <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
+      <div class="mb-20 md:mb-28">
+        <h2 class="font-display text-4xl md:text-6xl lg:text-7xl font-normal text-neutral-900 tracking-tight leading-none">UX/UI Design & Rolle</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 border-t border-neutral-200">
+        <!-- Card 1 -->
+        <div class="group border-b md:border-b-0 md:border-r border-neutral-200 py-10 px-6 md:p-12 last:border-r-0 transition-colors duration-300 hover:bg-neutral-50/50">
+          <span class="block font-display text-5xl md:text-6xl text-neutral-200 group-hover:text-red-600 transition-colors duration-300 mb-6 font-light">01</span>
+          <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight mb-4">UX-Konzeption & Prototyping</h3>
+          <p class="text-neutral-600 text-sm md:text-base font-light leading-relaxed">
+            Obwohl wir im Dreierteam gearbeitet haben, lag mein Hauptfokus auf der User Experience und dem Wireframing der App. Ich habe unsere ersten Ideen in Miro strukturiert und die Low-Fidelity-Prototypen in Figma auf Basis von Material Design 3 erstellt.
+          </p>
+        </div>
+        <!-- Card 2 -->
+        <div class="group border-b md:border-b-0 md:border-r border-neutral-200 py-10 px-6 md:p-12 last:border-r-0 transition-colors duration-300 hover:bg-neutral-50/50">
+          <span class="block font-display text-5xl md:text-6xl text-neutral-200 group-hover:text-red-600 transition-colors duration-300 mb-6 font-light">02</span>
+          <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight mb-4">Iterative Redesigns</h3>
+          <p class="text-neutral-600 text-sm md:text-base font-light leading-relaxed">
+            Basierend auf wöchentlichen Feedback-Runden mit unseren Dozierenden habe ich mehrere vollständige UI-Redesigns umgesetzt. Das Ziel: eine intuitive Bedienung im Außenbereich und unter ablenkenden Party-Bedingungen sicherzustellen.
+          </p>
+        </div>
+        <!-- Card 3 -->
+        <div class="group border-b-0 md:border-r-0 border-neutral-200 py-10 px-6 md:p-12 transition-colors duration-300 hover:bg-neutral-50/50">
+          <span class="block font-display text-5xl md:text-6xl text-neutral-200 group-hover:text-red-600 transition-colors duration-300 mb-6 font-light">03</span>
+          <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight mb-4">Hardware-UI-Kopplung</h3>
+          <p class="text-neutral-600 text-sm md:text-base font-light leading-relaxed">
+            Ich habe geplant, wie das Interface auf die physischen Sensoren reagiert. Statt langer Anleitungen habe ich den Spielablauf so strukturiert, dass Sensorauslöser direkt die Tutorial-Animationen (erstellt von meinem Teampartner) starteten. Dadurch konnten wir den Text auf dem Bildschirm um ca. 70 % reduzieren.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
       <div class="mb-32 md:mb-48">
         <h2 class="font-display text-4xl md:text-6xl lg:text-7xl font-normal text-neutral-900 tracking-tight leading-none mb-6">Von der Idee zum System</h2>
         <p class="text-base md:text-lg text-neutral-500 font-light">Konzeption & Design: Wie Hardware, Software und Spielmechanik zusammenwachsen</p>
@@ -482,15 +514,42 @@
           </div>
         </div>
 
-        <div class="">
-          <figure class="group">
+        <div class="mt-20 md:mt-32">
+          <figure class="group mb-0">
             <div class="relative overflow-hidden bg-neutral-50">
               <picture>
-                <source srcset="../assets/images/Flunk-E-UIs.webp" type="image/webp">
-                <img src="../assets/images/Flunk-E-UIs.png" alt="Flunk-E App Interface Screens" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.01]" loading="lazy" />
+                <source srcset="../assets/images/flunk-e_screens.webp" type="image/webp">
+                <img src="../assets/images/flunk-e_screens.png" alt="Flunk-E App Screen Flow" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.01]" loading="lazy" />
               </picture>
             </div>
           </figure>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
+            <!-- Item 1 -->
+            <div>
+              <span class="block font-mono text-xs uppercase tracking-wider text-neutral-400 mb-3">01 // Spielstart</span>
+              <h4 class="text-lg md:text-xl font-normal text-neutral-900 mb-4">Design für Hardware-Realität</h4>
+              <p class="text-neutral-600 text-sm md:text-base font-light leading-relaxed">
+                Da wir im Freien mit Arduino-Sensoren gearbeitet haben, war mir klar, dass Bluetooth-Latenzen oder Verbindungsabbrüche auftreten können. Ich habe einen manuellen Fallback-Button („Wurf nicht registriert“) hinzugefügt, damit der digitale Spielfluss nie blockiert, wenn die physische Hardware einen Treffer übersieht.
+              </p>
+            </div>
+            <!-- Item 2 -->
+            <div>
+              <span class="block font-mono text-xs uppercase tracking-wider text-neutral-400 mb-3">02 // Nach dem Treffer</span>
+              <h4 class="text-lg md:text-xl font-normal text-neutral-900 mb-4">Klarheit im Party-Kontext</h4>
+              <p class="text-neutral-600 text-sm md:text-base font-light leading-relaxed">
+                In unseren wöchentlichen Feedback-Runden wurde uns klar, dass Spieler während eines sozialen Spiels nicht auf ein Handy starren sollten. Ich habe diesen Zustand als kontrastreiche dunkle Karte neu gestaltet, die die Challenge auf einen Blick zeigt – mit einer einfachen „Slide Down“-Geste, um die Spieler schnell zurück ins analoge Spiel zu bringen.
+              </p>
+            </div>
+            <!-- Item 3 -->
+            <div>
+              <span class="block font-mono text-xs uppercase tracking-wider text-neutral-400 mb-3">03 // Treffer (Low-Fidelity)</span>
+              <h4 class="text-lg md:text-xl font-normal text-neutral-900 mb-4">Fokus statt Textwüsten</h4>
+              <p class="text-neutral-600 text-sm md:text-base font-light leading-relaxed">
+                Unser früher Low-Fidelity-Wireframe basierte stark auf Googles Standard-Material-Design-3-Blöcken und langen Anleitungen. Da dies den Spaß und den Spielfluss störte, habe ich das Layout radikal reduziert, wodurch wir ca. 70 % des Texts durch schnelle, kontextbezogene Tutorial-Animationen ersetzen konnten.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div class="mt-32 md:mt-40">

@@ -296,6 +296,38 @@
       </div>
     </section>
 
+    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
+      <div class="mb-20 md:mb-28">
+        <h2 class="font-display text-4xl md:text-6xl lg:text-7xl font-normal text-neutral-900 tracking-tight leading-none">UX/UI Design & Role</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 border-t border-neutral-200">
+        <!-- Card 1 -->
+        <div class="group border-b md:border-b-0 md:border-r border-neutral-200 py-10 px-6 md:p-12 last:border-r-0 transition-colors duration-300 hover:bg-neutral-50/50">
+          <span class="block font-display text-5xl md:text-6xl text-neutral-200 group-hover:text-red-600 transition-colors duration-300 mb-6 font-light">01</span>
+          <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight mb-4">UX Planning & Prototyping</h3>
+          <p class="text-neutral-600 text-sm md:text-base font-light leading-relaxed">
+            While we worked as a team of three, my main focus was on the app's user experience and wireframing. I mapped out our initial ideas in Miro and built the low-fidelity prototypes in Figma using Material Design 3.
+          </p>
+        </div>
+        <!-- Card 2 -->
+        <div class="group border-b md:border-b-0 md:border-r border-neutral-200 py-10 px-6 md:p-12 last:border-r-0 transition-colors duration-300 hover:bg-neutral-50/50">
+          <span class="block font-display text-5xl md:text-6xl text-neutral-200 group-hover:text-red-600 transition-colors duration-300 mb-6 font-light">02</span>
+          <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight mb-4">Iterative Redesigns</h3>
+          <p class="text-neutral-600 text-sm md:text-base font-light leading-relaxed">
+            Based on weekly feedback sessions with our lecturers, I handled multiple complete UI redesigns to make sure the app was easy to use outdoors and under distracted party conditions.
+          </p>
+        </div>
+        <!-- Card 3 -->
+        <div class="group border-b-0 md:border-r-0 border-neutral-200 py-10 px-6 md:p-12 transition-colors duration-300 hover:bg-neutral-50/50">
+          <span class="block font-display text-5xl md:text-6xl text-neutral-200 group-hover:text-red-600 transition-colors duration-300 mb-6 font-light">03</span>
+          <h3 class="text-xl md:text-2xl font-light text-neutral-900 tracking-tight mb-4">Connecting Hardware to UI</h3>
+          <p class="text-neutral-600 text-sm md:text-base font-light leading-relaxed">
+            I planned how the interface should react to the physical sensors. Instead of using heavy instruction text, I structured the game flow so that physical sensor triggers instantly launched the tutorial animations my teammate created, helping us cut down on-screen text by about 70%.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- FROM IDEA TO SYSTEM -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
       <div class="mb-32 md:mb-48">
@@ -440,15 +472,42 @@
           </div>
         </div>
 
-        <div class="">
-          <figure class="group">
+        <div class="mt-20 md:mt-32">
+          <figure class="group mb-0">
             <div class="relative overflow-hidden bg-neutral-50">
               <picture>
-                <source srcset="../../assets/images/Flunk-E-UIs.webp" type="image/webp">
-                <img src="../../assets/images/Flunk-E-UIs.png" alt="Flunk-E App Interface Screens" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.01]" loading="lazy" />
+                <source srcset="../../assets/images/flunk-e_screens.webp" type="image/webp">
+                <img src="../../assets/images/flunk-e_screens.png" alt="Flunk-E App Screen Flow" class="block w-full h-auto transition-transform duration-1000 ease-out group-hover:scale-[1.01]" loading="lazy" />
               </picture>
             </div>
           </figure>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
+            <!-- Item 1 -->
+            <div>
+              <span class="block font-mono text-xs uppercase tracking-wider text-neutral-400 mb-3">01 // Start of the Game</span>
+              <h4 class="text-lg md:text-xl font-normal text-neutral-900 mb-4">Designing for Hardware Reality</h4>
+              <p class="text-neutral-600 text-sm md:text-base font-light leading-relaxed">
+                Since we were working with Arduino sensors outdoors, I knew Bluetooth latency or connection drops would happen. I added a manual "Throw was not registered" fallback button so the digital game flow would never lock up if the physical hardware missed a hit.
+              </p>
+            </div>
+            <!-- Item 2 -->
+            <div>
+              <span class="block font-mono text-xs uppercase tracking-wider text-neutral-400 mb-3">02 // After the Hit</span>
+              <h4 class="text-lg md:text-xl font-normal text-neutral-900 mb-4">Glanceable UI for Party Contexts</h4>
+              <p class="text-neutral-600 text-sm md:text-base font-light leading-relaxed">
+                During our weekly feedback sessions, we realized players shouldn't be staring at a phone screen during a social game. I redesigned this state as a high-contrast dark card that clearly displays the challenge at a single glance, using a simple "slide down" gesture to get users back into the analogue game quickly.
+              </p>
+            </div>
+            <!-- Item 3 -->
+            <div>
+              <span class="block font-mono text-xs uppercase tracking-wider text-neutral-400 mb-3">03 // Hit (Low-Fidelity)</span>
+              <h4 class="text-lg md:text-xl font-normal text-neutral-900 mb-4">Iterating Away from Text</h4>
+              <p class="text-neutral-600 text-sm md:text-base font-light leading-relaxed">
+                Our early low-fidelity wireframe relied heavily on Google’s standard Material Design 3 blocks and long instruction text. Realizing this killed the fun and flow of the game, I worked on stripping down the layout, which ultimately let us replace about 70% of the text with quick, contextual tutorial animations.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div class="mt-32 md:mt-40">
