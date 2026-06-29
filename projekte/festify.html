@@ -6,6 +6,25 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link href="../src/output.css" rel="stylesheet">
   <title>Festify – Der gemeinsame Erinnerungsraum für Events</title>
+  <meta name="description" content="Festify – Der gemeinsame Erinnerungsraum für Events. Eine intergenerative Web-App, die das fragmentierte Event-Gedächtnis nahtlos bündelt. UX/UI Case Study von Tom Ziegler.">
+  <link rel="canonical" href="https://tom-ziegler.com/projekte/festify.html">
+  <link rel="alternate" hreflang="de" href="https://tom-ziegler.com/projekte/festify.html">
+  <link rel="alternate" hreflang="en" href="https://tom-ziegler.com/en/projects/festify.html">
+  
+  <!-- OpenGraph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Festify – Der gemeinsame Erinnerungsraum für Events">
+  <meta property="og:description" content="UX/UI Case Study: Eine intergenerative Web-App, die das fragmentierte Event-Gedächtnis nahtlos bündelt.">
+  <meta property="og:url" content="https://tom-ziegler.com/projekte/festify.html">
+  <meta property="og:image" content="https://tom-ziegler.com/assets/images/festify-thumbnail.webp">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Tom Ziegler">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Festify – Der gemeinsame Erinnerungsraum für Events">
+  <meta name="twitter:description" content="UX/UI Case Study: Eine intergenerative Web-App, die das fragmentierte Event-Gedächtnis nahtlos bündelt.">
+  <meta name="twitter:image" content="https://tom-ziegler.com/assets/images/festify-thumbnail.webp">
   <style>
     ::selection {
       background: #dc2626;
@@ -110,14 +129,35 @@
       }
     }
   </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Festify",
+    "description": "Der gemeinsame Erinnerungsraum für Events. Eine intergenerative Web-App, die das fragmentierte Event-Gedächtnis nahtlos bündelt.",
+    "url": "https://tom-ziegler.com/projekte/festify.html",
+    "author": {
+      "@type": "Person",
+      "name": "Tom Ziegler",
+      "url": "https://tom-ziegler.com/"
+    },
+    "dateCreated": "2026",
+    "image": "https://tom-ziegler.com/assets/images/festify-thumbnail.webp",
+    "keywords": ["UX Design", "UI Design", "React", "Supabase", "TensorFlow.js", "PWA"],
+    "inLanguage": "de"
+  }
+  </script>
 </head>
 <body class="bg-white text-neutral-900 font-sans min-h-screen antialiased">
+  <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
   <div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/50 backdrop-blur-sm transition-opacity duration-700">
     <div class="w-32 sm:w-48 h-px bg-neutral-200 overflow-hidden mb-8">
       <div id="loader-bar" class="h-px bg-neutral-900 w-0 transition-all duration-1000"></div>
     </div>
-    <span class="text-neutral-400 text-sm font-light tracking-wider uppercase">Lädt</span>
+    <span class="text-neutral-500 text-sm font-light tracking-wider uppercase">Lädt</span>
   </div>
 
   <header class="nav-header">
@@ -158,13 +198,13 @@
     </div>
   </header>
 
-  <button id="scrollToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-neutral-900 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-neutral-700 hover:scale-110 z-50 flex items-center justify-center">
+  <button id="scrollToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-neutral-900 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-neutral-700 hover:scale-110 z-50 flex items-center justify-center" aria-label="Nach oben scrollen">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
 
-  <main class="w-full overflow-x-clip">
+  <main id="main-content" class="w-full overflow-x-clip">
 
     <!-- Header & Metadata -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 pt-24 md:pt-40 pb-16">
@@ -185,25 +225,25 @@
       <!-- Bottom Row: Metadata Grid -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-neutral-200/60 text-sm">
         <div>
-          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-2">Kontext</span>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-2">Kontext</span>
           <p class="text-neutral-800 font-light leading-relaxed">
             Hochschule Osnabrück<br>Projektsemester (Note 1,0)
           </p>
         </div>
         <div>
-          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-2">Rolle</span>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-2">Rolle</span>
           <p class="text-neutral-800 font-light leading-relaxed">
             UX/UI Design & Research<br>Teamarbeit
           </p>
         </div>
         <div>
-          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-2">Tech-Stack</span>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-2">Tech-Stack</span>
           <p class="text-neutral-800 font-light leading-relaxed">
             React, Vite, Tailwind CSS,<br>Supabase, TensorFlow.js
           </p>
         </div>
         <div>
-          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-2">Jahr</span>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-2">Jahr</span>
           <p class="text-neutral-800 font-light leading-relaxed">
             2026
           </p>
@@ -217,7 +257,7 @@
         <div class="overflow-hidden bg-neutral-50">
           <img src="../assets/images/festify-thumbnail.webp" alt="Festify App Mockup" class="w-full h-auto object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-1000 ease-out">
         </div>
-        <figcaption class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest mt-4">
+        <figcaption class="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mt-4">
           Fig. 01 / Festify Interface & User Experience Mockup
         </figcaption>
       </figure>
@@ -228,7 +268,7 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-16 border-t border-neutral-100">
         <!-- Left Column: Title and Lead-in -->
         <div class="md:col-span-5 md:border-r md:border-neutral-100 md:pr-8">
-          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">01 / Die Herausforderung</span>
+          <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block mb-3">01 / Die Herausforderung</span>
           <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight mb-8">Das fragmentierte Event-Gedächtnis</h2>
           <p class="text-neutral-600 text-sm md:text-base leading-relaxed">
             Besondere Ereignisse wie Hochzeiten oder Geburtstage werden heute von fast allen Gästen fotografisch festgehalten. Am Tag danach zeigt sich jedoch ein massiver UX-Bruch: Die Bilder verbleiben isoliert auf den Endgeräten oder verschwinden in unübersichtlichen Messenger-Gruppen.
@@ -239,7 +279,7 @@
         <div class="md:col-span-6 md:col-start-7 space-y-12 text-neutral-700 text-base md:text-lg leading-relaxed">
           <!-- Problem 1 -->
           <div class="border-t border-neutral-100 pt-6">
-            <span class="text-xs font-mono text-neutral-400 block mb-1">01 / Qualitätsverlust</span>
+            <span class="text-xs font-mono text-neutral-500 block mb-1">01 / Qualitätsverlust</span>
             <h3 class="text-lg font-normal text-neutral-900 mb-2">Messenger-Kompression</h3>
             <p class="text-sm text-neutral-600 leading-relaxed">
               Durch die aggressive Kompression gängiger Chat-Dienste gehen wertvolle Bilddetails verloren, was den emotionalen und physischen Wert der Aufnahmen drastisch mindert.
@@ -248,7 +288,7 @@
 
           <!-- Problem 2 -->
           <div class="border-t border-neutral-100 pt-6">
-            <span class="text-xs font-mono text-neutral-400 block mb-1">02 / Plattform-Barrieren</span>
+            <span class="text-xs font-mono text-neutral-500 block mb-1">02 / Plattform-Barrieren</span>
             <h3 class="text-lg font-normal text-neutral-900 mb-2">Homogene Hardware-Ökosysteme</h3>
             <p class="text-sm text-neutral-600 leading-relaxed">
               Übertragungsdienste wie AirDrop setzen einheitliche Betriebssysteme voraus. Sie schließen Gäste mit anderen Geräten systematisch aus und fragmentieren die Hochzeitsgesellschaft.
@@ -257,7 +297,7 @@
 
           <!-- Problem 3 -->
           <div class="border-t border-neutral-100 pt-6">
-            <span class="text-xs font-mono text-neutral-400 block mb-1">03 / Mangelnde Struktur</span>
+            <span class="text-xs font-mono text-neutral-500 block mb-1">03 / Mangelnde Struktur</span>
             <h3 class="text-lg font-normal text-neutral-900 mb-2">Unstrukturierte Cloud-Ordner</h3>
             <p class="text-sm text-neutral-600 leading-relaxed">
               Herkömmliche Cloud-Speicher bieten keinerlei emotionale Aufbereitung, erzwingen Registrierungen und überfordern Nutzer durch unübersichtliche Dateiwüsten.
@@ -268,7 +308,7 @@
 
       <!-- Large full-width raster-breaking Leitfrage quote -->
       <div class="mt-24 md:mt-36 max-w-5xl">
-        <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-6">Die Leitfrage</span>
+        <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block mb-6">Die Leitfrage</span>
         <blockquote class="text-3xl md:text-5xl font-light text-neutral-900 italic tracking-tight leading-snug">
           „Wie kann eine digitale Anwendung den kollektiven Erinnerungsprozess nahtlos und emotional spürbar bündeln, ohne Barrieren für den Nutzer aufzubauen?“
         </blockquote>
@@ -280,7 +320,7 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-16 border-t border-neutral-100">
         <!-- Left Column: Title and Number -->
         <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
-          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">02 / Research</span>
+          <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block mb-3">02 / Research</span>
           <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight">Die Persona-Divergenz</h2>
         </div>
         
@@ -293,7 +333,7 @@
           <!-- Typographic Comparison Table -->
           <div class="border-t border-neutral-200 mt-12 divide-y divide-neutral-100 text-sm md:text-base">
             <!-- Header Row -->
-            <div class="grid grid-cols-1 md:grid-cols-12 py-4 gap-4 text-neutral-400 font-mono text-xs uppercase tracking-wider">
+            <div class="grid grid-cols-1 md:grid-cols-12 py-4 gap-4 text-neutral-500 font-mono text-xs uppercase tracking-wider">
               <div class="md:col-span-3">Fokus</div>
               <div class="md:col-span-4 md:col-start-4">Host / Lukas</div>
               <div class="md:col-span-5 md:col-start-8">Gast / Maria (Gen 60+)</div>
@@ -301,7 +341,7 @@
 
             <!-- Row 1: O-Ton -->
             <div class="grid grid-cols-1 md:grid-cols-12 py-6 gap-4">
-              <div class="md:col-span-3 font-mono text-xs text-neutral-400 uppercase tracking-widest pt-1">O-Ton</div>
+              <div class="md:col-span-3 font-mono text-xs text-neutral-500 uppercase tracking-widest pt-1">O-Ton</div>
               <div class="md:col-span-4 md:col-start-4 text-neutral-900 italic pr-4">
                 „Ich muss am Tag danach jedem Gast hinterherlaufen, um an die guten Fotos zu kommen.“
               </div>
@@ -312,7 +352,7 @@
 
             <!-- Row 2: Bedürfnis -->
             <div class="grid grid-cols-1 md:grid-cols-12 py-6 gap-4">
-              <div class="md:col-span-3 font-mono text-xs text-neutral-400 uppercase tracking-widest pt-1">Bedürfnis</div>
+              <div class="md:col-span-3 font-mono text-xs text-neutral-500 uppercase tracking-widest pt-1">Bedürfnis</div>
               <div class="md:col-span-4 md:col-start-4 text-neutral-600 pr-4">
                 Struktur, einfache Verwaltung und eine lückenlose Dokumentation des Events.
               </div>
@@ -323,7 +363,7 @@
 
             <!-- Row 3: Pain Point -->
             <div class="grid grid-cols-1 md:grid-cols-12 py-6 gap-4">
-              <div class="md:col-span-3 font-mono text-xs text-neutral-400 uppercase tracking-widest pt-1">Pain Point</div>
+              <div class="md:col-span-3 font-mono text-xs text-neutral-500 uppercase tracking-widest pt-1">Pain Point</div>
               <div class="md:col-span-4 md:col-start-4 text-neutral-600 pr-4">
                 Hoher zeitlicher Aufwand bei der manuellen Bildersammlung nach dem Event.
               </div>
@@ -348,7 +388,7 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-28 md:pt-36 border-t border-neutral-100">
         <!-- Left Column: Title and Number -->
         <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
-          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">03 / Konzept-Evolution</span>
+          <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block mb-3">03 / Konzept-Evolution</span>
           <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight">Vom analogen Brief zum „Zero-Friction“-Einstieg</h2>
         </div>
         
@@ -363,8 +403,8 @@
             <!-- Phase 01 -->
             <div class="space-y-4">
               <div class="flex items-center gap-3">
-                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 bg-neutral-100 px-2 py-0.5 rounded">Verworfen</span>
-                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Phase 01</span>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 bg-neutral-100 px-2 py-0.5 rounded">Verworfen</span>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">Phase 01</span>
               </div>
               <h4 class="text-lg font-normal text-neutral-900">Der gedruckte Brief</h4>
               <p class="text-neutral-600 leading-relaxed">
@@ -388,7 +428,7 @@
           <!-- Wireframe Showcase -->
           <figure class="mt-16 bg-neutral-50 p-6 md:p-12 border border-neutral-100 overflow-hidden">
             <img src="../assets/images/festify-wireframe.png" alt="Festify App Wireframe" class="w-full h-auto object-contain mx-auto max-h-[550px] transition-transform duration-700 ease-out hover:scale-[1.02]">
-            <figcaption class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest mt-6 pt-4 border-t border-neutral-100/50 flex justify-between">
+            <figcaption class="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mt-6 pt-4 border-t border-neutral-100/50 flex justify-between">
               <span>Fig. 02 / Wireframe-Flow zur Event-Erstellung</span>
               <span>PWA-Struktur</span>
             </figcaption>
@@ -401,29 +441,29 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-16 border-t border-neutral-100">
         <!-- Left Column: Title & Section -->
         <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
-          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">04 / UX-Architektur</span>
+          <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block mb-3">04 / UX-Architektur</span>
           <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight mb-8">UX-Architektur & „Invisible AI“</h2>
           
           <!-- Technical Stamp -->
           <div class="hidden md:inline-block p-5 border border-dashed border-neutral-300 font-mono text-[11px] leading-relaxed text-neutral-500 w-full max-w-[260px]">
             <div class="flex justify-between border-b border-neutral-100 pb-1.5 mb-2">
-              <span class="text-neutral-400 uppercase">System:</span>
+              <span class="text-neutral-500 uppercase">System:</span>
               <span class="text-neutral-900 font-medium">Festify PWA</span>
             </div>
             <div class="flex justify-between border-b border-neutral-100 pb-1.5 mb-2">
-              <span class="text-neutral-400 uppercase">Core Stack:</span>
+              <span class="text-neutral-500 uppercase">Core Stack:</span>
               <span class="text-neutral-900">React / Supabase</span>
             </div>
             <div class="flex justify-between border-b border-neutral-100 pb-1.5 mb-2">
-              <span class="text-neutral-400 uppercase">AI Engine:</span>
+              <span class="text-neutral-500 uppercase">AI Engine:</span>
               <span class="text-neutral-900">TensorFlow.js</span>
             </div>
             <div class="flex justify-between border-b border-neutral-100 pb-1.5 mb-2">
-              <span class="text-neutral-400 uppercase">Media Engine:</span>
+              <span class="text-neutral-500 uppercase">Media Engine:</span>
               <span class="text-neutral-900">FFmpeg WASM</span>
             </div>
             <div class="flex justify-between">
-              <span class="text-neutral-400 uppercase">Sec Layer:</span>
+              <span class="text-neutral-500 uppercase">Sec Layer:</span>
               <span class="text-neutral-900">Supabase RLS</span>
             </div>
           </div>
@@ -444,7 +484,7 @@
             <!-- Feature 1: Left-aligned -->
             <div class="grid grid-cols-1 md:grid-cols-10 gap-4">
               <div class="md:col-span-8 space-y-4">
-                <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block">Feature 01 / Asynchrone Gesichtserkennung</span>
+                <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block">Feature 01 / Asynchrone Gesichtserkennung</span>
                 <h3 class="text-xl font-normal text-neutral-900">Privatsphäre durch Client-Side ML</h3>
                 <p class="text-sm md:text-base text-neutral-600">
                   Sobald Gäste Fotos hochladen, verarbeitet ein Express.js-Server im Hintergrund die Gesichtserkennung mithilfe vortrainierter TensorFlow.js-Modelle.
@@ -458,7 +498,7 @@
             <!-- Feature 2: Right-aligned & Staggered -->
             <div class="grid grid-cols-1 md:grid-cols-10 gap-4">
               <div class="md:col-start-3 md:col-span-8 space-y-4">
-                <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block">Feature 02 / Highlight-Scoring</span>
+                <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block">Feature 02 / Highlight-Scoring</span>
                 <h3 class="text-xl font-normal text-neutral-900">Automated Highlight-Scoring & Video-Generierung</h3>
                 <p class="text-sm md:text-base text-neutral-600">
                   Aus der gesamten Bildmenge berechnet ein Algorithmus im Hintergrund einen kombinierten Score aus technischer Qualität, Gesichtskonfidenz und ästhetischer Komposition (z. B. Platzierung auf den Linien des Goldenen Schnitts). Die am besten bewerteten Bilder werden via FFmpeg automatisch zu einem flüssigen Highlight-Video mit harmonischen Übergängen gerendert.
@@ -478,7 +518,7 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-16 border-t border-neutral-100">
         <!-- Left Column: Title & Section -->
         <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
-          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">05 / UI & Usability</span>
+          <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block mb-3">05 / UI & Usability</span>
           <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight">UI-Design, Usability & Barrierefreiheit</h2>
         </div>
         
@@ -496,7 +536,7 @@
             
             <!-- Pillar 1: Touch Targets -->
             <div class="space-y-4">
-              <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block">Säule 01 / Motorik</span>
+              <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block">Säule 01 / Motorik</span>
               <h3 class="text-lg font-normal text-neutral-900">Großzügige Touch Targets</h3>
               <p class="text-sm text-neutral-600 leading-relaxed">
                 Alle interaktiven Klickflächen und Buttons wurden stark vergrößert bemessen, um auch bei eingeschränkter Motorik im unruhigen Event-Kontext fehlerfreie Interaktionen zu ermöglichen.
@@ -505,7 +545,7 @@
 
             <!-- Pillar 2: Kontrast & Typo -->
             <div class="space-y-4">
-              <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block">Säule 02 / Sehkraft</span>
+              <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block">Säule 02 / Sehkraft</span>
               <h3 class="text-lg font-normal text-neutral-900">Kontrast & Typografie</h3>
               <p class="text-sm text-neutral-600 leading-relaxed">
                 Der Einsatz einer serifenlosen, hochgradig lesbaren Systemschrift geht Hand in Hand mit der strikten Einhaltung der WCAG-Kontrastwerte, um optimale Lesbarkeit unter hellen Lichtbedingungen zu garantieren.
@@ -514,7 +554,7 @@
 
             <!-- Pillar 3: Maskottchen -->
             <div class="space-y-4">
-              <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block">Säule 03 / Vertrauen</span>
+              <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block">Säule 03 / Vertrauen</span>
               <h3 class="text-lg font-normal text-neutral-900">Psychologische Führung</h3>
               <p class="text-sm text-neutral-600 leading-relaxed">
                 Ein sympathisches Kamera-Maskottchen macht im Hintergrund laufende KI-Prozesse nahbar und verständlich. Usability-Tests zeigten, dass diese visuelle Brücke das Vertrauen in die App massiv stärkt.
@@ -530,7 +570,7 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-16 border-t border-neutral-100">
         <!-- Left Column: Title & Section -->
         <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
-          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">06 / Fazit</span>
+          <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block mb-3">06 / Fazit</span>
           <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight">Fazit & Outcome</h2>
         </div>
         
@@ -544,7 +584,7 @@
 
       <!-- Large typographic focal statement -->
       <div class="mt-24 md:mt-32 max-w-5xl">
-        <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-6">Leitgedanke</span>
+        <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block mb-6">Leitgedanke</span>
         <p class="text-3xl md:text-6xl font-light text-neutral-900 italic tracking-tight leading-tight">
           „Technologie konsequent unsichtbar gestalten.“
         </p>
@@ -554,7 +594,7 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 mt-20 md:mt-32">
         <!-- Key Learning 1: Left-aligned -->
         <div class="col-span-12 md:col-span-5 space-y-4">
-          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block">Learning 01 / Das Werkzeug</span>
+          <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block">Learning 01 / Das Werkzeug</span>
           <h3 class="text-xl font-normal text-neutral-900">KI ist ein UX-Werkzeug, kein Selbstzweck</h3>
           <p class="text-sm md:text-base text-neutral-600 leading-relaxed">
             Die beste KI-Funktion nützt nichts, wenn der Nutzer sie erst konfigurieren oder verstehen muss. Sie muss lautlos und unsichtbar im Hintergrund für den Menschen arbeiten.
@@ -563,7 +603,7 @@
 
         <!-- Key Learning 2: Right-aligned & Offset/Staggered downwards -->
         <div class="col-span-12 md:col-span-5 md:col-start-8 md:mt-32 space-y-4">
-          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block">Learning 02 / Die Iteration</span>
+          <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block">Learning 02 / Die Iteration</span>
           <h3 class="text-xl font-normal text-neutral-900">Datenbasierte Iteration schützt vor Fehlentscheidungen</h3>
           <p class="text-sm md:text-base text-neutral-600 leading-relaxed">
             Der frühe Pivot weg vom analogen Brief hin zum reinen digitalen Zugangscode hat das Projekt vor einer unpraktikablen Hürde gerettet und den Weg für einen echten „Zero-Friction“-Einstieg geebnet.
@@ -585,6 +625,16 @@
     </section>
 
   </main>
+
+  <div id="imageModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm">
+    <button id="closeModal" class="absolute top-4 md:top-8 right-4 md:right-8 w-12 h-12 flex items-center justify-center text-white hover:text-neutral-300 transition-colors duration-300 group z-20" aria-label="Modal schließen">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:rotate-90">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <img id="modalImage" src="" alt="Vergrößertes Bild" class="max-w-[90vw] max-h-[90vh] object-contain" />
+  </div>
 
   <script src="../src/main.js" defer></script>
 </body>

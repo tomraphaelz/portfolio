@@ -7,6 +7,31 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link href="src/output.css" rel="stylesheet">
   <title>Tom Ziegler – UX/UI Designer für Enterprise</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://tom-ziegler.com/">
+
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="de" href="https://tom-ziegler.com/">
+  <link rel="alternate" hreflang="en" href="https://tom-ziegler.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://tom-ziegler.com/">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tom Ziegler – UX/UI Designer für Enterprise">
+  <meta property="og:description" content="UX/UI Designer Portfolio von Tom Ziegler. Durchdachtes Enterprise- & Mobile-Design.">
+  <meta property="og:url" content="https://tom-ziegler.com/">
+  <meta property="og:image" content="https://tom-ziegler.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Tom Ziegler">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tom Ziegler – UX/UI Designer für Enterprise">
+  <meta name="twitter:description" content="UX/UI Designer Portfolio von Tom Ziegler. Durchdachtes Enterprise- & Mobile-Design.">
+  <meta name="twitter:image" content="https://tom-ziegler.com/og-image.png">
   
   <script>
     // --- Language Auto-Routing ---
@@ -138,14 +163,38 @@
       color: #171717;
     }
   </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tom Ziegler",
+    "url": "https://tom-ziegler.com",
+    "jobTitle": "UX-Designer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Vodafone GmbH"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/tom-ziegler"
+    ],
+    "knowsAbout": ["UX Design", "UI Design", "Interaction Design", "Prototyping", "User Research"],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Hochschule Osnabrück"
+    }
+  }
+  </script>
 </head>
 <body class="bg-white text-neutral-900 font-sans min-h-screen">
+  <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
   
   <div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/50 backdrop-blur-sm transition-opacity duration-700">
     <div class="w-32 sm:w-48 h-px bg-neutral-200 overflow-hidden mb-8">
       <div id="loader-bar" class="h-px bg-neutral-900 w-0 transition-all duration-1000"></div>
     </div>
-    <span class="text-neutral-400 text-sm font-light tracking-wider uppercase">Lädt</span>
+    <span class="text-neutral-500 text-sm font-light tracking-wider uppercase">Lädt</span>
   </div>
 
   <header class="nav-header">
@@ -202,15 +251,15 @@
     </div>
   </nav>
 
-  <button id="scrollToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-neutral-900 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-neutral-700 hover:scale-110 z-50 flex items-center justify-center">
+  <button id="scrollToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-neutral-900 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-neutral-700 hover:scale-110 z-50 flex items-center justify-center" aria-label="Nach oben scrollen">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
 
-  <main class="w-full max-w-7xl mx-auto px-6 md:px-8 py-24 overflow-x-clip">
+  <main id="main-content" class="w-full max-w-7xl mx-auto px-6 md:px-8 py-24 overflow-x-clip">
     <section class="mb-32 flex flex-col pt-24 md:pt-32">
-      <span class="text-xs md:text-sm font-light tracking-widest uppercase text-neutral-400 mb-5">Tom Ziegler · UX Designer Portfolio</span>
+      <span class="text-xs md:text-sm font-light tracking-widest uppercase text-neutral-500 mb-5">Tom Ziegler · UX Designer Portfolio</span>
       <h1 class="font-display text-4xl md:text-6xl font-normal mb-14 tracking-tight">UX, die über Interaktionen hinausdenkt.</h1>
     </section>
     
@@ -225,7 +274,7 @@
     </section>
     <section id="projekte" class="mb-32 pt-24 md:pt-32">
       <!-- Table Header / Metadata -->
-      <div class="flex justify-between items-center text-[10px] md:text-xs font-mono uppercase tracking-widest text-neutral-400 mb-3 select-none">
+      <div class="flex justify-between items-center text-[10px] md:text-xs font-mono uppercase tracking-widest text-neutral-500 mb-3 select-none">
         <span>Ausgewählte Projekte</span>
         <span>Index 2026 // 04</span>
       </div>
@@ -237,7 +286,7 @@
           <div class="project-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
             <!-- Title -->
             <div class="flex items-baseline gap-6 md:gap-12 md:col-span-4">
-              <span class="font-mono text-xs md:text-sm text-neutral-400 group-hover:text-red-600 transition-colors duration-300">01</span>
+              <span class="font-mono text-xs md:text-sm text-neutral-500 group-hover:text-red-600 transition-colors duration-300">01</span>
               <h3 class="text-2xl md:text-4xl font-display font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Festify</h3>
             </div>
             
@@ -262,7 +311,7 @@
 
             <!-- Mobile Arrow (only visible on mobile) -->
             <div class="md:hidden flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400 group-hover:text-red-600 transition-colors duration-300 transform group-aria-expanded:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500 group-hover:text-red-600 transition-colors duration-300 transform group-aria-expanded:rotate-90">
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </div>
@@ -297,7 +346,7 @@
           <div class="project-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
             <!-- Title -->
             <div class="flex items-baseline gap-6 md:gap-12 md:col-span-4">
-              <span class="font-mono text-xs md:text-sm text-neutral-400 group-hover:text-red-600 transition-colors duration-300">02</span>
+              <span class="font-mono text-xs md:text-sm text-neutral-500 group-hover:text-red-600 transition-colors duration-300">02</span>
               <h3 class="text-2xl md:text-4xl font-display font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Van Gogh VR Experience</h3>
             </div>
             
@@ -322,7 +371,7 @@
 
             <!-- Mobile Arrow (only visible on mobile) -->
             <div class="md:hidden flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400 group-hover:text-red-600 transition-colors duration-300 transform group-aria-expanded:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500 group-hover:text-red-600 transition-colors duration-300 transform group-aria-expanded:rotate-90">
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </div>
@@ -357,7 +406,7 @@
           <div class="project-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
             <!-- Title -->
             <div class="flex items-baseline gap-6 md:gap-12 md:col-span-4">
-              <span class="font-mono text-xs md:text-sm text-neutral-400 group-hover:text-red-600 transition-colors duration-300">03</span>
+              <span class="font-mono text-xs md:text-sm text-neutral-500 group-hover:text-red-600 transition-colors duration-300">03</span>
               <h3 class="text-2xl md:text-4xl font-display font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Flunk-E</h3>
             </div>
             
@@ -383,7 +432,7 @@
 
             <!-- Mobile Arrow (only visible on mobile) -->
             <div class="md:hidden flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400 group-hover:text-red-600 transition-colors duration-300 transform group-aria-expanded:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500 group-hover:text-red-600 transition-colors duration-300 transform group-aria-expanded:rotate-90">
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </div>
@@ -419,7 +468,7 @@
           <div class="project-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
             <!-- Title -->
             <div class="flex items-baseline gap-6 md:gap-12 md:col-span-4">
-              <span class="font-mono text-xs md:text-sm text-neutral-400 group-hover:text-red-600 transition-colors duration-300">04</span>
+              <span class="font-mono text-xs md:text-sm text-neutral-500 group-hover:text-red-600 transition-colors duration-300">04</span>
               <h3 class="text-2xl md:text-4xl font-display font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Vodafone</h3>
             </div>
             
@@ -437,7 +486,7 @@
 
             <!-- SVG Lock (Desktop) -->
             <div class="hidden md:flex md:col-span-1 justify-end">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400 group-hover:text-red-600 transition-colors duration-300 mt-1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500 group-hover:text-red-600 transition-colors duration-300 mt-1">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
               </svg>
@@ -445,7 +494,7 @@
 
             <!-- Mobile Arrow (only visible on mobile) -->
             <div class="md:hidden flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400 group-hover:text-red-600 transition-colors duration-300 transform group-aria-expanded:rotate-90">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500 group-hover:text-red-600 transition-colors duration-300 transform group-aria-expanded:rotate-90">
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </div>
@@ -462,7 +511,7 @@
                 <span class="project-tag">UX Research</span>
                 <span class="project-tag">Telecom</span>
               </div>
-              <div class="inline-flex items-center text-sm font-medium text-neutral-400 mt-2 gap-1.5">
+              <div class="inline-flex items-center text-sm font-medium text-neutral-500 mt-2 gap-1.5">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
                   <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                   <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
@@ -491,27 +540,27 @@
         <div class="md:col-span-2">
           <!-- Switcher -->
           <div class="flex mb-8">
-            <div class="cv-pill-custom cv-pill-exp">
+            <div class="cv-pill-custom cv-pill-exp" role="tablist">
               <div class="cv-indicator"></div>
-              <button id="tab-exp" aria-selected="true" aria-controls="exp-panel">Erfahrung</button>
-              <button id="tab-cert" aria-selected="false" aria-controls="cert-panel">Zertifikate</button>
+              <button id="tab-exp" role="tab" aria-selected="true" aria-controls="exp-panel">Erfahrung</button>
+              <button id="tab-cert" role="tab" aria-selected="false" aria-controls="cert-panel">Zertifikate</button>
             </div>
           </div>
 
           <!-- Erfahrung Panel -->
-          <div id="exp-panel" class="cv-list-container flex flex-col">
+          <div id="exp-panel" role="tabpanel" aria-labelledby="tab-exp" class="cv-list-container flex flex-col">
             <!-- Vodafone GmbH -->
             <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">Vodafone GmbH</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">03/2026 – heute</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">03/2026 – heute</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Praktikant UX Design</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -531,13 +580,13 @@
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">Zeemo GmbH & Co KG.</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">09/2024 – heute</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">09/2024 – heute</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Werkstudent UX Designer</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -557,13 +606,13 @@
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">Hochschule Osnabrück</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">09/2023 – heute</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">09/2023 – heute</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Media & Interaction Design (B.A.)</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -584,13 +633,13 @@
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">Freiberuflicher Übersetzer</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">04/2023 – 02/2026</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">04/2023 – 02/2026</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Übersetzer von Englisch auf Deutsch</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -607,19 +656,19 @@
           </div>
 
           <!-- Zertifikate Panel -->
-          <div id="cert-panel" class="cv-list-container flex flex-col hidden">
+          <div id="cert-panel" role="tabpanel" aria-labelledby="tab-cert" class="cv-list-container flex flex-col hidden">
             <!-- IBM: GenAI for Executives -->
             <div class="cv-item group py-6 md:py-8 border-b border-neutral-200/60 flex flex-col transition-all duration-300 cursor-pointer" aria-expanded="false">
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">IBM</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Mai 2026</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">Mai 2026</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">GenAI for Executives &amp; Business Leaders: An Introduction</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -639,13 +688,13 @@
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">Coursera</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Oktober 2025</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">Oktober 2025</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Create your e-commerce store with Shopify</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -665,13 +714,13 @@
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">Vanderbilt University</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Juli 2025</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">Juli 2025</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">OpenAI GPTs: Creating Your Own Custom AI Assistants</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -691,13 +740,13 @@
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">Vanderbilt University</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Juni 2025</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">Juni 2025</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Advanced Prompt Engineering for Everyone</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -717,13 +766,13 @@
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">Vanderbilt University</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Juni 2025</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">Juni 2025</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Agentic AI and AI Agents: A Primer for Leaders</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -743,13 +792,13 @@
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">Google</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Mai 2025</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">Mai 2025</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Attract and Engage Customers with Digital Marketing</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -769,13 +818,13 @@
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">Google</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Apr. 2025</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">Apr. 2025</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Foundations of Digital Marketing and E-commerce</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -795,13 +844,13 @@
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">Vanderbilt University</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Apr. 2025</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">Apr. 2025</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Prompt Engineering for ChatGPT</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -821,13 +870,13 @@
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">Google</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">März 2025</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">März 2025</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Foundations of User Experience (UX) Design</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -847,13 +896,13 @@
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">Adobe</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Feb. 2025</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">Feb. 2025</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Design Fundamentals</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -873,13 +922,13 @@
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">Coursera</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Jan. 2025</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">Jan. 2025</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Google AI Essentials</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -899,13 +948,13 @@
               <div class="cv-main-row w-full flex items-start justify-between md:grid md:grid-cols-12 md:gap-8 md:items-start">
                 <div class="flex flex-col md:col-span-4 pr-4">
                   <span class="font-display text-base font-normal text-neutral-900">Coursera</span>
-                  <span class="text-xs md:text-sm text-neutral-400 font-light mt-1">Jan. 2025</span>
+                  <span class="text-xs md:text-sm text-neutral-500 font-light mt-1">Jan. 2025</span>
                 </div>
                 <div class="flex-1 md:col-span-7">
                   <h3 class="text-lg md:text-xl font-light text-neutral-900 group-hover:translate-x-2 transition-transform duration-300">Google Prompting Essentials</h3>
                 </div>
                 <div class="flex items-center justify-end md:col-span-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-neutral-500">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </div>
@@ -944,11 +993,48 @@
       </div>
     </section>
 
+    <section id="contact" class="mb-32 pt-24 md:pt-32 flex flex-col items-center text-center">
+      <!-- Status Pill -->
+      <div class="inline-flex items-center gap-2 border border-neutral-200 rounded-full px-4 py-1.5 text-sm mb-8 project-fadein">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600"></span>
+        </span>
+        <span class="font-light text-neutral-600">Verfügbar ab 03/2027</span>
+      </div>
+
+      <!-- Headline -->
+      <h2 class="font-display text-4xl md:text-6xl font-normal text-neutral-900 mb-12 project-fadein delay-100">Let's connect.</h2>
+
+      <!-- Actions -->
+      <div class="flex flex-col items-center gap-6 project-fadein delay-200">
+        <!-- Copy Email Button -->
+        <button id="copy-email-btn" class="group relative inline-flex items-center justify-center gap-3 bg-neutral-900 text-white rounded-full px-8 py-4 text-lg font-light transition-all hover:scale-105 hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 min-w-[280px]" aria-label="E-Mail Adresse kopieren" data-email="info@tom-ziegler.com">
+          <span id="copy-email-text">info@tom-ziegler.com</span>
+          <svg id="copy-email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 transition-transform group-hover:scale-110">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <svg id="copy-email-success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 hidden text-green-400">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </button>
+
+        <!-- LinkedIn Link -->
+        <div class="group">
+          <a href="https://www.linkedin.com/in/tom-ziegler" target="_blank" rel="noopener noreferrer" class="project-link text-neutral-500 hover:text-neutral-900 font-light text-sm transition-colors">
+            Auf LinkedIn vernetzen
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-4 h-4 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer id="footer" class="w-full max-w-7xl mx-auto border-t border-neutral-200 pt-10 pb-6 px-6 md:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm md:text-base">
     <div class="md:col-span-2 flex flex-col gap-2">
-      <span class="font-light text-neutral-400">Kontakt</span>
+      <span class="font-light text-neutral-500">Kontakt</span>
       <a href="mailto:info@tom-ziegler.com" class="text-neutral-900 hover:underline transition-colors inline-flex items-center group font-light">
         info@tom-ziegler.com
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" class="inline w-5 h-5 ml-1 align-baseline transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" style="stroke:#000000">
@@ -956,25 +1042,26 @@
           <path d="M4.5 6.5l5.5 4 5.5-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
-      <a href="https://www.linkedin.com/in/tom-ziegler" class="text-neutral-900 hover:underline transition-colors inline-flex items-center group font-light">
+      <a href="https://www.linkedin.com/in/tom-ziegler" target="_blank" rel="noopener noreferrer" class="project-link text-neutral-900 font-light">
         LinkedIn
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-4 h-4 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
       </a>
     </div>
     <div class="flex flex-col gap-2">
-      <span class="font-light text-neutral-400">Rechtliches</span>
+      <span class="font-light text-neutral-500">Rechtliches</span>
       <a href="impressum.html" class="project-link text-neutral-900 font-light">
         Impressum
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-4 h-4 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
       </a>
     </div>
     <div class="flex flex-col gap-2">
-      <span class="font-light text-neutral-400">Datenschutz</span>
+      <span class="font-light text-neutral-500">Datenschutz</span>
       <a href="datenschutz.html" class="project-link text-neutral-900 font-light">
         Datenschutz
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="inline w-4 h-4 ml-1 align-baseline transition-transform duration-200"><path d="M5 11L11 5M11 5H6.5M11 5V9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
       </a>
     </div>
-    <div class="md:col-span-4 text-neutral-400 font-light text-xs md:text-sm mt-6 md:mt-2 text-center md:text-right">
+    <div class="md:col-span-4 text-neutral-500 font-light text-xs md:text-sm mt-6 md:mt-2 text-center md:text-right">
       <span id="copyright-text">&copy; 2025 Tom Ziegler. Alle Rechte vorbehalten.</span>
     </div>
   </footer>

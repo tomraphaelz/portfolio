@@ -1,19 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tom-ziegler.com/</loc>
+    <lastmod>2026-06-29</lastmod>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tom-ziegler.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tom-ziegler.com/en/"/>
   </url>
+  <url>
+    <loc>https://tom-ziegler.com/en/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tom-ziegler.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tom-ziegler.com/en/"/>
+  </url>
+  <!-- Festify DE/EN -->
   <url>
     <loc>https://tom-ziegler.com/projekte/festify.html</loc>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tom-ziegler.com/projekte/festify.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tom-ziegler.com/en/projects/festify.html"/>
   </url>
   <url>
-    <loc>https://tom-ziegler.com/projekte/flunky-ball.html</loc>
+    <loc>https://tom-ziegler.com/en/projects/festify.html</loc>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tom-ziegler.com/projekte/festify.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tom-ziegler.com/en/projects/festify.html"/>
   </url>
+  <!-- Van Gogh DE/EN -->
   <url>
     <loc>https://tom-ziegler.com/projekte/van-gogh-vr-experience.html</loc>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tom-ziegler.com/projekte/van-gogh-vr-experience.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tom-ziegler.com/en/projects/van-gogh-vr-experience.html"/>
+  </url>
+  <url>
+    <loc>https://tom-ziegler.com/en/projects/van-gogh-vr-experience.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tom-ziegler.com/projekte/van-gogh-vr-experience.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tom-ziegler.com/en/projects/van-gogh-vr-experience.html"/>
+  </url>
+  <!-- Flunky Ball DE/EN -->
+  <url>
+    <loc>https://tom-ziegler.com/projekte/flunky-ball.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tom-ziegler.com/projekte/flunky-ball.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tom-ziegler.com/en/projects/flunky-ball.html"/>
+  </url>
+  <url>
+    <loc>https://tom-ziegler.com/en/projects/flunky-ball.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tom-ziegler.com/projekte/flunky-ball.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tom-ziegler.com/en/projects/flunky-ball.html"/>
+  </url>
+  <!-- Legal -->
+  <url>
+    <loc>https://tom-ziegler.com/impressum.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://tom-ziegler.com/datenschutz.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <priority>0.2</priority>
   </url>
 </urlset>

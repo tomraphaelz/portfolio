@@ -353,173 +353,109 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // =========================================
-  // 3. PROJEKT-SEITEN LOGIK (Galerie & Modal)
+  // 3. PROJEKT-SEITEN LOGIK (Modal für Einzelbilder)
   // =========================================
 
-  const galleryContainer = document.querySelector('.gallery-container-wrapper');
+  const imageModal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  const closeModalBtn = document.getElementById('closeModal');
 
-  if (galleryContainer) {
-    // --- Galerie Setup ---
-    const galleryImage = document.querySelector('.gallery-main-image');
-    const galleryPrevBtn = document.querySelector('.gallery-prev-btn');
-    const galleryNextBtn = document.querySelector('.gallery-next-btn');
-    const galleryCounter = document.querySelector('.gallery-counter');
+  if (imageModal && modalImage) {
+    let focusedElementBeforeModal = null;
 
-    let pageGalleryImages = [];
-    let currentPageGalleryIndex = 0;
-
-    // Daten sammeln
-    document.querySelectorAll('[data-gallery-index]').forEach(item => {
-      const idx = parseInt(item.getAttribute('data-gallery-index'));
-      const src = item.getAttribute('data-gallery-src');
-      // Fix: Manchmal ist das Data-Attribut im hidden div, manchmal im figure
-      if (src) {
-        pageGalleryImages[idx] = {
-          src: src,
-          alt: item.getAttribute('data-gallery-alt') || ''
-        };
-      }
-    });
-
-    const updatePageGallery = (index) => {
-      if (index >= 0 && index < pageGalleryImages.length && galleryImage) {
-        currentPageGalleryIndex = index;
-
-        // Update das <picture> Element, falls vorhanden
-        const picture = galleryImage.closest('picture');
-        if (picture) {
-          const source = picture.querySelector('source');
-          if (source) {
-            source.srcset = pageGalleryImages[index].src;
-          }
-        }
-
-        // Force image reload by setting src to empty first, then to new source
-        galleryImage.src = '';
-        // Use requestAnimationFrame to ensure the browser processes the empty src
-        requestAnimationFrame(() => {
-          galleryImage.src = pageGalleryImages[index].src;
-          galleryImage.alt = pageGalleryImages[index].alt;
-        });
-
-        if (galleryCounter) galleryCounter.textContent = `${index + 1} / ${pageGalleryImages.length}`;
-      }
-    };
-
-    if (galleryPrevBtn) {
-      galleryPrevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const newIndex = currentPageGalleryIndex > 0 ? currentPageGalleryIndex - 1 : pageGalleryImages.length - 1;
-        updatePageGallery(newIndex);
-      });
-    }
-
-    if (galleryNextBtn) {
-      galleryNextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const newIndex = currentPageGalleryIndex < pageGalleryImages.length - 1 ? currentPageGalleryIndex + 1 : 0;
-        updatePageGallery(newIndex);
-      });
-    }
-
-    // --- Modal Setup ---
-    const imageModal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
-    const closeModalBtn = document.getElementById('closeModal');
-    const modalPrevBtn = document.getElementById('prevImage');
-    const modalNextBtn = document.getElementById('nextImage');
-    const modalCounter = document.getElementById('imageCounter');
-
-    let isModalGalleryMode = false;
-    let currentModalIndex = -1;
-
-    const openModal = (src, alt, galleryMode = false, index = -1) => {
-      if (!imageModal || !modalImage) return;
-
-      isModalGalleryMode = galleryMode;
-      currentModalIndex = index;
-
+    const openModal = (src, alt) => {
+      focusedElementBeforeModal = document.activeElement;
       modalImage.src = src;
       modalImage.alt = alt;
-
-      // Buttons zeigen/verstecken
-      const displayStyle = galleryMode ? 'flex' : 'none';
-      if (modalPrevBtn) modalPrevBtn.style.display = displayStyle;
-      if (modalNextBtn) modalNextBtn.style.display = displayStyle;
-      if (modalCounter) {
-        modalCounter.style.display = galleryMode ? 'block' : 'none';
-        if (galleryMode) modalCounter.textContent = `${index + 1} / ${pageGalleryImages.length}`;
-      }
-
       imageModal.classList.remove('hidden');
       imageModal.classList.add('flex');
       document.body.style.overflow = 'hidden'; // Scroll lock
+      if (closeModalBtn) {
+        closeModalBtn.focus();
+      }
     };
 
     const closeModal = () => {
-      if (!imageModal) return;
       imageModal.classList.add('hidden');
       imageModal.classList.remove('flex');
       document.body.style.overflow = '';
-      isModalGalleryMode = false;
+      if (focusedElementBeforeModal) {
+        focusedElementBeforeModal.focus();
+      }
     };
 
-    // Klick auf normales Bild (nicht Galerie)
+    // Klick auf normales Bild (alle Bilder in figure Elementen)
     document.querySelectorAll('figure img').forEach(img => {
-      if (!img.closest('.gallery-item') && !img.closest('.hidden')) {
-        img.style.cursor = 'pointer';
-        img.addEventListener('click', () => openModal(img.src, img.alt, false));
-      }
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => openModal(img.src, img.alt));
     });
 
-    // Klick auf Galerie Bild
-    if (galleryImage) {
-      galleryImage.addEventListener('click', () => {
-        openModal(
-          pageGalleryImages[currentPageGalleryIndex].src,
-          pageGalleryImages[currentPageGalleryIndex].alt,
-          true,
-          currentPageGalleryIndex
-        );
-      });
-    }
-
-    // Modal Navigation
-    const navigateModal = (direction) => {
-      if (!isModalGalleryMode) return;
-
-      let newIndex = direction === 'next'
-        ? (currentModalIndex < pageGalleryImages.length - 1 ? currentModalIndex + 1 : 0)
-        : (currentModalIndex > 0 ? currentModalIndex - 1 : pageGalleryImages.length - 1);
-
-      currentModalIndex = newIndex;
-      modalImage.src = pageGalleryImages[newIndex].src;
-      modalImage.alt = pageGalleryImages[newIndex].alt;
-      if (modalCounter) modalCounter.textContent = `${newIndex + 1} / ${pageGalleryImages.length}`;
-    };
-
-    if (modalNextBtn) modalNextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateModal('next'); });
-    if (modalPrevBtn) modalPrevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateModal('prev'); });
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-    if (imageModal) imageModal.addEventListener('click', (e) => { if (e.target === imageModal) closeModal(); });
+    imageModal.addEventListener('click', (e) => { if (e.target === imageModal) closeModal(); });
 
-    // Keyboard Events (Galerie & Modal)
-    document.addEventListener('keydown', (e) => {
-      if (imageModal && !imageModal.classList.contains('hidden')) {
-        // Modal offen
-        if (e.key === 'Escape') closeModal();
-        if (e.key === 'ArrowRight') navigateModal('next');
-        if (e.key === 'ArrowLeft') navigateModal('prev');
-      } else {
-        // Modal zu -> Galerie auf Seite steuern
-        if (e.key === 'ArrowRight' && galleryNextBtn) {
-          const newIndex = currentPageGalleryIndex < pageGalleryImages.length - 1 ? currentPageGalleryIndex + 1 : 0;
-          updatePageGallery(newIndex);
+    // Focus Trap & Keyboard Navigation for close
+    imageModal.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+      if (e.key === 'Tab') {
+        // Tab key focus trap
+        const allFocusable = Array.from(imageModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'))
+          .filter(el => el.style.display !== 'none' && !el.disabled);
+
+        if (allFocusable.length === 0) {
+          e.preventDefault();
+          return;
         }
-        if (e.key === 'ArrowLeft' && galleryPrevBtn) {
-          const newIndex = currentPageGalleryIndex > 0 ? currentPageGalleryIndex - 1 : pageGalleryImages.length - 1;
-          updatePageGallery(newIndex);
+
+        const firstEl = allFocusable[0];
+        const lastEl = allFocusable[allFocusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstEl) {
+            lastEl.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastEl) {
+            firstEl.focus();
+            e.preventDefault();
+          }
         }
+      }
+    });
+  }
+
+  // =========================================
+  // 4. CONTACT SECTION (Copy Email)
+  // =========================================
+  const copyEmailBtn = document.getElementById('copy-email-btn');
+  const copyEmailText = document.getElementById('copy-email-text');
+  const copyEmailIcon = document.getElementById('copy-email-icon');
+  const copyEmailSuccess = document.getElementById('copy-email-success');
+
+  if (copyEmailBtn && copyEmailText && copyEmailIcon && copyEmailSuccess) {
+    const originalText = copyEmailText.textContent;
+    const emailToCopy = copyEmailBtn.getAttribute('data-email');
+
+    copyEmailBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(emailToCopy);
+        
+        // Show success state
+        const isEnglish = document.documentElement.lang === 'en';
+        copyEmailText.textContent = isEnglish ? 'Copied!' : 'Kopiert!';
+        copyEmailIcon.classList.add('hidden');
+        copyEmailSuccess.classList.remove('hidden');
+
+        // Revert after 2 seconds
+        setTimeout(() => {
+          copyEmailText.textContent = originalText;
+          copyEmailIcon.classList.remove('hidden');
+          copyEmailSuccess.classList.add('hidden');
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy: ', err);
       }
     });
   }

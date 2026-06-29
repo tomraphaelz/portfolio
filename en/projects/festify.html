@@ -6,6 +6,25 @@
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
   <link href="../../src/output.css" rel="stylesheet">
   <title>Festify – Tom Ziegler</title>
+  <meta name="description" content="Festify – A collaborative memory space for events. An intergenerational web app designed to seamlessly collect and archive fragmented event memories. UX/UI Case Study by Tom Ziegler.">
+  <link rel="canonical" href="https://tom-ziegler.com/en/projects/festify.html">
+  <link rel="alternate" hreflang="de" href="https://tom-ziegler.com/projekte/festify.html">
+  <link rel="alternate" hreflang="en" href="https://tom-ziegler.com/en/projects/festify.html">
+  
+  <!-- OpenGraph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Festify – Collaborative Memory Space for Events">
+  <meta property="og:description" content="UX/UI Case Study: An intergenerational web app designed to seamlessly collect and archive fragmented event memories.">
+  <meta property="og:url" content="https://tom-ziegler.com/en/projects/festify.html">
+  <meta property="og:image" content="https://tom-ziegler.com/assets/images/festify-thumbnail.webp">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Tom Ziegler">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Festify – Collaborative Memory Space for Events">
+  <meta name="twitter:description" content="UX/UI Case Study: An intergenerational web app designed to seamlessly collect and archive fragmented event memories.">
+  <meta name="twitter:image" content="https://tom-ziegler.com/assets/images/festify-thumbnail.webp">
   <style>
     ::selection {
       background: #dc2626;
@@ -111,14 +130,35 @@
       }
     }
   </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Festify",
+    "description": "A collaborative memory space for events. An intergenerational web app designed to seamlessly collect and archive fragmented event memories.",
+    "url": "https://tom-ziegler.com/en/projects/festify.html",
+    "author": {
+      "@type": "Person",
+      "name": "Tom Ziegler",
+      "url": "https://tom-ziegler.com/"
+    },
+    "dateCreated": "2026",
+    "image": "https://tom-ziegler.com/assets/images/festify-thumbnail.webp",
+    "keywords": ["UX Design", "UI Design", "React", "Supabase", "TensorFlow.js", "PWA"],
+    "inLanguage": "en"
+  }
+  </script>
 </head>
 <body class="bg-white text-neutral-900 font-sans min-h-screen antialiased">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/50 backdrop-blur-sm transition-opacity duration-700">
     <div class="w-32 sm:w-48 h-px bg-neutral-200 overflow-hidden mb-8">
       <div id="loader-bar" class="h-px bg-neutral-900 w-0 transition-all duration-1000"></div>
     </div>
-    <span class="text-neutral-400 text-sm font-light tracking-wider uppercase">Loading</span>
+    <span class="text-neutral-500 text-sm font-light tracking-wider uppercase">Loading</span>
   </div>
 
   <header class="nav-header">
@@ -159,13 +199,13 @@
     </div>
   </header>
 
-  <button id="scrollToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-neutral-900 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-neutral-700 hover:scale-110 z-50 flex items-center justify-center">
+  <button id="scrollToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-neutral-900 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-neutral-700 hover:scale-110 z-50 flex items-center justify-center" aria-label="Scroll to top">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
 
-  <main class="w-full overflow-x-clip">
+  <main id="main-content" class="w-full overflow-x-clip">
 
     <!-- Header & Metadata -->
     <section class="max-w-7xl mx-auto px-6 md:px-12 pt-24 md:pt-40 pb-16">
@@ -186,25 +226,25 @@
       <!-- Bottom Row: Metadata Grid -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-neutral-200/60 text-sm">
         <div>
-          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-2">Context</span>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-2">Context</span>
           <p class="text-neutral-800 font-light leading-relaxed">
             Osnabrück University of Applied Sciences<br>Project Semester (Grade 1.0)
           </p>
         </div>
         <div>
-          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-2">Role</span>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-2">Role</span>
           <p class="text-neutral-800 font-light leading-relaxed">
             UX/UI Design & Research<br>Team Project
           </p>
         </div>
         <div>
-          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-2">Tech Stack</span>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-2">Tech Stack</span>
           <p class="text-neutral-800 font-light leading-relaxed">
             React, Vite, Tailwind CSS,<br>Supabase, TensorFlow.js
           </p>
         </div>
         <div>
-          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-2">Year</span>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-2">Year</span>
           <p class="text-neutral-800 font-light leading-relaxed">
             2026
           </p>
@@ -218,7 +258,7 @@
         <div class="overflow-hidden bg-neutral-50">
           <img src="../../assets/images/festify-thumbnail.webp" alt="Festify App Mockup" class="w-full h-auto object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-1000 ease-out">
         </div>
-        <figcaption class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest mt-4">
+        <figcaption class="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mt-4">
           Fig. 01 / Festify Interface & User Experience Mockup
         </figcaption>
       </figure>
@@ -229,7 +269,7 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-16 border-t border-neutral-100">
         <!-- Left Column: Title and Lead-in -->
         <div class="md:col-span-5 md:border-r md:border-neutral-100 md:pr-8">
-          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">01 / The Challenge</span>
+          <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block mb-3">01 / The Challenge</span>
           <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight mb-8">The Fragmented Event Memory</h2>
           <p class="text-neutral-600 text-sm md:text-base leading-relaxed">
             Special events like weddings or birthdays are captured photographically by almost all guests today. The day after, however, a massive UX gap is revealed: the images remain isolated on individual devices or disappear into unstructured messenger group chats.
@@ -240,7 +280,7 @@
         <div class="md:col-span-6 md:col-start-7 space-y-12 text-neutral-700 text-base md:text-lg leading-relaxed">
           <!-- Problem 1 -->
           <div class="border-t border-neutral-100 pt-6">
-            <span class="text-xs font-mono text-neutral-400 block mb-1">01 / Quality Loss</span>
+            <span class="text-xs font-mono text-neutral-500 block mb-1">01 / Quality Loss</span>
             <h3 class="text-lg font-normal text-neutral-900 mb-2">Messenger Compression</h3>
             <p class="text-sm text-neutral-600 leading-relaxed">
               Photos shared via messenger apps undergo heavy compression, resulting in significant quality loss. High-resolution originals remain locked on individual devices.
@@ -249,7 +289,7 @@
 
           <!-- Problem 2 -->
           <div class="border-t border-neutral-100 pt-6">
-            <span class="text-xs font-mono text-neutral-400 block mb-1">02 / Ecosystem Barrier</span>
+            <span class="text-xs font-mono text-neutral-500 block mb-1">02 / Ecosystem Barrier</span>
             <h3 class="text-lg font-normal text-neutral-900 mb-2">Homogeneous Hardware Ecosystems</h3>
             <p class="text-sm text-neutral-600 leading-relaxed">
               Sharing photos between Android and iOS users is still highly fragmented. File transfers frequently fail due to ecosystem compatibility issues.
@@ -258,7 +298,7 @@
 
           <!-- Problem 3 -->
           <div class="border-t border-neutral-100 pt-6">
-            <span class="text-xs font-mono text-neutral-400 block mb-1">03 / Complexity</span>
+            <span class="text-xs font-mono text-neutral-500 block mb-1">03 / Complexity</span>
             <h3 class="text-lg font-normal text-neutral-900 mb-2">Unstructured Cloud Folders</h3>
             <p class="text-sm text-neutral-600 leading-relaxed">
               Shared cloud folders (e.g., Dropbox or Google Drive) demand too many manual steps. The administrative burden prevents older or less tech-savvy guests from contributing.
@@ -280,7 +320,7 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-16 border-t border-neutral-100">
         <!-- Left Column: Title -->
         <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
-          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">02 / Research & Insights</span>
+          <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block mb-3">02 / Research & Insights</span>
           <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight">The Persona Divergence</h2>
         </div>
         
@@ -294,28 +334,28 @@
           <div class="mt-16 border-t border-neutral-200 divide-y divide-neutral-100 text-sm md:text-base">
             <!-- Row 1: Columns Header -->
             <div class="grid grid-cols-12 py-4 gap-4 font-medium text-neutral-900">
-              <div class="col-span-3 font-mono text-xs uppercase tracking-wider text-neutral-400">Focus</div>
+              <div class="col-span-3 font-mono text-xs uppercase tracking-wider text-neutral-500">Focus</div>
               <div class="col-span-4 md:col-span-4">Host / Lukas (28)</div>
               <div class="col-span-5 md:col-span-5">Guest / Maria (62)</div>
             </div>
             
             <!-- Row 2: Motivation -->
             <div class="grid grid-cols-12 py-6 gap-4">
-              <div class="col-span-3 font-mono text-xs uppercase tracking-wider text-neutral-400">Motivation</div>
+              <div class="col-span-3 font-mono text-xs uppercase tracking-wider text-neutral-500">Motivation</div>
               <div class="col-span-4 md:col-span-4 text-neutral-600 leading-relaxed">Complete documentation of the event and an easy way to collect all perspectives.</div>
               <div class="col-span-5 md:col-span-5 text-neutral-600 leading-relaxed">Participating in the shared joy without technical barriers or complicated setup.</div>
             </div>
 
             <!-- Row 3: Pain Points -->
             <div class="grid grid-cols-12 py-6 gap-4">
-              <div class="col-span-3 font-mono text-xs uppercase tracking-wider text-neutral-400">Pain Points</div>
+              <div class="col-span-3 font-mono text-xs uppercase tracking-wider text-neutral-500">Pain Points</div>
               <div class="col-span-4 md:col-span-4 text-neutral-600 leading-relaxed">High administrative effort; chaotic collections via messengers or expensive custom apps.</div>
               <div class="col-span-5 md:col-span-5 text-neutral-600 leading-relaxed">Forced app downloads, complex registration flows, and storage limitations.</div>
             </div>
 
             <!-- Row 4: UX Priority -->
             <div class="grid grid-cols-12 py-6 gap-4">
-              <div class="col-span-3 font-mono text-xs uppercase tracking-wider text-neutral-400">UX Priority</div>
+              <div class="col-span-3 font-mono text-xs uppercase tracking-wider text-neutral-500">UX Priority</div>
               <div class="col-span-4 md:col-span-4 text-neutral-900 font-normal leading-relaxed">Centralized control, data ownership, and automated sorting of photo highlights.</div>
               <div class="col-span-5 md:col-span-5 text-neutral-900 font-normal leading-relaxed">Zero registration, zero download, instant camera access via browser.</div>
             </div>
@@ -336,7 +376,7 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-28 md:pt-36 border-t border-neutral-100">
         <!-- Left Column: Title and Number -->
         <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
-          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">03 / Concept Evolution</span>
+          <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block mb-3">03 / Concept Evolution</span>
           <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight">From Analog Invitation to Zero-Friction Scan</h2>
         </div>
         
@@ -351,8 +391,8 @@
             <!-- Phase 01 -->
             <div class="space-y-4">
               <div class="flex items-center gap-3">
-                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 bg-neutral-100 px-2 py-0.5 rounded">Rejected</span>
-                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Phase 01</span>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 bg-neutral-100 px-2 py-0.5 rounded">Rejected</span>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">Phase 01</span>
               </div>
               <h4 class="text-lg font-normal text-neutral-900">The Printed Letter</h4>
               <p class="text-neutral-600 leading-relaxed">
@@ -376,7 +416,7 @@
           <!-- Wireframe Showcase -->
           <figure class="mt-16 bg-neutral-50 p-6 md:p-12 border border-neutral-100 overflow-hidden">
             <img src="../../assets/images/festify-wireframe.png" alt="Festify App Wireframe" class="w-full h-auto object-contain mx-auto max-h-[550px] transition-transform duration-700 ease-out hover:scale-[1.02]">
-            <figcaption class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest mt-6 pt-4 border-t border-neutral-100/50 flex justify-between">
+            <figcaption class="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mt-6 pt-4 border-t border-neutral-100/50 flex justify-between">
               <span>Fig. 02 / Event Creation Wireframe Flow</span>
               <span>PWA Structure</span>
             </figcaption>
@@ -390,29 +430,29 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-16 border-t border-neutral-100">
         <!-- Left Column: Title & Section -->
         <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
-          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">04 / UX Architecture</span>
+          <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block mb-3">04 / UX Architecture</span>
           <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight mb-8">UX Architecture & “Invisible AI”</h2>
 
           <!-- Technical Stamp -->
           <div class="hidden md:inline-block p-5 border border-dashed border-neutral-300 font-mono text-[11px] leading-relaxed text-neutral-500 w-full max-w-[260px]">
             <div class="flex justify-between border-b border-neutral-100 pb-1.5 mb-2">
-              <span class="text-neutral-400 uppercase">System:</span>
+              <span class="text-neutral-500 uppercase">System:</span>
               <span class="text-neutral-900 font-medium">Festify PWA</span>
             </div>
             <div class="flex justify-between border-b border-neutral-100 pb-1.5 mb-2">
-              <span class="text-neutral-400 uppercase">Core Stack:</span>
+              <span class="text-neutral-500 uppercase">Core Stack:</span>
               <span class="text-neutral-900">React / Supabase</span>
             </div>
             <div class="flex justify-between border-b border-neutral-100 pb-1.5 mb-2">
-              <span class="text-neutral-400 uppercase">AI Engine:</span>
+              <span class="text-neutral-500 uppercase">AI Engine:</span>
               <span class="text-neutral-900">TensorFlow.js</span>
             </div>
             <div class="flex justify-between border-b border-neutral-100 pb-1.5 mb-2">
-              <span class="text-neutral-400 uppercase">Media Engine:</span>
+              <span class="text-neutral-500 uppercase">Media Engine:</span>
               <span class="text-neutral-900">FFmpeg WASM</span>
             </div>
             <div class="flex justify-between">
-              <span class="text-neutral-400 uppercase">Sec Layer:</span>
+              <span class="text-neutral-500 uppercase">Sec Layer:</span>
               <span class="text-neutral-900">Supabase RLS</span>
             </div>
           </div>
@@ -429,7 +469,7 @@
             
             <!-- Feature 01: Left aligned -->
             <div class="md:col-span-8 space-y-4">
-              <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block">Feature 01 / Client-Side Processing</span>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">Feature 01 / Client-Side Processing</span>
               <h3 class="text-xl font-normal text-neutral-900">Asynchronous Face Recognition</h3>
               <p class="text-sm text-neutral-600 leading-relaxed">
                 Using client-side TensorFlow.js, faces are recognized and clustered directly on the guest's device during upload. Maria doesn't have to tag anyone manually. The host can automatically filter the gallery by specific guests while fully respecting privacy boundaries.
@@ -438,7 +478,7 @@
 
             <!-- Feature 02: Right aligned & offset -->
             <div class="md:col-start-3 md:col-span-8 space-y-4 md:mt-12">
-              <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block">Feature 02 / Quality Filter</span>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">Feature 02 / Quality Filter</span>
               <h3 class="text-xl font-normal text-neutral-900">Highlight Scoring</h3>
               <p class="text-sm text-neutral-600 leading-relaxed">
                 An automated algorithm filters out duplicates, blurry shots, and screenshot debris. The best memories are automatically prioritized. The backend automatically renders a cinematic recap video of the night using FFmpeg.
@@ -455,7 +495,7 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-16 border-t border-neutral-100">
         <!-- Left Column: Title & Section -->
         <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
-          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">05 / UI & Usability</span>
+          <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block mb-3">05 / UI & Usability</span>
           <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight">UI Design, Usability & Accessibility</h2>
         </div>
 
@@ -470,7 +510,7 @@
             
             <!-- Pillar 1 -->
             <div class="space-y-4">
-              <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block">Pillar 01 / Motor Skills</span>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">Pillar 01 / Motor Skills</span>
               <h4 class="text-lg font-normal text-neutral-900 leading-tight">Enlarged Tap Targets</h4>
               <p class="text-xs text-neutral-600 leading-relaxed">
                 All interactive elements, input fields, and buttons have been designed with enlarged tap targets and spacious margins to support users with limited motor control.
@@ -479,7 +519,7 @@
 
             <!-- Pillar 2 -->
             <div class="space-y-4">
-              <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block">Pillar 02 / Eyesight</span>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">Pillar 02 / Eyesight</span>
               <h4 class="text-lg font-normal text-neutral-900 leading-tight">Contrast & Typography</h4>
               <p class="text-xs text-neutral-600 leading-relaxed">
                 Strict compliance with WCAG AA accessibility standards. Large, high-contrast type scales and optimized reading line-heights guarantee legibility under poor event lighting conditions.
@@ -488,7 +528,7 @@
 
             <!-- Pillar 3 -->
             <div class="space-y-4">
-              <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block">Pillar 03 / Trust</span>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">Pillar 03 / Trust</span>
               <h4 class="text-lg font-normal text-neutral-900 leading-tight">Invisible AI Transparency</h4>
               <p class="text-xs text-neutral-600 leading-relaxed">
                 No confusing AI jargon. Maria is guided through the app with micro-copy and clean status indicators, building immediate trust in the background processes.
@@ -505,7 +545,7 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-16 border-t border-neutral-100">
         <!-- Left Column: Title & Section -->
         <div class="md:col-span-4 md:border-r md:border-neutral-100 md:pr-8">
-          <span class="text-xs uppercase tracking-widest text-neutral-400 font-mono block mb-3">06 / Conclusion</span>
+          <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono block mb-3">06 / Conclusion</span>
           <h2 class="font-display text-2xl md:text-3xl font-normal text-neutral-900 tracking-tight leading-tight">Conclusion & Outcome</h2>
         </div>
 
@@ -527,7 +567,7 @@
             <!-- Learning 01 -->
             <div class="space-y-4">
               <div class="flex items-center gap-3">
-                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block">Learning 01 / Access over App</span>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">Learning 01 / Access over App</span>
               </div>
               <h4 class="text-lg font-normal text-neutral-900 leading-tight">PWAs beat App Stores</h4>
               <p class="text-sm text-neutral-600 leading-relaxed">
@@ -538,7 +578,7 @@
             <!-- Learning 02: Staggered down on Desktop -->
             <div class="space-y-4 md:mt-32">
               <div class="flex items-center gap-3">
-                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block">Learning 02 / Privacy by Design</span>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">Learning 02 / Privacy by Design</span>
               </div>
               <h4 class="text-lg font-normal text-neutral-900 leading-tight">Client-side over Server-side</h4>
               <p class="text-sm text-neutral-600 leading-relaxed">
@@ -564,6 +604,16 @@
     </section>
 
   </main>
+
+  <div id="imageModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm">
+    <button id="closeModal" class="absolute top-4 md:top-8 right-4 md:right-8 w-12 h-12 flex items-center justify-center text-white hover:text-neutral-300 transition-colors duration-300 group z-20" aria-label="Close modal">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:rotate-90">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <img id="modalImage" src="" alt="Enlarged image" class="max-w-[90vw] max-h-[90vh] object-contain" />
+  </div>
 
   <script src="../../src/main.js" defer></script>
 </body>

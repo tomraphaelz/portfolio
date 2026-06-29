@@ -6,6 +6,25 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link href="../src/output.css" rel="stylesheet">
   <title>Flunk-E – Tom Ziegler</title>
+  <meta name="description" content="Flunk-E – Ein smartes Spielsystem, das Sensoren, Bluetooth und Challenges kombiniert. UX Case Study von Tom Ziegler (EMAF 2025).">
+  <link rel="canonical" href="https://tom-ziegler.com/projekte/flunky-ball.html">
+  <link rel="alternate" hreflang="de" href="https://tom-ziegler.com/projekte/flunky-ball.html">
+  <link rel="alternate" hreflang="en" href="https://tom-ziegler.com/en/projects/flunky-ball.html">
+  
+  <!-- OpenGraph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Flunk-E – Interaktives Gesellschaftsspiel mit Sensoren">
+  <meta property="og:description" content="Ein smartes Spielsystem für faires Flunkyball. UX Case Study von Tom Ziegler.">
+  <meta property="og:url" content="https://tom-ziegler.com/projekte/flunky-ball.html">
+  <meta property="og:image" content="https://tom-ziegler.com/assets/images/Flunk-E_poster.webp">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Tom Ziegler">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Flunk-E – Interaktives Gesellschaftsspiel">
+  <meta name="twitter:description" content="Smartes Spielsystem für faires Flunkyball. UX Case Study von Tom Ziegler.">
+  <meta name="twitter:image" content="https://tom-ziegler.com/assets/images/Flunk-E_poster.webp">
   <style>
     ::selection {
       background: #dc2626;
@@ -48,66 +67,6 @@
         transform: translate(-2px, 0);
     }
 
-    /* --- Gallery & Modal Layout Fixes --- */
-    .gallery-prev-btn {
-      left: 1rem !important;
-    }
-    .gallery-next-btn {
-      right: 1rem !important;
-    }
-    @media (min-width: 768px) {
-      .gallery-prev-btn {
-        left: 2rem !important;
-      }
-      .gallery-next-btn {
-        right: 2rem !important;
-      }
-    }
-
-    /* Modal navigation buttons positioning fix */
-    #prevImage {
-      left: 1rem !important;
-      top: 50% !important;
-      transform: translateY(-50%) !important;
-    }
-    #nextImage {
-      right: 1rem !important;
-      top: 50% !important;
-      transform: translateY(-50%) !important;
-    }
-    @media (min-width: 768px) {
-      #prevImage {
-        left: 2rem !important;
-      }
-      #nextImage {
-        right: 2rem !important;
-      }
-    }
-
-    /* Modal close button */
-    #closeModal {
-      top: 1rem !important;
-      right: 1rem !important;
-      transform: none !important;
-    }
-    @media (min-width: 768px) {
-      #closeModal {
-        top: 2rem !important;
-        right: 2rem !important;
-      }
-    }
-
-    /* Modal image counter */
-    #imageModal > div:last-of-type {
-      bottom: 1rem !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-    }
-    @media (min-width: 768px) {
-      #imageModal > div:last-of-type {
-        bottom: 2rem !important;
-      }
-    }
     /* --- Lang Pill --- */
     .lang-pill {
       display: inline-flex;
@@ -183,14 +142,35 @@
       opacity: 1;
     }
   </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Flunk-E",
+    "description": "Ein smartes Spielsystem, das Sensoren, Bluetooth und Challenges kombiniert für faires Flunkyball.",
+    "url": "https://tom-ziegler.com/projekte/flunky-ball.html",
+    "author": {
+      "@type": "Person",
+      "name": "Tom Ziegler",
+      "url": "https://tom-ziegler.com/"
+    },
+    "dateCreated": "2025",
+    "image": "https://tom-ziegler.com/assets/images/Flunk-E_poster.webp",
+    "keywords": ["UX Design", "UI Design", "Hardware", "Arduino", "Bluetooth BLE", "Figma", "Micro-interactions"],
+    "inLanguage": "de"
+  }
+  </script>
 </head>
 <body class="bg-white text-neutral-900 font-sans min-h-screen antialiased">
+  <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
   
   <div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/50 backdrop-blur-sm transition-opacity duration-700">
     <div class="w-32 sm:w-48 h-px bg-neutral-200 overflow-hidden mb-8">
       <div id="loader-bar" class="h-px bg-neutral-900 w-0 transition-all duration-1000"></div>
     </div>
-    <span class="text-neutral-400 text-sm font-light tracking-wider uppercase">Lädt</span>
+    <span class="text-neutral-500 text-sm font-light tracking-wider uppercase">Lädt</span>
   </div>
 
   <header class="nav-header">
@@ -231,13 +211,13 @@
     </div>
   </header>
 
-  <button id="scrollToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-neutral-900 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-neutral-700 hover:scale-110 z-50 flex items-center justify-center">
+  <button id="scrollToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-neutral-900 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-neutral-700 hover:scale-110 z-50 flex items-center justify-center" aria-label="Nach oben scrollen">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
 
-  <main class="w-full overflow-x-clip">
+  <main id="main-content" class="w-full overflow-x-clip">
 
     <section class="max-w-7xl mx-auto px-6 md:px-12 pt-20 md:pt-32 pb-32 md:pb-48">
       <div class="flex flex-col md:flex-row md:items-start justify-between gap-12 md:gap-16 mb-20 md:mb-32">
@@ -527,7 +507,7 @@
           <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
             <!-- Item 1 -->
             <div>
-              <span class="block font-mono text-xs uppercase tracking-wider text-neutral-400 mb-3">01 // Spielstart</span>
+              <span class="block font-mono text-xs uppercase tracking-wider text-neutral-500 mb-3">01 // Spielstart</span>
               <h4 class="text-lg md:text-xl font-normal text-neutral-900 mb-4">Design für Hardware-Realität</h4>
               <p class="text-neutral-600 text-sm md:text-base font-light leading-relaxed">
                 Da wir im Freien mit Arduino-Sensoren gearbeitet haben, war mir klar, dass Bluetooth-Latenzen oder Verbindungsabbrüche auftreten können. Ich habe einen manuellen Fallback-Button („Wurf nicht registriert“) hinzugefügt, damit der digitale Spielfluss nie blockiert, wenn die physische Hardware einen Treffer übersieht.
@@ -535,7 +515,7 @@
             </div>
             <!-- Item 2 -->
             <div>
-              <span class="block font-mono text-xs uppercase tracking-wider text-neutral-400 mb-3">02 // Nach dem Treffer</span>
+              <span class="block font-mono text-xs uppercase tracking-wider text-neutral-500 mb-3">02 // Nach dem Treffer</span>
               <h4 class="text-lg md:text-xl font-normal text-neutral-900 mb-4">Klarheit im Party-Kontext</h4>
               <p class="text-neutral-600 text-sm md:text-base font-light leading-relaxed">
                 In unseren wöchentlichen Feedback-Runden wurde uns klar, dass Spieler während eines sozialen Spiels nicht auf ein Handy starren sollten. Ich habe diesen Zustand als kontrastreiche dunkle Karte neu gestaltet, die die Challenge auf einen Blick zeigt – mit einer einfachen „Slide Down“-Geste, um die Spieler schnell zurück ins analoge Spiel zu bringen.
@@ -543,7 +523,7 @@
             </div>
             <!-- Item 3 -->
             <div>
-              <span class="block font-mono text-xs uppercase tracking-wider text-neutral-400 mb-3">03 // Treffer (Low-Fidelity)</span>
+              <span class="block font-mono text-xs uppercase tracking-wider text-neutral-500 mb-3">03 // Treffer (Low-Fidelity)</span>
               <h4 class="text-lg md:text-xl font-normal text-neutral-900 mb-4">Fokus statt Textwüsten</h4>
               <p class="text-neutral-600 text-sm md:text-base font-light leading-relaxed">
                 Unser früher Low-Fidelity-Wireframe basierte stark auf Googles Standard-Material-Design-3-Blöcken und langen Anleitungen. Da dies den Spaß und den Spielfluss störte, habe ich das Layout radikal reduziert, wodurch wir ca. 70 % des Texts durch schnelle, kontextbezogene Tutorial-Animationen ersetzen konnten.
@@ -637,55 +617,8 @@
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 md:mb-56">
-      <div class="mb-16 md:mb-20">
-        <h2 class="font-display text-4xl md:text-6xl lg:text-7xl font-normal text-neutral-900 tracking-tight leading-none">Galerie</h2>
-      </div>
 
-      <div class="gallery-container-wrapper relative">
-        <figure class="group gallery-item" data-gallery-index="0">
-          <div class="relative overflow-hidden bg-neutral-50 aspect-[16/9]">
-            <picture>
-              <source srcset="../assets/images/Flunk-E_poster.webp" type="image/webp">
-              <img src="../assets/images/Flunk-E_poster.jpg" alt="Flunk-E Poster" class="gallery-main-image block w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02]" loading="lazy" />
-            </picture>
 
-            <button class="gallery-prev-btn absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/90 backdrop-blur-sm text-neutral-900 rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all duration-300 z-10">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg>
-            </button>
-
-            <button class="gallery-next-btn absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-white/90 backdrop-blur-sm text-neutral-900 rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all duration-300 z-10">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
-
-            <div class="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg z-10">
-              <span class="gallery-counter text-sm md:text-base text-neutral-900 font-light tracking-wider">1 / 16</span>
-            </div>
-          </div>
-        </figure>
-
-        <div class="hidden">
-          <div data-gallery-index="0" data-gallery-src="../assets/images/Flunk-E_poster.webp" data-gallery-alt="Flunk-E Poster"></div>
-          <div data-gallery-index="1" data-gallery-src="../assets/images/Flunk-E_FlascheAuf_BallAuf.webp" data-gallery-alt="Flasche und Ball Hardware"></div>
-          <div data-gallery-index="2" data-gallery-src="../assets/images/Flunk-E_BallAuf.webp" data-gallery-alt="Ball Detail"></div>
-          <div data-gallery-index="3" data-gallery-src="../assets/images/Flunk-E_Flasche_Ball.webp" data-gallery-alt="Flasche und Ball"></div>
-          <div data-gallery-index="4" data-gallery-src="../assets/images/Flunk-E_FlascheLiegt.webp" data-gallery-alt="Flasche Detail"></div>
-          <div data-gallery-index="5" data-gallery-src="../assets/images/Flunk-E_Flasche.webp" data-gallery-alt="Die Flasche"></div>
-          <div data-gallery-index="6" data-gallery-src="../assets/images/Flunk-E_FlascheAuf.webp" data-gallery-alt="Deckel offen"></div>
-          <div data-gallery-index="7" data-gallery-src="../assets/images/Flunk-E_Hardware_FlascheAuf_BallAuf.webp" data-gallery-alt="Hardware Stack"></div>
-          <div data-gallery-index="8" data-gallery-src="../assets/images/Flunk-E-UIs.webp" data-gallery-alt="App Interface"></div>
-          <div data-gallery-index="9" data-gallery-src="../assets/images/Flunk-E-Ablaufdiagramm.webp" data-gallery-alt="Ablaufdiagramm"></div>
-          <div data-gallery-index="10" data-gallery-src="../assets/images/Flunk-E-challenges.webp" data-gallery-alt="Challenges"></div>
-          <div data-gallery-index="11" data-gallery-src="../assets/images/MiroBoard-Flunk_E.webp" data-gallery-alt="Miro Board"></div>
-          <div data-gallery-index="12" data-gallery-src="../assets/images/flunkethumbnail.webp" data-gallery-alt="Flunke Thumbnail"></div>
-          <div data-gallery-index="13" data-gallery-src="../assets/images/flunkethumbnailbig.webp" data-gallery-alt="Flunke Thumbnail Big"></div>
-        </div>
-      </div>
-    </section>
 
     <section class="max-w-7xl mx-auto px-6 md:px-12 pb-20 md:pb-32">
       <div class="pt-12 border-t border-neutral-200">
@@ -707,24 +640,7 @@
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </button>
-
-    <button id="prevImage" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-neutral-300 transition-all duration-300 group z-20 hover:scale-110" aria-label="Vorheriges Bild">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:-translate-x-1">
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
-    </button>
-
-    <button id="nextImage" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-neutral-300 transition-all duration-300 group z-20 hover:scale-110" aria-label="Nächstes Bild">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 transition-transform duration-300 group-hover:translate-x-1">
-        <polyline points="9 18 15 12 9 6"></polyline>
-      </svg>
-    </button>
-
     <img id="modalImage" src="" alt="Vergrößertes Bild" class="max-w-[90vw] max-h-[90vh] object-contain" />
-
-    <div class="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-white text-sm font-light tracking-wider z-20">
-      <span id="imageCounter"></span>
-    </div>
   </div>
 
   <script src="../src/main.js" defer></script>
