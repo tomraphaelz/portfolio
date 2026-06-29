@@ -27,6 +27,7 @@
 @theme {
   --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-display: 'Clash Display', sans-serif;
+  --color-neutral-500: oklch(51% 0 0);
 }
 
 .font-display {
@@ -196,7 +197,7 @@
   color: #ffffff;
 }
 .lang-pill-de .lang-link-en {
-  color: #737373;
+  color: #666666;
 }
 
 /* DE page: hover/focus on EN shifts indicator right and swaps colors */
@@ -206,7 +207,7 @@
 }
 .lang-pill-de:has(.lang-link-en:not([aria-disabled="true"]):hover) .lang-link-de,
 .lang-pill-de:has(.lang-link-en:not([aria-disabled="true"]):focus-visible) .lang-link-de {
-  color: #737373;
+  color: #666666;
 }
 .lang-pill-de:has(.lang-link-en:not([aria-disabled="true"]):hover) .lang-link-en,
 .lang-pill-de:has(.lang-link-en:not([aria-disabled="true"]):focus-visible) .lang-link-en {
@@ -218,7 +219,7 @@
   transform: translateX(100%);
 }
 .lang-pill-en .lang-link-de {
-  color: #737373;
+  color: #666666;
 }
 .lang-pill-en .lang-link-en {
   color: #ffffff;
@@ -231,7 +232,7 @@
 }
 .lang-pill-en:has(.lang-link-de:not([aria-disabled="true"]):hover) .lang-link-en,
 .lang-pill-en:has(.lang-link-de:not([aria-disabled="true"]):focus-visible) .lang-link-en {
-  color: #737373;
+  color: #666666;
 }
 .lang-pill-en:has(.lang-link-de:not([aria-disabled="true"]):hover) .lang-link-de,
 .lang-pill-en:has(.lang-link-de:not([aria-disabled="true"]):focus-visible) .lang-link-de {
@@ -309,14 +310,14 @@
   color: #ffffff;
 }
 .cv-pill-exp #tab-cert {
-  color: #737373;
+  color: #666666;
 }
 
 .cv-pill-cert .cv-indicator {
   transform: translateX(100%);
 }
 .cv-pill-cert #tab-exp {
-  color: #737373;
+  color: #666666;
 }
 .cv-pill-cert #tab-cert {
   color: #ffffff;
@@ -327,7 +328,7 @@
   transform: translateX(100%);
 }
 .cv-pill-exp:has(#tab-cert:hover) #tab-exp {
-  color: #737373;
+  color: #666666;
 }
 .cv-pill-exp:has(#tab-cert:hover) #tab-cert {
   color: #ffffff;
@@ -337,7 +338,7 @@
   transform: translateX(0);
 }
 .cv-pill-cert:has(#tab-exp:hover) #tab-cert {
-  color: #737373;
+  color: #666666;
 }
 .cv-pill-cert:has(#tab-exp:hover) #tab-exp {
   color: #ffffff;

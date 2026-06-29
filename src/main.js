@@ -179,6 +179,13 @@ document.addEventListener('DOMContentLoaded', () => {
           item.setAttribute('aria-expanded', 'true');
         }
       });
+
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          item.click();
+        }
+      });
     });
 
     // Resize handler to adjust max-height of active accordions dynamically
