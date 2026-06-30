@@ -153,10 +153,10 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  background-color: #f5f5f5;
+  background-color: #f7f7f7;
   border-radius: 999px;
   padding: 4px;
-  border: 1px solid rgba(229, 229, 229, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   font-family: var(--font-mono, monospace);
   font-size: 0.65rem;
   letter-spacing: 0.08em;
@@ -182,8 +182,9 @@
   bottom: 4px;
   left: 4px;
   width: calc(50% - 4px);
-  background-color: #171717;
+  background-color: #ffffff;
   border-radius: 999px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.03);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 0;
   pointer-events: none;
@@ -194,10 +195,10 @@
   transform: translateX(0);
 }
 .lang-pill-de .lang-link-de {
-  color: #ffffff;
+  color: #222222;
 }
 .lang-pill-de .lang-link-en {
-  color: #666666;
+  color: #717171;
 }
 
 /* DE page: hover/focus on EN shifts indicator right and swaps colors */
@@ -207,11 +208,11 @@
 }
 .lang-pill-de:has(.lang-link-en:not([aria-disabled="true"]):hover) .lang-link-de,
 .lang-pill-de:has(.lang-link-en:not([aria-disabled="true"]):focus-visible) .lang-link-de {
-  color: #666666;
+  color: #717171;
 }
 .lang-pill-de:has(.lang-link-en:not([aria-disabled="true"]):hover) .lang-link-en,
 .lang-pill-de:has(.lang-link-en:not([aria-disabled="true"]):focus-visible) .lang-link-en {
-  color: #ffffff;
+  color: #222222;
 }
 
 /* EN page styling (default right indicator) */
@@ -219,10 +220,10 @@
   transform: translateX(100%);
 }
 .lang-pill-en .lang-link-de {
-  color: #666666;
+  color: #717171;
 }
 .lang-pill-en .lang-link-en {
-  color: #ffffff;
+  color: #222222;
 }
 
 /* EN page: hover/focus on DE shifts indicator left and swaps colors */
@@ -232,11 +233,11 @@
 }
 .lang-pill-en:has(.lang-link-de:not([aria-disabled="true"]):hover) .lang-link-en,
 .lang-pill-en:has(.lang-link-de:not([aria-disabled="true"]):focus-visible) .lang-link-en {
-  color: #666666;
+  color: #717171;
 }
 .lang-pill-en:has(.lang-link-de:not([aria-disabled="true"]):hover) .lang-link-de,
 .lang-pill-en:has(.lang-link-de:not([aria-disabled="true"]):focus-visible) .lang-link-de {
-  color: #ffffff;
+  color: #222222;
 }
 
 /* Disabled state for language switch links */
@@ -263,10 +264,10 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  background-color: #f5f5f5;
+  background-color: #f7f7f7;
   border-radius: 999px;
   padding: 4px;
-  border: 1px solid rgba(229, 229, 229, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   font-size: 0.875rem;
   font-weight: 500;
   width: 280px;
@@ -295,8 +296,9 @@
   bottom: 4px;
   left: 4px;
   width: calc(50% - 4px);
-  background-color: #171717;
+  background-color: #ffffff;
   border-radius: 999px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.03);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 0;
   pointer-events: none;
@@ -307,20 +309,20 @@
   transform: translateX(0);
 }
 .cv-pill-exp #tab-exp {
-  color: #ffffff;
+  color: #222222;
 }
 .cv-pill-exp #tab-cert {
-  color: #666666;
+  color: #717171;
 }
 
 .cv-pill-cert .cv-indicator {
   transform: translateX(100%);
 }
 .cv-pill-cert #tab-exp {
-  color: #666666;
+  color: #717171;
 }
 .cv-pill-cert #tab-cert {
-  color: #ffffff;
+  color: #222222;
 }
 
 /* Switcher Hover indicator sliding previews */
@@ -328,20 +330,20 @@
   transform: translateX(100%);
 }
 .cv-pill-exp:has(#tab-cert:hover) #tab-exp {
-  color: #666666;
+  color: #717171;
 }
 .cv-pill-exp:has(#tab-cert:hover) #tab-cert {
-  color: #ffffff;
+  color: #222222;
 }
 
 .cv-pill-cert:has(#tab-exp:hover) .cv-indicator {
   transform: translateX(0);
 }
 .cv-pill-cert:has(#tab-exp:hover) #tab-cert {
-  color: #666666;
+  color: #717171;
 }
 .cv-pill-cert:has(#tab-exp:hover) #tab-exp {
-  color: #ffffff;
+  color: #222222;
 }
 
 /* Row Dimming Effect */
@@ -484,5 +486,136 @@
   outline: none;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
+
+/* ==========================================================================
+   Super-Btn (Awwward winning: Apple + Stripe + Airbnb + Linear)
+   ========================================================================== */
+.super-btn {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s, box-shadow 0.3s !important;
+}
+.super-btn:hover {
+  transform: scale(1.03);
+  background-color: #262626 !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.15) !important;
+}
+.super-btn:active {
+  transform: scale(0.96) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+.super-btn:hover .glow-overlay {
+  opacity: 1 !important;
+}
+
+/* ==========================================================================
+   Interactive Status-Badge (Apple Intelligence Style, Spring Magnetic)
+   ========================================================================== */
+@keyframes status-blob-morph {
+  0%, 100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+  33% {
+    border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
+  }
+  66% {
+    border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
+  }
+}
+
+@keyframes apple-glow-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.08); /* super thin, elegant neutral border */
+  background-color: rgba(255, 255, 255, 0.75); /* glassmorphism background */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 9999px;
+  padding: 0.4rem 1.15rem;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  will-change: transform;
+  /* Clean, crisp shadows (Airbnb style: soft & wide) */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01), 
+              0 10px 40px rgba(0, 0, 0, 0.03), 
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+  transition: border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#status-badge:hover {
+  border-color: rgba(0, 0, 0, 0.15); /* clean neutral shift */
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02), 
+              0 16px 48px rgba(0, 0, 0, 0.04),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+}
+
+@keyframes slow-pulse {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.4);
+  }
+}
+
+.animate-pulse-slow {
+  animation: slow-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ==========================================================================
+   Airbnb-Style Profile Image Hover (Scale, Lift & Border-Radius Morph)
+   ========================================================================== */
+#about-me-image-container {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4; /* enforce 3:4 crop aspect ratio */
+  border-radius: 2.5rem; /* 40px */
+  overflow: hidden;
+  position: relative;
+  will-change: transform, border-radius;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.01);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+              border-radius 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+              box-shadow 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#about-me-image-container:hover {
+  transform: translateY(-4px); /* clean physical lift */
+  border-radius: 1.5rem; /* morphing rounded corners to 24px */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05), 0 20px 48px rgba(0, 0, 0, 0.04);
+}
+
+#about-me-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  will-change: transform;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#about-me-image-container:hover img {
+  transform: scale(1.04); /* clean, smooth 4% zoom */
+}
+
 
 

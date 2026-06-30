@@ -445,25 +445,63 @@ document.addEventListener('DOMContentLoaded', () => {
     const originalText = copyEmailText.textContent;
     const emailToCopy = copyEmailBtn.getAttribute('data-email');
 
+    // Set transitions
+    copyEmailText.style.transition = 'opacity 0.15s ease';
+    copyEmailIcon.style.transition = 'opacity 0.15s ease';
+    copyEmailSuccess.style.transition = 'opacity 0.15s ease';
+
     copyEmailBtn.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(emailToCopy);
         
-        // Show success state
-        const isEnglish = document.documentElement.lang === 'en';
-        copyEmailText.textContent = isEnglish ? 'Copied!' : 'Kopiert!';
-        copyEmailIcon.classList.add('hidden');
-        copyEmailSuccess.classList.remove('hidden');
+        // Fade out
+        copyEmailText.style.opacity = '0';
+        copyEmailIcon.style.opacity = '0';
+        copyEmailSuccess.style.opacity = '0';
+
+        setTimeout(() => {
+          // Show success state
+          const isEnglish = document.documentElement.lang === 'en';
+          copyEmailText.textContent = isEnglish ? 'Copied!' : 'Kopiert!';
+          copyEmailIcon.classList.add('hidden');
+          copyEmailSuccess.classList.remove('hidden');
+          
+          // Fade in
+          copyEmailText.style.opacity = '1';
+          copyEmailSuccess.style.opacity = '1';
+        }, 150);
 
         // Revert after 2 seconds
         setTimeout(() => {
-          copyEmailText.textContent = originalText;
-          copyEmailIcon.classList.remove('hidden');
-          copyEmailSuccess.classList.add('hidden');
+          // Fade out success state
+          copyEmailText.style.opacity = '0';
+          copyEmailSuccess.style.opacity = '0';
+
+          setTimeout(() => {
+            copyEmailText.textContent = originalText;
+            copyEmailIcon.classList.remove('hidden');
+            copyEmailSuccess.classList.add('hidden');
+            
+            // Fade in original state
+            copyEmailText.style.opacity = '1';
+            copyEmailIcon.style.opacity = '1';
+          }, 150);
         }, 2000);
       } catch (err) {
         console.error('Failed to copy: ', err);
       }
     });
   }
+
+  // --- Awwward-winning Button Hover Glow Spotlight (Airbnb style) ---
+  document.addEventListener('mousemove', (e) => {
+    const target = e.target.closest('.super-btn');
+    if (target) {
+      const rect = target.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      target.style.setProperty('--x', `${x}px`);
+      target.style.setProperty('--y', `${y}px`);
+    }
+  });
 });

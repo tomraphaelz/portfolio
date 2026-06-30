@@ -387,7 +387,7 @@
               <tbody>
                 <tr>
                   <td class="align-top text-neutral-500 font-light text-base md:text-lg w-1/3">Framework</td>
-                  <td class="text-neutral-900 font-light text-base md:text-lg">CAPITAL (Constraints, Accessibility, Professionalism, Interactivity, Transparency, Adaptability, Lexicography)</td>
+                  <td class="text-neutral-900 font-light text-base md:text-lg">CAPITAL (Confidence, Amicability, Professionalism, Interactivity, Transparency, Adaptability, Lexicography)</td>
                 </tr>
                 <tr>
                   <td class="align-top text-neutral-500 font-light text-base md:text-lg">Persona &amp; Sources</td>
@@ -405,22 +405,68 @@
             </table>
           </div>
           <div id="prompt-panel" role="tabpanel" aria-labelledby="tab-prompt" class="hidden">
-            <div class="relative">
-              <div class="text-neutral-700 text-base md:text-lg leading-relaxed space-y-4 blur-md select-none pointer-events-none" aria-hidden="true">
-                <p>The system prompt defines the personality and behaviour of the AI instance. It contains detailed instructions on tone, vocabulary, and interaction style.</p>
-                <p><span class="font-medium text-neutral-900">Personality parameters:</span> The characteristics are defined across various dimensions, including confidence, friendliness, and professionalism. Each dimension is carefully calibrated.</p>
+            <div class="relative h-[520px] md:h-[450px] overflow-hidden rounded-2xl md:rounded-3xl border border-neutral-200/50 p-6 md:p-8 bg-neutral-50/30">
+              <!-- Structured Redacted Content (Skeleton) -->
+              <div class="space-y-6 text-left opacity-40 select-none pointer-events-none w-full pr-4 overflow-hidden" aria-hidden="true">
+                <div>
+                  <h4 class="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">01. Role &amp; Goal</h4>
+                  <div class="space-y-2">
+                    <div class="h-3 bg-neutral-900 rounded w-11/12 animate-pulse"></div>
+                    <div class="h-3 bg-neutral-900 rounded w-10/12 animate-pulse"></div>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">02. C – Confidence (Balanced)</h4>
+                  <div class="space-y-2">
+                    <div class="h-3 bg-neutral-900 rounded w-full animate-pulse"></div>
+                    <div class="h-3 bg-neutral-900 rounded w-11/12 animate-pulse"></div>
+                    <div class="h-3 bg-neutral-900 rounded w-8/12 animate-pulse"></div>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">03. A – Amicability (Friendly)</h4>
+                  <div class="space-y-2">
+                    <div class="h-3 bg-neutral-900 rounded w-full animate-pulse"></div>
+                    <div class="h-3 bg-neutral-900 rounded w-9/12 animate-pulse"></div>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">04. P – Professionalism (Casual)</h4>
+                  <div class="space-y-2">
+                    <div class="h-3 bg-neutral-900 rounded w-11/12 animate-pulse"></div>
+                    <div class="h-3 bg-neutral-900 rounded w-10/12 animate-pulse"></div>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-2">05. I – Interactivity (Engaging)</h4>
+                  <div class="space-y-2">
+                    <div class="h-3 bg-neutral-900 rounded w-full animate-pulse"></div>
+                    <div class="h-3 bg-neutral-900 rounded w-11/12 animate-pulse"></div>
+                    <div class="h-3 bg-neutral-900 rounded w-9/12 animate-pulse"></div>
+                  </div>
+                </div>
               </div>
-              <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-white/60 via-white/80 to-white/60 backdrop-blur-sm">
-                <div class="max-w-md mx-auto px-8 py-20 bg-white/95 backdrop-blur-md rounded-lg shadow-xl border border-neutral-200/60 text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 mx-auto mb-6 text-neutral-500">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                  </svg>
+              
+              <div class="absolute inset-0 flex items-center justify-center bg-white/5 backdrop-blur-[6px] p-4">
+                <div class="max-w-md mx-auto px-8 py-10 md:py-12 bg-white/60 backdrop-blur-2xl rounded-2xl md:rounded-3xl shadow-2xl border-2 border-white text-center group">
+                  <!-- 3D Glass Lock Icon (Option B) -->
+                  <div class="relative w-12 h-12 mx-auto mb-6">
+                    <!-- Shackle (Back Layer) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="absolute inset-0 w-full h-full text-neutral-800 transition-transform duration-500 group-hover:-translate-y-1">
+                      <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+                    </svg>
+                    <!-- Body (Front Glass Layer) -->
+                    <div class="absolute bottom-0 left-[3px] right-[3px] h-[24px] bg-white/50 backdrop-blur-[2px] rounded-md border border-white shadow-sm transition-transform duration-500 group-hover:translate-y-0.5 group-hover:translate-x-0.5 flex items-center justify-center">
+                      <!-- Keyhole -->
+                      <div class="w-[2px] h-[6px] bg-neutral-800 rounded-full"></div>
+                    </div>
+                  </div>
                   <h3 class="text-xl md:text-2xl font-light text-neutral-900 mb-4 tracking-tight">Full prompt available on request</h3>
                   <p class="text-neutral-600 text-sm md:text-base leading-relaxed mb-6">The complete system prompt is not publicly available. If you have a legitimate interest, I'm happy to share it with you.</p>
-                  <a href="mailto:tom.ziegler@outlook.de?subject=Request: Van Gogh VR Prompt&body=Hi Tom,%0D%0A%0D%0AI'm interested in the full system prompt for the Van Gogh VR Experience and would love to take a look.%0D%0A%0D%0ABest regards" class="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 text-white text-sm font-light tracking-wide rounded-md hover:bg-neutral-700 transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    Request via email
+                  <a href="mailto:tom.ziegler@outlook.de?subject=Request: Van Gogh VR Prompt&body=Hi Tom,%0D%0A%0D%0AI'm interested in the full system prompt for the Van Gogh VR Experience and would love to take a look.%0D%0A%0D%0ABest regards" class="super-btn group/btn relative inline-flex items-center justify-center gap-3 bg-neutral-900 text-white rounded-full px-8 py-4 text-base font-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 overflow-hidden">
+                    <span class="glow-overlay absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-300 bg-[radial-gradient(circle_60px_at_var(--x,0px)_var(--y,0px),rgba(255,255,255,0.15),transparent)]"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 relative z-10 transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-0.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span class="relative z-10">Request via email</span>
                   </a>
                 </div>
               </div>
