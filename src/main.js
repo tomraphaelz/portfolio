@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menuBtn.addEventListener('click', () => toggleMenu());
     mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(true)));
     window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) toggleMenu(true);
+      if (window.innerWidth >= 1024) toggleMenu(true);
     });
   }
 
